@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Rynek 1.3.2</title>
+    <title>Rynek 1.4</title>
 </head>
 <body>
 <div id="Budynki">
@@ -649,16 +649,22 @@
                 <td id="ART_t">0</td>
             </tr>
             <tr>
-                <td colspan="2">Żołnierze</td>
+                <td colspan="2">Marynarka</td>
+                <td><input type="number" id="FLO" value="0" min="0"></td>
+                <td>Brak</td>
+            </tr>
+            <tr>
+                <td colspan="2">Konwoje</td>
+                <td><input type="number" id="KON" value="0" min="0"></td></td>
+                <td>Brak</td>
+            </tr>
+            <tr>
+                <td colspan="2">Żołnierze i Marynarze</td>
                 <td colspan="2" id="ARM">0</td>
             </tr>
             <tr>
                 <td colspan="2">% Poboru</td>
                 <td colspan="2" id="APP">0</td>
-            </tr>
-            <tr>
-                <td colspan="2">Max rozmiar floty</td>
-                <td colspan="2" id="MFF">0</td>
             </tr>
             <tr>
                 <td colspan="4"><b>Zaspokojenie potrzeb populacji (%)</b></td>   
@@ -678,6 +684,93 @@
             <tr>
                 <td>Odchylenie od średniej (%)</td>
                 <td id="%L_p_c" colspan="3">0</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>Mnożnik zapotrzebowań</b></td>
+            </tr>
+            <tr>
+                <td colspan="2">Produkty sporzywcze</td>
+                <td colspan="2"><input id="m_Ps" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Ubranie</td>
+                <td colspan="2"><input id="m_U" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Mebel</td>
+                <td colspan="2"><input id="m_Me" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Ryba</td>
+                <td colspan="2"><input id="m_R" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Tkanina</td>
+                <td colspan="2"><input id="m_Tk" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Zboże</td>
+                <td colspan="2"><input id="m_Zb" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Papier</td>
+                <td colspan="2"><input id="m_Pa" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Drewno</td>
+                <td colspan="2"><input id="m_D" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Węgiel</td>
+                <td colspan="2"><input id="m_We" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Szkło</td>
+                <td colspan="2"><input id="m_Sz" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Kawa</td>
+                <td colspan="2"><input id="m_K" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Owoc</td>
+                <td colspan="2"><input id="m_Ow" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Alkohol</td>
+                <td colspan="2"><input id="m_Al" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Ubranie luksusowe</td>
+                <td colspan="2"><input id="m_Ul" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Meblel luksusowy</td>
+                <td colspan="2"><input id="m_Ml" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Mięso</td>
+                <td colspan="2"><input id="m_Mi" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Porcelana</td>
+                <td colspan="2"><input id="m_Po" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Cukier</td>
+                <td colspan="2"><input id="m_C" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Herbata</td>
+                <td colspan="2"><input id="m_H" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Tytoń</td>
+                <td colspan="2"><input id="m_Ty" type="number" value="1.0" min="0" step="0.5"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Wino</td>
+                <td colspan="2"><input id="m_Wi" type="number" value="1.0" min="0" step="0.5"></td>
             </tr>
             <tr>
                 <td colspan="4"><b>Skrypt</b></td>
@@ -1112,6 +1205,6 @@
         </tr>
     </table>
 </div>
-<script src="main 1.3.2.js"></script>
+<script src="main 1.4.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 body{background-color: #242526; color: white;}
-input{background-color: #242526; color: white; width: 90%;}
+input{background-color: #242526; color: white; width: 90%; text-align: center;}
 #Budynki{float: left; width: 39%;}
 #Dane{float: left; width: 23%;}
 #Rynek{float: left; width: 38%;}

@@ -7,6 +7,7 @@ function main()
     //p_r_ - rozliczenie dla populacji
     //p_z_ - zapotrzebowanie dla populacji
     //p_p_ - produkcja dla populacji
+    //m_ - mnożnik
     let TECH = parseInt(document.getElementById("TECH").value),
         T = parseInt(document.getElementById("T").value),       Kw = parseInt(document.getElementById("Kw").value),   Kze = parseInt(document.getElementById("Kze").value),    // Tartak, Kopalnia węgla, Kopalnia żelaza, 
         Ks = parseInt(document.getElementById("Ks").value),     Kzl = parseInt(document.getElementById("Kzl").value), Zsp = parseInt(document.getElementById("Zsp").value),    // Kopalnia siarki, Kopalnia złota, Zakład spożywczy
@@ -22,7 +23,8 @@ function main()
         Ko = parseInt(document.getElementById("Ko").value),                                                                                                                    // Kopalnia ołowiu
         POP = parseInt(document.getElementById("POP").value),   ARM = 0,                                              APP = 0,                                                 // Populacja, Armia (ilość żołnierzy), % żołnierzy od populacji
         INF = parseInt(document.getElementById("INF").value),   CAV = parseInt(document.getElementById("CAV").value), ART = parseInt(document.getElementById("ART").value),    // Piechota, Kawaleria, Artyleria
-        ARC = parseInt(document.getElementById("ARC").value),   MFF = 0,                                              KosBud = 0,                                              // Łucznicy, Max Force limit Floty, Koszt utrzymania budynków
+        ARC = parseInt(document.getElementById("ARC").value),   FLO = parseInt(document.getElementById("FLO").value), KON = parseInt(document.getElementById("KON").value),    // Łucznicy, Marynarka, Konwoje 
+        KosBud = 0,                                                                                                                                                            // Koszt utrzymania budynków
         Gor = 0, Rob = 0, Rol = 0, Pla = 0,                                                                                                                                    // Górnicy, Robotnicy, Rolnicy, Plantatorzy
 
         p_Ps = 0, z_Ps = 0, r_Ps = 0, c_Ps = 0,  p_U = 0, z_U = 0, r_U = 0, c_U = 0,          p_Me = 0, z_Me = 0, r_Me = 0, c_Me = 0,      p_R = 0, z_R = 0, r_R = 0, c_R = 0,          // Produkty spożywcze, Ubranie, Mebel, Ryba
@@ -38,6 +40,14 @@ function main()
         p_r_Ps = 0, p_r_Tk = 0, p_r_K = 0, p_r_Ul = 0, p_r_C = 0, p_r_U = 0, p_r_Zb = 0, p_r_We = 0,
         p_r_Ow = 0, p_r_Ml = 0, p_r_H = 0, p_r_Me = 0, p_r_Pa = 0, p_r_Sz = 0, p_r_Mi = 0, p_r_Ty = 0,
         p_r_R = 0, p_r_D = 0, p_r_Al = 0, p_r_Wi = 0, p_r_Po = 0,
+
+        m_Ps = parseFloat(document.getElementById("m_Ps").value), m_Tk = parseFloat(document.getElementById("m_Tk").value), m_K = parseFloat(document.getElementById("m_K").value), 
+        m_Ul = parseFloat(document.getElementById("m_Ul").value), m_C = parseFloat(document.getElementById("m_C").value),   m_U = parseFloat(document.getElementById("m_U").value), 
+        m_Zb = parseFloat(document.getElementById("m_Zb").value), m_We = parseFloat(document.getElementById("m_We").value), m_Ow = parseFloat(document.getElementById("m_Ow").value), 
+        m_Ml = parseFloat(document.getElementById("m_Ml").value), m_H = parseFloat(document.getElementById("m_H").value),   m_Me = parseFloat(document.getElementById("m_Me").value), 
+        m_Pa = parseFloat(document.getElementById("m_Pa").value), m_Sz = parseFloat(document.getElementById("m_Sz").value), m_Mi = parseFloat(document.getElementById("m_Mi").value),
+        m_Ty = parseFloat(document.getElementById("m_Ty").value), m_R = parseFloat(document.getElementById("m_R").value),   m_D = parseFloat(document.getElementById("m_D").value), 
+        m_Al = parseFloat(document.getElementById("m_Al").value), m_Wi = parseFloat(document.getElementById("m_Wi").value), m_Po = parseFloat(document.getElementById("m_Po").value),
 
     /*ZAPOTRZEBOWANIE POPULACJI*/
     /*Zboże*/                 p_z_Zb = 0, //((POP / 6250).toFixed(0)/1)
@@ -64,38 +74,38 @@ function main()
 
     if(TECH>0) 
     {
-        p_z_Ps = ((POP / 25345).toFixed(0)/1);
-        p_z_U = ((POP / 15835).toFixed(0)/1);
-        p_z_Me = ((POP / 18785).toFixed(0)/1);
-        p_z_R = ((POP / 36055).toFixed(0)/1);
-        p_z_Sz = ((POP / 46294).toFixed(0)/1);
-        p_z_Pa = ((POP / 33400).toFixed(0)/1);
-        p_z_Zb = ((POP / 4715).toFixed(0)/1);
-        p_z_Tk = ((POP / 28240).toFixed(0)/1);
-        p_z_Mi = ((POP / 38250).toFixed(0)/1);
-        p_z_D = ((POP / 35675).toFixed(0)/1);
+        p_z_Ps = ((POP / (25345 / m_Ps)).toFixed(0)/1);
+        p_z_U  = ((POP / (15835 / m_U )).toFixed(0)/1);
+        p_z_Me = ((POP / (18785 / m_Me)).toFixed(0)/1);
+        p_z_R  = ((POP / (36055 / m_R )).toFixed(0)/1);
+        p_z_Sz = ((POP / (46294 / m_Sz)).toFixed(0)/1);
+        p_z_Pa = ((POP / (33400 / m_Pa)).toFixed(0)/1);
+        p_z_Zb = ((POP / (4715  / m_Zb)).toFixed(0)/1);
+        p_z_Tk = ((POP / (28240 / m_Tk)).toFixed(0)/1);
+        p_z_Mi = ((POP / (38250 / m_Mi)).toFixed(0)/1);
+        p_z_D  = ((POP / (35675 / m_D )).toFixed(0)/1);
     }
     if(TECH>2)
-        p_z_We = ((POP / 418395).toFixed(0)/1);
+        p_z_We = ((POP / (418395/ m_We)).toFixed(0)/1);
     if(TECH>5)
     {
-        p_z_Al = ((POP / 18270).toFixed(0)/1);
-        p_z_C = ((POP / 59330).toFixed(0)/1);
-        p_z_Ow = ((POP / 49095).toFixed(0)/1);
-        p_z_Wi = ((POP / 31535).toFixed(0)/1);
+        p_z_Al = ((POP / (18270 / m_Al)).toFixed(0)/1);
+        p_z_C  = ((POP / (59330 / m_C )).toFixed(0)/1);
+        p_z_Ow = ((POP / (49095 / m_Ow)).toFixed(0)/1);
+        p_z_Wi = ((POP / (31535 / m_Wi)).toFixed(0)/1);
     }
     if(TECH>9)
     {
-        p_z_K = ((POP / 84190).toFixed(0)/1);
-        p_z_H = ((POP / 86430).toFixed(0)/1);
-        p_z_Ty = ((POP / 45910).toFixed(0)/1);
+        p_z_K  = ((POP / (84190 / m_K )).toFixed(0)/1);
+        p_z_H  = ((POP / (86430 / m_H )).toFixed(0)/1);
+        p_z_Ty = ((POP / (45910 / m_Ty)).toFixed(0)/1);
     }
     if(TECH>12)
-        p_z_Po = ((POP / 31485).toFixed(0)/1);
+        p_z_Po = ((POP / (31485 / m_Po)).toFixed(0)/1);
     if(TECH>15)
-        p_z_Ul = ((POP / 21290).toFixed(0)/1);
+        p_z_Ul = ((POP / (21290 / m_Ul)).toFixed(0)/1);
     if(TECH>16)
-        p_z_Ml = ((POP / 39655).toFixed(0)/1);
+        p_z_Ml = ((POP / (39655 / m_Ml)).toFixed(0)/1);
 
 function zapotrzebowania()
 {
@@ -1682,6 +1692,13 @@ function zapotrzebowania()
             z_U += 2 * ART;
             z_Ps += 1 * ART;
         }
+    /*Marynarka*/
+        ARM += 200 * FLO;
+        z_Sta += 1 * FLO; 
+    /*Konwoje*/
+        ARM += 25 * KON;
+        z_Sta += 1 * KON;
+
     /*% Poboru*/              APP = ((ARM / POP)*100).toFixed(2);
 
     /*Górnicy*/               document.getElementById("Gor").innerHTML = Gor;
@@ -2176,22 +2193,12 @@ function rozliczenie()
     //Statek
     document.getElementById("p_Sta").innerHTML = p_Sta; 
     document.getElementById("z_Sta").innerHTML = z_Sta;     
-    document.getElementById("b_Sta").innerHTML = p_Sta - z_Sta;
-    if(p_Sta - z_Sta <= 0)
-    {   
-        document.getElementById("MFF").innerHTML = 0;
-    } 
-    else
-    {
-        MFF = p_Sta - z_Sta;
-        document.getElementById("MFF").innerHTML = MFF;
-    }                   
+    document.getElementById("b_Sta").innerHTML = p_Sta - z_Sta;            
     if(z_Sta == 0) document.getElementById("%_Sta").innerHTML = 0;
     else          document.getElementById("%_Sta").innerHTML = ((p_Sta/z_Sta)*100).toFixed(0);
     c_Sta = Cena(60, z_Sta, p_Sta);
     document.getElementById("c_Sta").innerHTML = c_Sta;
     r_Sta = c_Sta * (p_Sta - z_Sta);
-    if(p_Sta - z_Sta > 0) r_Sta = 0;
     document.getElementById("r_Sta").innerHTML = r_Sta;
 }
 rozliczenie();
@@ -2295,9 +2302,31 @@ rozliczenie();
             "\nArchers: ", ARC,
             "\nCavalary: ", CAV,
             "\nArtillery: ", ART,
-            "\nŻołnierze: ", ARM,
-            "\n% Poboru: ", APP, " %",
-            "\nMax rozmiar floty: ", MFF,
+            "\nMarynarka: ", FLO,
+            "\nKonwoje: ", KON,
+            "\nŻołnierze i Marynarze: ", ARM,
+            "\n% Poboru: ", APP,
+            "\n---Mnożniki zapotrzebowań---",
+            "\nProdukty sporzywcze: ", m_Ps,
+            "\nUbranie: ", m_U,
+            "\nMebel: ", m_Me,
+            "\nRyba: ", m_R,
+            "\nTkanina: ", m_Tk,
+            "\nZboże: ", m_Zb,
+            "\nPapier: ", m_Pa,
+            "\nDrewno: ", m_D,
+            "\nWęgiel: ", m_We,
+            "\nSzkło: ", m_Sz,
+            "\nKawa: ", m_K,
+            "\nOwoc: ", m_Ow,
+            "\nAlkohol: ", m_Al,
+            "\nUbranie luksusowe: ", m_Ul,
+            "\nMebel luksusowy: ", m_Ml,
+            "\nMięso: ", m_Mi,
+            "\nPorcelana: ", m_Po,
+            "\nCukier: ", m_C,
+            "\nHerbata: ", m_H,
+            "\nTytoń: ", m_Ty,
             "\n\n//ROZLICZENIE//",
             "\nProdukt - Produkcja - Zapotrzebowanie - Bilans - Cena Realna - Rozlicznie",
             "\n---Podstawowe dobra---",
