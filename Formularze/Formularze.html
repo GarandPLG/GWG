@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kultura - Religia - Kraj</title>
+</head>
+<body>
+<div id="Tab">
+    <table>
+        <form>
+            <tr>
+                <td colspan="2"><b>KULTURA</b></td>
+            </tr>
+            <tr>
+                <td>Nazwa</td>
+                <td><input id="KNazwa" type="text"></td>
+            </tr>
+            <tr>
+                <td>Typ</td>
+                <td>
+                    <select id="KTyp">
+                        <option value="NaN"></option>
+                        <option value="Generic">Generic</option>
+                        <option value="River">River</option>
+                        <option value="Lake">Lake</option>
+                        <option value="Naval">Naval</option>
+                        <option value="Nomadic">Nomadic</option>
+                        <option value="Hunting">Hunting</option>
+                        <option value="Highland">Highland</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Grupa językowa</td>
+                <td>
+                    <select id="KNB">
+                        <option value="NaN"></option>
+                        <option value="German">Niemcka</option>
+                        <option value="English">Angialska</option>
+                        <option value="French">Francuska</option>
+                        <option value="Italian">Włoska</option>
+                        <option value="Castilian">Kastylijska</option>
+                        <option value="Ruthenian">Ruska</option>
+                        <option value="Nordic">Nordyska</option>
+                        <option value="Greek">Grecka</option>
+                        <option value="Roman">Rzymska</option>
+                        <option value="Finnic">Fińska</option>
+                        <option value="Korean">Koreańska</option>
+                        <option value="Chinese">Chińska</option>
+                        <option value="Japanese">Japońska</option>
+                        <option value="Portuguese">Portugalska</option>
+                        <option value="Hungarian">Węgierska</option>
+                        <option value="Turkish">Turecka</option>
+                        <option value="Berber">Berberyjska</option>
+                        <option value="Arabic">Arabska</option>
+                        <option value="Inuit">Inuicka (eskimosi)</option>
+                        <option value="Basque">Baskijska</option>
+                        <option value="Nigerian">Nigeryjska</option>
+                        <option value="Celtic">Celtycka</option>
+                        <option value="Mesopotamian">Mezopotamska</option>
+                        <option value="Iranian">Irańska</option>
+                        <option value="Hawaiian">Hawajska</option>
+                        <option value="Quechua">Inkowska</option>
+                        <option value="Swahili">Swahili (Afryka Środkowo Zachodnia)</option>
+                        <option value="Vietnamese">Wietnamska</option>
+                        <option value="Cantonese">Południowo Chińska</option>
+                        <option value="Mongolian">Mongolska</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Opis kultury</td>
+                <td><input id="OK" type="text" maxlength="5000"></td>
+            </tr>
+            <tr>
+                <td>1. Modyfikator</td>
+                <td>
+                    <select id="1MK">
+                        <option value="NaN"></option>
+                        <option value="PH1">Place Holder1</option>
+                        <option value="PH2">Place Holder2</option>
+                        <option value="PH3">Place Holder3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">(Po odblokowaniu Tożsamości Narodowej)</td>
+            </tr>
+            <tr>
+                <td>2. Modyfikator</td>
+                <td>
+                    <select id="2MK">
+                        <option value="NaN"></option>
+                        <option value="PH1">Place Holder1</option>
+                        <option value="PH2">Place Holder2</option>
+                        <option value="PH3">Place Holder3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>3. Modyfikator</td>
+                <td>
+                    <select id="3MK">
+                        <option value="NaN"></option>
+                        <option value="PH1">Place Holder1</option>
+                        <option value="PH2">Place Holder2</option>
+                        <option value="PH3">Place Holder3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>RGB</td>
+                <td><input id="KRGB" type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="Pobierz formularz" onclick="Kult()" id="obl1"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><b>RELIGIA</b></td>
+            </tr>
+            <tr>
+                <td>Nazwa</td>
+                <td><input id="RNazwa" type="text"></td>
+            </tr>
+            <tr>
+                <td>Typ</td>
+                <td>
+                    <select id="RTyp">
+                        <option value="NaN"></option>
+                        <option value="Ludowa">Ludowa (Niezreformowana)</option>
+                        <option value="Zorganizowana">Zorganizowana</option>
+                        <option value="Herezja">Herezja</option>
+                        <option value="Kult">Kult</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Forma</td>
+                <td><input id="RForma" type="text"></td>
+            </tr>
+            <tr>
+                <td>Imię bóstwa</td>
+                <td><input id="IB" type="text"></td>
+            </tr>
+            <tr>
+                <td>Tytuł bóstwa</td>
+                <td><input id="TB" type="text"></td>
+            </tr>
+            <tr>
+                <td>Opis religi</td>
+                <td><input id="OR" type="text" maxlength="5000"></td>
+            </tr>
+            <tr>
+                <td>RGB</td>
+                <td><input id="RRGB" type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Modyfikatory</td>
+            </tr>
+            <tr>
+                <td>Ogólny</td>
+                <td>
+                    <select id="OMR">
+                        <option value="NaN"></option>
+                        <option value="PH1">Place Holder1</option>
+                        <option value="PH2">Place Holder2</option>
+                        <option value="PH3">Place Holder3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Powszechność wiary</td>
+                <td>
+                    <select id="PwMR">
+                        <option value="NaN"></option>
+                        <option value="-0.5 coś tam">-0.5 do cośtam</option>
+                        <option value="PH2">Place Holder2</option>
+                        <option value="PH3">Place Holder3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Ilość krajów</td>
+                <td><input id="RIlo" type="number" value="1"></td>
+            </tr>
+            <tr>
+                <td>Wartość modyfikatora za Powszechność wiary</td>
+                <td id="MRPw">0</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="Pobierz formularz" onclick="Rel()" id="obl2"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><b>Państwo</b></td>
+            </tr>
+            <tr>
+                <td>Nazwa kraju</td>
+                <td><input id="PNK" type="text"></td>
+            </tr>
+            <tr>
+                <td>Pełna nazwa kraju</td>
+                <td><input id="PPNK" type="text"></td>
+            </tr>
+            <tr>
+                <td>Typ rządu</td>
+                <td>
+                    <select id="PTR">
+                        <option value="NaN"></option>
+                        <optgroup label="Monarchia">
+                            <option value="Despotate">Despotyzm</option>
+                            <option value="Dominion">Dominium</option>
+                            <option value="Duchy">Księstwo</option>
+                            <option value="Emirate">Emirat</option>
+                            <option value="Empire">Imperium</option>
+                            <option value="Horde">Horda</option>
+                            <option value="Grand Duchy">Wielkie Księstwo</option>
+                            <option value="Khaganate">Kaganat</option>
+                            <option value="Khanate">Khanat</option>
+                            <option value="Kingdom">Królestwo</option>
+                            <option value="Marches">Marchia</option>
+                            <option value="Shogunate">Szogunat</option>
+                            <option value="Sultanate">Sułtanat</option>
+                            <option value="Tsardom">Carstwo</option>
+                        </optgroup>
+                        <optgroup label="Republika">
+                            <option value="Diarchy">Dwuwładztwo</option>
+                            <option value="Federation">Federacja</option>
+                            <option value="Most Serene Republic">Najjaśniejsza Republika</option>
+                            <option value="Oligarchy">Oligarchia</option>
+                            <option value="Protectorate">Protektorat</option>
+                            <option value="Republic">Republika</option>
+                            <option value="Tetrarchy">Tetrarchia</option>
+                            <option value="Trade Company">Kompania Handlowa</option>
+                            <option value="Triumvirate">Triumwirat</option>
+                        </optgroup>
+                        <optgroup label="Unie">
+                            <option value="Confederacy">Konfederacja</option>
+                            <option value="Commonwealth">Wspólnota</option>
+                            <option value="League">Liga</option>
+                            <option value="Union">Unia</option>
+                            <option value="United Kingdom">Zjednoczone Królestwo</option>
+                            <option value="United Provinces">Zjednoczone Prowincje</option>
+                            <option value="United Republic">Zjednoczona Republika</option>
+                            <option value="United States">Stany Zjednoczone</option>
+                            <option value="United Tribes">Zjednoczone Plemiona</option>
+                        </optgroup>
+                        <optgroup label="Teokrackje">
+                            <option value="Bishopric">Biskupstwo</option>
+                            <option value="Brotherhood">Bractwo</option>
+                            <option value="Caliphate">Kalifat</option>
+                            <option value="Divine Duchy">Boskie Księstwo</option>
+                            <option value="Divine Grand Duchy">Boskie Wielkie Księstwo</option>
+                            <option value="Divine Kingdom">Boskie Królestwo</option>
+                            <option value="Divine Empire">Boskie Imperium</option>
+                            <option value="Holy State">Święte Państwo</option>
+                        </optgroup>
+                        <optgroup label="Anarchia">
+                            <option value="Free Territory">Wolne Terytorium</option>
+                            <option value="Tribes">Plemiona</option>
+                        </optgroup>
+                            
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Imię, tytuł i ród władcy</td>
+                <td><input id="Wladca" type="text"></td>
+            </tr>
+            <tr>
+                <td>Opis kraju (lore)</td>
+                <td><input id="OP" type="text" maxlength="5000"></td>
+            </tr>
+            <tr>
+                <td>RGB</td>
+                <td><input id="PRGB" type="text"></td>
+            </tr>
+            <tr>
+                <td>Stolica</td>
+                <td><input id="PS" type="text"></td>
+            </tr>
+            <tr>
+                <td>Kultura</td>
+                <td><input id="PK" type="text"></td>
+            </tr>
+            <tr>
+                <td>Religia</td>
+                <td><input id="PR" type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="Pobierz formularz" onclick="Pan()" id="obl3"></td>
+            </tr>
+        </form>
+    </table>
+</div>
+<script>
+function Kult()
+{
+    let KNazwa = document.getElementById("KNazwa").value,
+        KTyp = document.getElementById("KTyp").value,
+        KNB = document.getElementById("KNB").value,
+        OK = document.getElementById("OK").value,
+        MK1 = document.getElementById("1MK").value,
+        MK2 = document.getElementById("2MK").value,
+        MK3 = document.getElementById("3MK").value,
+        KRGB = document.getElementById("KRGB").value,
+
+        blob = new Blob(
+          [
+           `Nazwa kultury: ${KNazwa}`,
+           `\nTyp: ${KTyp}`,
+           `\nGrupa językowa: ${KNB}`,
+           `\nOpis kultury: `,
+           OK,
+           `\n1. Modyfikator: ${MK1}`,
+           `\n(Po odblokowaniu Tożsamości Narodowej)`,
+           `\n2. Modyfikator: ${MK2}`,
+           `\n3. Modyfikator: ${MK3}`,
+           `\nRGB: ${KRGB}`
+          ], 
+            {type: "text"}
+        );
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = "Kultura";
+        document.body.appendChild(a);
+        a.click();    
+        a.remove();
+}
+function Rel()
+{
+    let RNazwa = document.getElementById("RNazwa").value,
+        RTyp = document.getElementById("RTyp").value,
+        RForma = document.getElementById("RForma").value,
+        IB = document.getElementById("IB").value,
+        TB = document.getElementById("TB").value,
+        OR = document.getElementById("OR").value,
+        RRGB = document.getElementById("RRGB").value,
+        OMR = document.getElementById("OMR").value,
+        PwMR = document.getElementById("PwMR").value,
+        RIlo = parseInt(document.getElementById("RIlo").value) - 1,
+        MRPw = parseFloat(PwMR) * (1.00 + 0.15 * RIlo),
+
+        blob = new Blob(
+          [
+           `Nazwa: ${RNazwa}`,
+           `\nTyp: ${RTyp}`,
+           `\nForma: ${RForma}`,
+           `\nImię bóstwa: ${IB}`,
+           `\nTytuł bóstwa: ${TB}`,
+           `\nOpis religii: \n`,
+           OR,
+           `\nRGB ${RRGB}`,
+           `\nModyfikatory: `,
+           `\nOgólny: ${OMR}`,
+           `\nPowszechność wiary: ${PwMR}`,
+           `\nIlość krajów: ${RIlo}`,
+           `\nWartość modyfikatora za Powszechność wiary: ${MRPw}`,
+          ], 
+            {type: "text"}
+        );
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = "Religia";
+        document.body.appendChild(a);
+        a.click();    
+        a.remove();
+    document.getElementById("MRPw").innerHTML = MRPw;
+}
+function Pan()
+{
+    let PNK = document.getElementById("PNK").value,
+        PPNK = document.getElementById("PPNK").value,
+        PTR = document.getElementById("PTR").value,
+        Wladca = document.getElementById("Wladca").value,
+        OP = document.getElementById("OP").value,
+        PRGB = document.getElementById("PRGB").value,
+        PS = document.getElementById("PS").value,
+        PK = document.getElementById("PK").value,
+        PR = document.getElementById("PR").value,
+        blob = new Blob(
+          [
+           `Nazwa kraju: ${PNK}`,
+           `\nPełna nazwa kraju: ${PPNK}`,
+           `\nTyp rządu: ${PTR}`,
+           `\nImię, tytuł i ród władcy: ${Wladca}`,
+           `\nOpis kraju (lore): `,
+           OP,
+           `\nRGB: ${PRGB}`,
+           `\nStolica: ${PS}`,
+           `\nKultura: ${PK}`,
+           `\nReligia: ${PR}`,
+           `\nFlaga (w formacie SVG):`,
+           `\nPołożenie (zaznaczona prowincja, z której zaczynasz):`
+          ], 
+            {type: "text"}
+        );
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = "Państwo";
+        document.body.appendChild(a);
+        a.click();    
+        a.remove();
+}
+</script>
+<style>
+    table, tr, td, th
+        {
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    td {height: 30px;}
+    #tab {float: left;}
+    #obl1, #obl2, #obl3 {width: 90%;}
+    #clear {clear: both;}
+</style>
+</body>
+</html>
