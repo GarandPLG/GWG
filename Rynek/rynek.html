@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Rynek 1.4</title>
+    <link rel="icon" type="image/x-icon" href="garand.ico">
+    <title>Rynek 1.4.1</title>
 </head>
 <body>
 <div id="Budynki">
@@ -596,6 +597,10 @@
                 <td colspan="4"><b>Kraj</b></td>
             </tr>
             <tr>
+                <td>Nazwa kraju</td>
+                <td colspan="3"><input type="text" id="NAZ"></td>
+            </tr>
+            <tr>
                 <td>Populacja</td>
                 <td colspan="3"><input type="number" id="POP" value="0" min="0"></td>
             </tr>
@@ -607,22 +612,22 @@
             <tr>
                 <td colspan="2">Górnicy</td>
                 <td id="Gor">0</td>
-                <td id="%_Gor">0</td>
+                <td id="%_Gor">0.00</td>
             </tr>
             <tr>
                 <td colspan="2">Robotnicy</td>
                 <td id="Rob">0</td>
-                <td id="%_Rob">0</td>
+                <td id="%_Rob">0.00</td>
             </tr>
             <tr>
                 <td colspan="2">Rolnicy</td>
                 <td id="Rol">0</td>
-                <td id="%_Rol">0</td>
+                <td id="%_Rol">0.00</td>
             </tr>
             <tr>
                 <td colspan="2">Plantatorzy</td>
                 <td id="Pla">0</td>
-                <td id="%_Pla">0</td>
+                <td id="%_Pla">0.00</td>
             </tr>
             <tr>
                 <td colspan="3"><b>Armia</b></td> 
@@ -670,21 +675,6 @@
                 <td colspan="4"><b>Zaspokojenie potrzeb populacji (%)</b></td>   
             </tr>
             <tr><td id="ZasPot" colspan="4">0</td></tr>
-            <tr>
-                <td colspan="4"><b>Średnie ceny produktów</b></td>
-            </tr>
-            <tr>
-                <td>Średnia cena produktów dla populacji</td>
-                <td colspan="3">36.67</td>
-            </tr>
-            <tr>
-                <td>Realna średnia cena produktów dla populacji</td>
-                <td id="L_p_c" colspan="3">0</td>
-            </tr>
-            <tr>
-                <td>Odchylenie od średniej (%)</td>
-                <td id="%L_p_c" colspan="3">0</td>
-            </tr>
             <tr>
                 <td colspan="4"><b>Mnożnik zapotrzebowań</b></td>
             </tr>
@@ -1187,8 +1177,8 @@
             <td id="L_pp_m">0</td>
             <td id="Roz_pp">0</td>
             <td>-</td>
-            <td rowspan="2">39.72</td>
-            <td rowspan="2" id="L_c">0</td>
+            <td rowspan="2">-</td>
+            <td rowspan="2">-</td>
             <td id="Suma_pp">0</td>
         </tr>
         <tr>
@@ -1205,6 +1195,6 @@
         </tr>
     </table>
 </div>
-<script src="main 1.4.js"></script>
+<script src="main 1.4.1.js"></script>
 </body>
 </html>

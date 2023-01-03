@@ -308,34 +308,34 @@ _Przemysł
     .Zakład chemiczny
 		Tier I
 			+4500 Robotnicy
-			-80 Utrzymanie
-			+90 Nawóz
-			-30 Siarka
-			-10 Żelazo
+			-28 Utrzymanie
+			+30 Nawóz
+			-10 Siarka
+			-3 Żelazo
 		Tier II
 			+4750 Robotnicy
-			-160 Utrzymanie
-			+125 Nawóz
+			-85 Utrzymanie
+			+45 Nawóz
 			+20 Materiały wybuchowe
-			-30 Siarka
-			-30 Żelazo
-			-15 Węgiel
+			-15 Siarka
+			-15 Żelazo
+			-5 Węgiel
 		Tier III
 			+5000 Robotnicy
-			-255 Utrzymanie
-			+185 Nawóz
+			-145 Utrzymanie
+			+65 Nawóz
 			+40 Materiały wybuchowe
-			-55 Siarka
-			-30 Żelazo
-			-35 Węgiel
+			-25 Siarka
+			-20 Żelazo
+			-15 Węgiel
 		Tier IV
 			+5250 Robotnicy
-			-285 Utrzymanie
-			+170 Nawóz
+			-205 Utrzymanie
+			+55 Nawóz
 			+70 Materiały wybuchowe
-			-70 Siarka
-			-30 Żelazo
-			-35 Węgiel
+			-30 Siarka
+			-25 Żelazo
+			-20 Węgiel
 	
     .Zakład syntetyczny
 		Tier I

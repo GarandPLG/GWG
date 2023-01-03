@@ -681,57 +681,57 @@ function zapotrzebowania()
         }
         else if(TECH>4 && TECH<=17)
         {
-            document.getElementById("Zch_p").innerHTML = "+90 Nawóz";
-            document.getElementById("Zch_z").innerHTML = "-30 Siarka<br>-10 Żelazo";
+            document.getElementById("Zch_p").innerHTML = "+30 Nawóz";
+            document.getElementById("Zch_z").innerHTML = "-10 Siarka<br>-2 Żelazo";
             document.getElementById("Zch_l").innerHTML = 4500 * Zch;
             document.getElementById("Zch_t").innerHTML = "I";
             Rob += 4500 * Zch; 
-            KosBud += 80 * Zch;
-            p_Naw += 90 * Zch;
-            z_S += 30 * Zch;
-            z_Ze += 10 * Zch;
+            KosBud += 28 * Zch;
+            p_Naw += 30 * Zch;
+            z_S += 10 * Zch;
+            z_Ze += 3 * Zch;
         }
         else if(TECH>17 && TECH<=31)
         {
-            document.getElementById("Zch_p").innerHTML = "+125 Nawóz<br>+20 Materiały wybuchowe";
-            document.getElementById("Zch_z").innerHTML = "-30 Siarka<br>-30 Żelazo<br>-15 Węgiel";
+            document.getElementById("Zch_p").innerHTML = "+45 Nawóz<br>+20 Materiały wybuchowe";
+            document.getElementById("Zch_z").innerHTML = "-15 Siarka<br>-15 Żelazo<br>-5 Węgiel";
             document.getElementById("Zch_l").innerHTML = 4750 * Zch;
             document.getElementById("Zch_t").innerHTML = "II";
             Rob += 4750 * Zch; 
-            KosBud += 160 * Zch;
-            p_Naw += 125 * Zch;
+            KosBud += 85 * Zch;
+            p_Naw += 45 * Zch;
             p_Mw += 20 * Zch;
-            z_S += 30 * Zch;
-            z_Ze += 30 * Zch;
-            z_We += 15 * Zch;
+            z_S += 15 * Zch;
+            z_Ze += 15 * Zch;
+            z_We += 5 * Zch;
         }
         else if(TECH>31 && TECH<=41)
         {
-            document.getElementById("Zch_p").innerHTML = "+185 Nawóz<br>+40 Materiały wybuchowe";
-            document.getElementById("Zch_z").innerHTML = "-55 Siarka<br>-30 Żelazo<br>-15 Węgiel";
+            document.getElementById("Zch_p").innerHTML = "+65 Nawóz<br>+40 Materiały wybuchowe";
+            document.getElementById("Zch_z").innerHTML = "-25 Siarka<br>-20 Żelazo<br>-15 Węgiel";
             document.getElementById("Zch_l").innerHTML = 5000 * Zch;
             document.getElementById("Zch_t").innerHTML = "III";
             Rob += 5000 * Zch; 
-            KosBud += 255 * Zch;
-            p_Naw += 185 * Zch;
+            KosBud += 145 * Zch;
+            p_Naw += 65 * Zch;
             p_Mw += 40 * Zch;
-            z_S += 55 * Zch;
-            z_Ze += 30 * Zch;
-            z_We += 35 * Zch;
+            z_S += 25 * Zch;
+            z_Ze += 20 * Zch;
+            z_We += 15 * Zch;
         }
         else if(TECH>41 && TECH<=50)
         {
-            document.getElementById("Zch_p").innerHTML = "+170 Nawóz<br>+70 Materiały wybuchowe";
-            document.getElementById("Zch_z").innerHTML = "-70 Siarka<br>-30 Żelazo<br>-15 Węgiel";
+            document.getElementById("Zch_p").innerHTML = "+55 Nawóz<br>+70 Materiały wybuchowe";
+            document.getElementById("Zch_z").innerHTML = "-30 Siarka<br>-25 Żelazo<br>-20 Węgiel";
             document.getElementById("Zch_l").innerHTML = 5250 * Zch;
             document.getElementById("Zch_t").innerHTML = "IV";
             Rob += 5250 * Zch; 
-            KosBud += 285 * Zch;
-            p_Naw += 170 * Zch;
+            KosBud += 205 * Zch;
+            p_Naw += 55 * Zch;
             p_Mw += 70 * Zch;
-            z_S += 70 * Zch;
-            z_Ze += 30 * Zch;
-            z_We += 35 * Zch;  
+            z_S += 30 * Zch;
+            z_Ze += 25 * Zch;
+            z_We += 20 * Zch;  
         }
     /*Zakład syntetyczny*/    //p_Ba += 40 * Zsy;   p_J += 40 * Zsy;    z_D += 40 * Zsy;   z_Naw += 30 * Zsy; z_S += 20 * Zsy; 
         if(TECH<=26)
@@ -2209,13 +2209,10 @@ rozliczenie();
     //ZasPot - Zaspokojenie potrzeb (w %)
     //L_p - Łącznie plus
     //L_m - Łącznie minus
-    //L_c - Łącznie cena rzeczywista
     //Suma - Suma rozliczenia
     let L_pp_p = p_p_Zb + p_p_Al + p_p_U + p_p_Me + p_p_D + p_p_Tk + p_p_R + p_p_Ty + p_p_Ps + p_p_Mi + p_p_Pa + p_p_Sz + p_p_Wi + p_p_Ml + p_p_Ul + p_p_We + p_p_Po + p_p_Ow + p_p_K + p_p_C + p_p_H,
 
         L_pp_m = p_z_Zb + p_z_Al + p_z_U + p_z_Me + p_z_D + p_z_Tk + p_z_R + p_z_Ty + p_z_Ps + p_z_Mi + p_z_Pa + p_z_Sz + p_z_Wi + p_z_Ml + p_z_Ul + p_z_We + p_z_Po + p_z_Ow + p_z_K + p_z_C + p_z_H,
-
-        L_p_c = ((c_Zb + c_Al + c_U + c_Me + c_D + c_Tk + c_R + c_Ty + c_Ps + c_Mi + c_Pa + c_Sz + c_Wi + c_Ml + c_Ul + c_We + c_Po + c_Ow + c_K + c_C + c_H)/21).toFixed(2)/1,
 
         Suma_pp = p_r_Zb + p_r_Al + p_r_U + p_r_Me + p_r_D + p_r_Tk + p_r_R + p_r_Ty + p_r_Ps + p_r_Mi + p_r_Pa + p_r_Sz + p_r_Wi + p_r_Ml + p_r_Ul + p_r_We + p_r_Po + p_r_Ow + p_r_K + p_r_C + p_r_H,
 
@@ -2226,8 +2223,6 @@ rozliczenie();
 
         L_m = z_Ps + z_U + z_R + z_Tk + z_Zb + z_Pa + z_D + z_Ze + z_We + z_Nar + z_Ba + z_Mw + z_Naw + z_Sz + z_Td + z_Ol + z_J + z_St + z_S + z_K + z_Ow + z_Al + z_Ul + z_Ml + z_Mi + z_Po + z_C + z_H + z_Ty + z_Wi + z_Br + z_Ar + z_Am + z_Sta + z_Me, 
 
-        L_c = ((c_Ps + c_U + c_R + c_Tk + c_Zb + c_Pa + c_D + c_Ze + c_We + c_Nar + c_Ba + c_Mw + c_Naw + c_Sz + c_Td + c_Ol + c_J + c_St + c_S + c_K + c_Ow + c_Al + c_Ul + c_Ml + c_Mi + c_Po + c_C + c_H + c_Ty + c_Wi + c_Br + c_Ar + c_Am + c_Sta + c_Me)/36).toFixed(2)/1,
-
         Suma = r_Ps + r_U + r_R + r_Tk + r_Zb + r_Pa + r_D + r_Ze + r_We + r_Nar + r_Ba + r_Mw + r_Naw + r_Sz + r_Td + r_Ol + r_J + r_St + r_S + r_K + r_Ow + r_Zl + r_Al + r_Ul + r_Ml + r_Mi + r_Po + r_C + r_H + r_Ty + r_Wi + r_Br + r_Ar + r_Am + r_Sta + r_Me,
 
         Czysto = Suma + Suma_pp;
@@ -2235,23 +2230,28 @@ rozliczenie();
     document.getElementById("L_p").innerHTML = L_p;
     document.getElementById("L_m").innerHTML = L_m; 
     document.getElementById("Roz").innerHTML = L_p - L_m;
-    document.getElementById("L_c").innerHTML = L_c;
     document.getElementById("Suma").innerHTML = Suma;
 
     document.getElementById("L_pp_p").innerHTML = L_pp_p;
     document.getElementById("L_pp_m").innerHTML = L_pp_m;
-    document.getElementById("L_p_c").innerHTML = L_p_c;
-    document.getElementById("%L_p_c").innerHTML = ((L_p_c/36.67)*100-100).toFixed(2)/1;
     document.getElementById("Roz_pp").innerHTML = L_pp_p - L_pp_m;
     document.getElementById("Suma_pp").innerHTML = Suma_pp;
     document.getElementById("ZasPot").innerHTML = ZasPot;
     document.getElementById("Czysto").innerHTML = Czysto - KosBud;
 
+    let NAZ = document.getElementById("NAZ").value,
+        Nazwa = "";
+    for(let i = 0; i < NAZ.length; i++)
+    {
+        if(NAZ[i] == "/" || NAZ[i] == "\\" || NAZ[i] == ":" || NAZ[i] == "*" || NAZ[i] == "?" || NAZ[i] == "\"" || NAZ[i] == "<" || NAZ[i] == ">" || NAZ[i] == "|") {}
+        else Nazwa += NAZ[i];
+    }
     //Pobranie kopii w formie txt
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-           ["Technologia: ", TECH,
+           [`Nazwa Kraju: ${Nazwa}`,
+            "\nTechnologia: ", TECH,
             "\n//BUDYNKI//", 
             "\n\n---Zasoby---", 
             "\nTartak: ", T,
@@ -2294,9 +2294,6 @@ rozliczenie();
             "\n\n//KRAJ//",
             "\nPopulacja: ", POP,
             "\nZaspokojenie potrzeb populacji: ", ZasPot, " %",
-            "\nŚrednia cena produktów dla populacji: ", 36.67,
-            "\nRealna średnia cena produktów dla populacji: ", L_p_c,
-            "\nOdchylenie od średniej (%): ", ((L_p_c/36.67)*100-100).toFixed(2)/1,
             "\n---Armia---",
             "\nInfantry: ", INF,
             "\nArchers: ", ARC,
@@ -2372,7 +2369,6 @@ rozliczenie();
             "\n\n//ŁĄCZNIE//",
             "\nŁącznie (potrzeby populacji): ", `${L_pp_p}, ${L_pp_m}, ${L_pp_p - L_pp_m}, ${Suma_pp}`,
             "\nŁącznie (produkcja): ", `${L_p}, ${L_m}, ${L_p - L_m}, ${Suma}`,
-            "\nLack of Resources: ",
             "\nKoszt utrzymania: ", KosBud,
             "\nNa czysto: ", Czysto - KosBud,
            ], 
@@ -2381,7 +2377,7 @@ rozliczenie();
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement('a');
         a.href = url;
-        a.download = "Rynek";
+        a.download = `Rynek_${Nazwa}`;
         document.body.appendChild(a);
         a.click();    
         a.remove();
