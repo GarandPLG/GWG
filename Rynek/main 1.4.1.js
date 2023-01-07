@@ -2225,7 +2225,13 @@ rozliczenie();
 
         Suma = r_Ps + r_U + r_R + r_Tk + r_Zb + r_Pa + r_D + r_Ze + r_We + r_Nar + r_Ba + r_Mw + r_Naw + r_Sz + r_Td + r_Ol + r_J + r_St + r_S + r_K + r_Ow + r_Zl + r_Al + r_Ul + r_Ml + r_Mi + r_Po + r_C + r_H + r_Ty + r_Wi + r_Br + r_Ar + r_Am + r_Sta + r_Me,
 
-        Czysto = Suma + Suma_pp;
+        Czysto = Suma + Suma_pp,
+
+        sum_sum = T + Kw + Kze + Ko + Ks + Kzl + Zsp + Fw + Fm + Hsz + N + P + Zch + Zsy + Hst + Sd + Ss + Zz + Za + Fz + Fps + Fr + Fk + Fpr + R + Mr + Pk + Pbaw + Pbar + Ph + Pt + Pc + Po + Pj,
+
+        sum_kop = Kw + Kze + Ko + Ks + Kzl,
+
+        sum_bud = T + Zsp + Fw + Fm + Hsz + N + P + Zch + Zsy + Hst + Sd + Ss + Zz + Za + Fz + Fps + Fr + Fk + Fpr + R + Mr + Pk + Pbaw + Pbar + Ph + Pt + Pc + Po + Pj;
 
     document.getElementById("L_p").innerHTML = L_p;
     document.getElementById("L_m").innerHTML = L_m; 
@@ -2238,6 +2244,10 @@ rozliczenie();
     document.getElementById("Suma_pp").innerHTML = Suma_pp;
     document.getElementById("ZasPot").innerHTML = ZasPot;
     document.getElementById("Czysto").innerHTML = Czysto - KosBud;
+
+    document.getElementById("sum_sum").innerHTML = sum_sum;
+    document.getElementById("sum_kop").innerHTML = sum_kop;
+    document.getElementById("sum_bud").innerHTML = sum_bud;
 
     let NAZ = document.getElementById("NAZ").value,
         Nazwa = "";
@@ -2370,6 +2380,9 @@ rozliczenie();
             `\nŁącznie (potrzeby populacji): ${L_pp_p}, ${L_pp_m}, ${L_pp_p - L_pp_m}, ${Suma_pp}`,
             `\nŁącznie (produkcja): ${L_p}, ${L_m}, ${L_p - L_m}, ${Suma}`,
             `\nKoszt utrzymania: ${KosBud}`,
+            `\nIlość kopalń: ${sum_kop}`,
+            `\nIlość budynków: ${sum_bud}`,
+            `\nŁącznie: ${sum_sum}`,
             `\nNa czysto: ${Czysto - KosBud}`,
            ], 
             {type: "text"}
