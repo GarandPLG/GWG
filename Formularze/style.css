@@ -1,0 +1,19 @@
+body{background-color: #242526; color: white;}
+input{background-color: #242526; color: white; width: 90%; text-align: center;}
+table, tr, td, th
+{
+    text-align: center;
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+td {height: 30px; padding: 3px;}
+th{padding: 4px;}
+#tab {float: left;}
+#obl1, #obl2, #obl3 
+{
+    width: 90%; background-color: white; color: black;
+}
+select
+{
+    width: 90%; background-color: #242526; color: white;
+}

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="garand.ico">
     <link rel="stylesheet" href="style.css">
-    <title>Toolbox - Main 1.0.1</title>
+    <title>Toolbox - Main 1.1</title>
 </head>
 <body>
 <div id="Kraj">
@@ -13,6 +14,10 @@
         <form>
             <tr>
                 <th colspan="3">Kraj</th>
+            </tr>
+            <tr>
+                <td>Nazwa kraju</td>
+                <td colspan="2"><input type="text" id="nazkra"></td>
             </tr>
             <tr>
                 <td>Technologia</td>
@@ -51,6 +56,10 @@
             <tr>
                 <td>Podstawowa stawka podatku<br>przedział: &lt;0.10; 0.20&gt;</td>
                 <td colspan="2"><input id="psp" type="number"step="0.01" min="0.10" max="0.20" value="0.15"></td>
+            </tr>
+            <tr>
+                <td>Reparacje wojenne</td>
+                <td colspan="2"><input id="rep" type="number" value="0"></td>
             </tr>
             <tr>
                 <td colspan="3">Długi</td>
@@ -236,6 +245,14 @@
                 <td>Zmiana kultury</td>
                 <td colspan="2"><input id="ZMK" type="number" value="0" min="0"></td>
             </tr>
+            <tr>
+                <td>Inne przychody</td>
+                <td colspan="2"><input id="inpr" type="number" value="0" min="0"></td>
+            </tr>
+            <tr>
+                <td>Inne koszta</td>
+                <td colspan="2"><input id="inko" type="number" value="0" max="0"></td>
+            </tr>
         </form>
     </table>
 </div>
@@ -324,7 +341,7 @@
             <td id="KA">0</td>
         </tr>
         <tr>
-            <td>Żołnierze</td>
+            <td>Żołnierze i Marynarze</td>
             <td colspan="2" id="ARM">0</td>
         </tr>
         <tr>
@@ -345,6 +362,10 @@
         <tr>
             <td>Maksymalne zadłużenie</td>
             <td id="MaxZad">0</td>
+        </tr>
+        <tr>
+            <td>Wspaźnik zadłużenia</td>
+            <td id="WskZad">0</td>
         </tr>
         <tr>
             <td>Bankructwo</td>
@@ -381,6 +402,6 @@
         </tr>
     </table>
 </div>
-<script src="main 1.0.1.js"></script>
+<script src="main 1.1.js"></script>
 </body>
 </html>

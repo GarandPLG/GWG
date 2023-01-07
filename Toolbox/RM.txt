@@ -1,25 +1,25 @@
 W to pole wpisujesz całą liczbę, a nie ilość tego przedmiotu
 
-Umiarkowany las liściasty: 1500
+Umiarkowany las liściasty: 750
 
-Umiarkowany las deszczowy: 1650  
+Umiarkowany las deszczowy: 825  
 
-Taiga:                     2820
+Taiga:                     1410
 
-Step:                      2550   
+Step:                      1275   
 
-Mokradła:                  2820     
+Mokradła:                  1410     
 
-Tundra:                    2940
+Tundra:                    1470
 
 Lodowiec:                  ZAKAZ
 
-Gorąca pustynia:           2940  
+Gorąca pustynia:           1470  
 
-Zimna pustynia:            2850       
+Zimna pustynia:            1425       
 
-Sawanna:                   2670     
+Sawanna:                   1335     
 
-Tropikalny las sezonowy:   2250    
+Tropikalny las sezonowy:   1125    
 
-Tropikalne lasy deszczowe: 1800
+Tropikalne lasy deszczowe: 900
