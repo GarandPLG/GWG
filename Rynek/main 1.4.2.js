@@ -9,6 +9,8 @@ function main()
     //p_p_ - produkcja dla populacji
     //m_ - mnożnik
     let TECH = parseInt(document.getElementById("TECH").value),
+        tura = parseInt(document.getElementById("tura").value),
+        CzUC = parseInt(document.getElementById("CzUC").value),
         T = parseInt(document.getElementById("T").value),       Kw = parseInt(document.getElementById("Kw").value),   Kze = parseInt(document.getElementById("Kze").value),    // Tartak, Kopalnia węgla, Kopalnia żelaza, 
         Ks = parseInt(document.getElementById("Ks").value),     Kzl = parseInt(document.getElementById("Kzl").value), Zsp = parseInt(document.getElementById("Zsp").value),    // Kopalnia siarki, Kopalnia złota, Zakład spożywczy
         Fw = parseInt(document.getElementById("Fw").value),     Fm = parseInt(document.getElementById("Fm").value),   Hsz = parseInt(document.getElementById("Hsz").value),    // Fabryka włókiennicza, Fabryka mebli, Huta szkła
@@ -2227,6 +2229,8 @@ rozliczenie();
 
         Czysto = Suma + Suma_pp,
 
+        UC = ((Czysto - KosBud)/CzUC).toFixed(0)/1;
+
         sum_sum = T + Kw + Kze + Ko + Ks + Kzl + Zsp + Fw + Fm + Hsz + N + P + Zch + Zsy + Hst + Sd + Ss + Zz + Za + Fz + Fps + Fr + Fk + Fpr + R + Mr + Pk + Pbaw + Pbar + Ph + Pt + Pc + Po + Pj,
 
         sum_kop = Kw + Kze + Ko + Ks + Kzl,
@@ -2244,6 +2248,7 @@ rozliczenie();
     document.getElementById("Suma_pp").innerHTML = Suma_pp;
     document.getElementById("ZasPot").innerHTML = ZasPot;
     document.getElementById("Czysto").innerHTML = Czysto - KosBud;
+    document.getElementById("UC").innerHTML = UC;
 
     document.getElementById("sum_sum").innerHTML = sum_sum;
     document.getElementById("sum_kop").innerHTML = sum_kop;
@@ -2260,10 +2265,12 @@ rozliczenie();
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-           [`Nazwa Kraju: ${Nazwa}`,
+           [`Nazwa Kraju / Uni celnej: ${Nazwa}`,
+            `\nIlość członków uni celnej: ${CzUC}`,
             `\nTechnologia: ${TECH}`,
-            `\n//BUDYNKI//`, 
-            `\n\n---Zasoby---`, 
+            `\nTura: ${tura}`,
+            `\n\n//BUDYNKI//`, 
+            `\n---Zasoby---`, 
             `\nTartak: ${T}`,
             `\nKopalnia węgla: ${Kw}`,
             `\nKopalnia żelaza: ${Kze}`,
@@ -2376,21 +2383,22 @@ rozliczenie();
             `\nArtyleria: ${p_Ar}, ${z_Ar}, ${p_Ar - z_Ar}, ${c_Ar}, ${r_Ar}`,
             `\nAmunicja: ${p_Am}, ${z_Am}, ${p_Am - z_Am}, ${c_Am}, ${r_Am}`,
             `\nStatek: ${p_Sta}, ${z_Sta}, ${p_Sta - z_Sta}, ${c_Sta}, ${r_Sta}`,
+            `\n\nIlość kopalń: ${sum_kop}`,
+            `\nIlość budynków: ${sum_bud}`,
+            `\nŁącznie: ${sum_sum}`,
             `\n\n//ŁĄCZNIE//`,
             `\nŁącznie (potrzeby populacji): ${L_pp_p}, ${L_pp_m}, ${L_pp_p - L_pp_m}, ${Suma_pp}`,
             `\nŁącznie (produkcja): ${L_p}, ${L_m}, ${L_p - L_m}, ${Suma}`,
             `\nKoszt utrzymania: ${KosBud}`,
-            `\nIlość kopalń: ${sum_kop}`,
-            `\nIlość budynków: ${sum_bud}`,
-            `\nŁącznie: ${sum_sum}`,
             `\nNa czysto: ${Czysto - KosBud}`,
+            `\nPo podziale na członków uni celnej: ${UC}`
            ], 
             {type: "text"}
         );
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement('a');
         a.href = url;
-        a.download = `Rynek_${Nazwa}`;
+        a.download = `Rynek_${Nazwa}_${tura}`;
         document.body.appendChild(a);
         a.click();    
         a.remove();

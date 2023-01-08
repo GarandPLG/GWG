@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="garand.ico">
     <link rel="stylesheet" href="style.css">
-    <title>Toolbox - Main 1.1</title>
+    <title>Toolbox - Main 1.2</title>
 </head>
 <body>
 <div id="Kraj">
@@ -18,6 +18,10 @@
             <tr>
                 <td>Nazwa kraju</td>
                 <td colspan="2"><input type="text" id="nazkra"></td>
+            </tr>
+            <tr>
+                <td>Tura</td>
+                <td colspan="2"><input type="number" id="tura" min="1" value="1"></td>
             </tr>
             <tr>
                 <td>Technologia</td>
@@ -52,6 +56,10 @@
             <tr>
                 <td>Rynek</td>
                 <td colspan="2"><input id="ryn" type="number" value="0"></td>
+            </tr>
+            <tr>
+                <td>Danina od Wasala/li</td>
+                <td colspan="2"><input id="DanWas" type="number" value="0"></td>
             </tr>
             <tr>
                 <td>Podstawowa stawka podatku<br>przedział: &lt;0.10; 0.20&gt;</td>
@@ -103,6 +111,10 @@
             <tr>
                 <td>Konwoje</td>
                 <td colspan="2"><input id="KON" type="number" value="0" min="0"></td>
+            </tr>
+            <tr>
+                <td>Limit poboru (%)</td>
+                <td colspan="2"><input id="LP" type="number" value="3.0" min="0"></td>
             </tr>
             <tr>
                 <td colspan="3">Kraj</td>
@@ -337,6 +349,10 @@
             <td id="KUA">0</td>
         </tr>
         <tr>
+            <td>Koszt rekrutacji</td>
+            <td id="KRA">0</td>
+        </tr>
+        <tr>
             <td>Kara za rozmiar armii</td>
             <td id="KA">0</td>
         </tr>
@@ -375,12 +391,41 @@
             <td colspan="2">Bilans</td>
         </tr>
         <tr>
-            <td>Nowy skarbiec</td>
+            <td>Suma rozliczenia<br>(-Skarbiec)</td>
+            <td id="SuRoz">0</td>
+        </tr>
+        <tr>
+            <td>Nowy skarbiec<br></td>
             <td id="Nska">0</td>
         </tr>
         <tr>
-            <td>Ostateczny bilans</td>
+            <td colspan="2">------</td>
+        </tr>
+        <tr>
+            <td>Koszt działań w turze</td>
+            <td id="Skdwt">0</td>
+        </tr>
+        <tr>
+            <td>OSTATECZNY BILANS<br></td>
             <td id="Obil">0</td>
+        </tr>
+        <tr>
+            <td colspan="2">--- Jeśli jesteś czyimś Wasalem ---</td>
+        </tr>
+        <tr>
+            <td>Stawka daniny (%)</td>
+            <td><input id="StDa" type="number" value="20" min="0" max="100"></td>
+        </tr>
+        <tr>
+            <td>Wartość daniny<br>dla Suwerena</td>
+            <td id="WarDa">0</td>
+        </tr>
+        <tr>
+            <td>OSTATECZNY BILANS</td>
+            <td id="OBilWas">0</td>
+        </tr>
+        <tr>
+            <td colspan="2">-----------------------------------</td>
         </tr>
         <tr>
             <td colspan="2">Kraj</td>
@@ -402,6 +447,6 @@
         </tr>
     </table>
 </div>
-<script src="main 1.1.js"></script>
+<script src="main 1.2.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 body{background-color: #242526; color: white;}
-input{background-color: #242526; color: white; width: 90%;}
+input{background-color: #242526; color: white; width: 90%; text-align: center;}
 #Kraj {float: left; width: 25%;}
 #DwT {float: left; width: 25%;}
 #MOD {float: left; width: 25%;}

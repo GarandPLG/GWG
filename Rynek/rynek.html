@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="garand.ico">
-    <title>Rynek 1.4.1</title>
+    <title>Rynek 1.4.2</title>
 </head>
 <body>
 <div id="Budynki">
@@ -15,6 +15,10 @@
             <tr>
                 <td colspan="2"><b>Technologia</b></td>
                 <td colspan="4"><input id="TECH" type="number" value="1" min="1" max="50"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>Tura</b></td>
+                <td colspan="4"><input id="tura" type="number" value="1" min="1"></td>
             </tr>
 
             <tr>
@@ -608,8 +612,12 @@
                 <td colspan="4"><b>Kraj</b></td>
             </tr>
             <tr>
-                <td>Nazwa kraju</td>
+                <td>Nazwa kraju<br>/Nazwa uni celnej</td>
                 <td colspan="3"><input type="text" id="NAZ"></td>
+            </tr>
+            <tr>
+                <td>Ilośc członków<br>uni celnej (1 to brak)</td>
+                <td colspan="3"><input id="CzUC" type="number" min="1" value="1"></td>
             </tr>
             <tr>
                 <td>Populacja</td>
@@ -1201,11 +1209,15 @@
             <td id="Suma">0</td>
         </tr>
         <tr>
-            <td colspan="7" style="text-align: right">Na czysto (oba Łącznie - Koszt utrzymania): </td>
+            <td colspan="7" id="NaCzysto">Na czysto (oba Łącznie - Koszt utrzymania): </td>
             <td colspan="2" id="Czysto">0</td>
+        </tr>
+        <tr>
+            <td colspan="7" id="PUC">Po podziale na członków uni celnej: </td>
+            <td colspan="2" id="UC">0</td>
         </tr>
     </table>
 </div>
-<script src="main 1.4.1.js"></script>
+<script src="main 1.4.2.js"></script>
 </body>
 </html>
