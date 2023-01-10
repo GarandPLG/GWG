@@ -1,16 +1,57 @@
-body{background-color: #242526; color: white;}
-input{background-color: #242526; color: white; width: 90%; text-align: center;}
-#Kraj {float: left; width: 25%;}
-#DwT {float: left; width: 25%;}
-#MOD {float: left; width: 25%;}
-#output {float: left; width: 25%;}
+body
+{
+    background-color: #242526; 
+    color: white;
+}
+input
+{
+    background-color: #242526; 
+    color: white; 
+    width: 90%; 
+    text-align: center;
+}
+#Kraj 
+{
+    float: left; 
+    width: 24%;
+}
+#DwT 
+{
+    float: left; 
+    width: 20%;
+}
+#output 
+{
+    float: left; 
+    width: 56%;
+}
 table, tr, td, th
 {
     text-align: center;
     border: 1px solid grey;
     border-collapse: collapse;
 }
-td {height: 30px; padding: 3px;}
+td 
+{
+    height: 30px; 
+    padding: 3px;
+}
 th{padding: 4px;}
 a{color: white;}
-#obl{width: 90%; background-color: white; color: black;}
+#obl
+{
+    width: 90%; 
+    background-color: white; 
+    color: black;
+}
+h1 
+{
+    text-align: center; 
+    border: 1px solid grey; 
+    border-collapse: collapse;
+}
+#TAB1, #TAB2, #TAB3, #TAB4, #TAB5, #TAB6, #TAB7, #TAB8
+{
+    width: 25%; float: left;
+}
+#TAB5 { clear: both; }

@@ -6,6 +6,9 @@ function Main()
         TECH = parseInt(document.getElementById("TECH").value),
         wies = parseInt(document.getElementById("wies").value), 
         miasto = parseInt(document.getElementById("miasto").value),
+        ok_wies = parseInt(document.getElementById("ok_wies").value),
+        ok_miasto = parseInt(document.getElementById("ok_miasto").value),
+        POP_suma = wies + miasto + ok_wies + ok_miasto,
         pn = parseFloat(document.getElementById("pn").value)/100, 
         psp = parseFloat(document.getElementById("psp").value),
         rep = parseInt(document.getElementById("rep").value),
@@ -83,31 +86,49 @@ function Main()
         t_ART = "0",
 
         POP = wies + miasto,
-        plwies = parseInt((pn * wies).toFixed(0)/1), 
-        plmiasto = parseInt((pn * miasto).toFixed(0)/1), 
+        plwies = (pn * wies).toFixed(0)/1, 
+        plmiasto = (pn * miasto).toFixed(0)/1, 
         spn = plwies + plmiasto,
         plPOP = POP + plwies + plmiasto,
-        Wpod = parseInt((psp/2 * (plwies + wies)).toFixed(0)/50)/1,
-        Mpod = parseInt(((psp/2 * 2) * (plmiasto + miasto)).toFixed(0)/50)/1,
+        
+        ok_POP = ok_wies + ok_miasto,
+        ok_plwies = (pn/2 * ok_wies).toFixed(0)/1,
+        ok_plmiasto = (pn/2 * ok_miasto).toFixed(0)/1, 
+        ok_spn = ok_plwies + ok_plmiasto,
+        ok_plPOP = ok_POP + ok_plwies + ok_plmiasto,
+
+        plPOP_suma = plPOP + ok_plPOP,
+
+        Wpod = ((psp/2 * (plwies + wies))/50).toFixed(0)/1,
+        Mpod = ((psp * (plmiasto + miasto))/50).toFixed(0)/1,
         Lpod = Wpod + Mpod,
+        
+        ok_Wpod = ((psp/4 * (ok_plwies + ok_wies))/50).toFixed(0)/1,
+        ok_Mpod = ((psp/2 * (ok_plmiasto + ok_miasto))/50).toFixed(0)/1,
+        ok_Lpod = ok_Wpod + ok_Mpod,
+
+        Pod_suma = Lpod + ok_Lpod,
+
+        StabPod = (psp - 0.15).toFixed(2)/1,
+
         zstab = 0,
+        nstab = 0,
+
         ARM = FLO * 200 + KON * 25,
         KUA = FLO * 10 + KON * 2, 
         KRA = rFLO * 400 + rKON * 50,
         KA = 0,
         APP = 0,
-        StabPob = -LP,
-        StabPod = (psp - 0.15).toFixed(2)/1,
-        nstab = 0;
-
-    ZAD += WzPo + (WzPo * (PrZw/100)).toFixed(0)/1 - SpPo;
+        StabPob = -LP;
+        
     Intrest = (ZAD * OPR/100).toFixed(0)/1;
+    ZAD += WzPo + (WzPo * (PrZw/100)).toFixed(0)/1 - SpPo;
     WskZad = ((ZAD / MaxZad)*100).toFixed(2)/1;
 
     if(ZAD > MaxZad) Ban = "TAK";
     else             Ban = "NIE";
 
-    let Nska = ska + ryn + DanWas + Lpod + rep;
+    let Nska = ska + ryn + DanWas + Pod_suma + rep - Intrest;
 
     if(TECH>0 && TECH<=14)
     {
@@ -206,7 +227,7 @@ function Main()
     Nska -= KUA;
 
     SuRoz = Nska - ska;
-    let Obil = Nska - KDwT + WzPo - SpPo - Intrest - KRA + inpr - inko;
+    let Obil = Nska - KDwT + WzPo - SpPo - KRA + inpr - inko;
     Skdwt = Obil - Nska;
     WarDa = ((Obil * StDa)/100).toFixed(0)/1;
     OBilWas = Obil - WarDa;
@@ -217,9 +238,20 @@ function Main()
     document.getElementById("plwies").innerHTML = plwies + wies;
     document.getElementById("plmiasto").innerHTML = plmiasto + miasto;
 
+    document.getElementById("ok_plwies").innerHTML = ok_plwies + ok_wies;
+    document.getElementById("ok_plmiasto").innerHTML = ok_plmiasto + ok_miasto;
+
+    document.getElementById("plPOP_suma").innerHTML = plPOP_suma;
+
     document.getElementById("Wpod").innerHTML = Wpod;
     document.getElementById("Mpod").innerHTML = Mpod;
     document.getElementById("Lpod").innerHTML = Lpod;
+
+    document.getElementById("ok_Wpod").innerHTML = ok_Wpod;
+    document.getElementById("ok_Mpod").innerHTML = ok_Mpod;
+    document.getElementById("ok_Lpod").innerHTML = ok_Lpod;
+
+    document.getElementById("Pod_suma").innerHTML = Pod_suma;
 
     document.getElementById("GovCap").innerHTML = GovCap;
     document.getElementById("%GovCap").innerHTML = ((GovCap / LGovCap)*100).toFixed(2)/1;
@@ -232,8 +264,12 @@ function Main()
 
     document.getElementById("zstab").innerHTML = nstab;
     document.getElementById("POP").innerHTML = POP;
+    document.getElementById("ok_POP").innerHTML = ok_POP;
+    document.getElementById("POP_suma").innerHTML = POP_suma;
     document.getElementById("spn").innerHTML = spn;
     document.getElementById("plPOP").innerHTML = plPOP;
+    document.getElementById("ok_spn").innerHTML = ok_spn;
+    document.getElementById("ok_plPOP").innerHTML = ok_plPOP;
 
     document.getElementById("Nska").innerHTML = Nska;
     document.getElementById("Obil").innerHTML = Obil;
@@ -271,6 +307,10 @@ function Main()
            `\nWieś: ${wies}`,
            `\nMiasto: ${miasto}`,
            `\nŁącznie: ${POP}`,
+           `\nOkupowana Wieś: ${ok_wies}`,
+           `\nOkupowane Miasto: ${ok_miasto}`,
+           `\nŁącznie: ${ok_POP}`,
+           `\nSuma: ${POP_suma}`,
            `\nPrzyrost naturalny (%): ${pn*100}`,
            `\n---Rozliczenie---`,
            `\nSkarbiec: ${ska}`,
@@ -333,10 +373,19 @@ function Main()
            `\nMiasto: ${plmiasto + miasto}`,
            `\nPrzyrost o: ${spn}`,
            `\nŁącznie: ${plPOP}`,
+           `\nOkupowana Wieś: ${ok_plwies + ok_wies}`,
+           `\nOkupowane Miasto: ${ok_plmiasto + ok_miasto}`,
+           `\nPrzyrost o: ${ok_spn}`,
+           `\nŁącznie: ${ok_plPOP}`,
+           `\nSuma: ${plPOP_suma}`,
            `\n---Podatki---`,
            `\nWieś: ${Wpod}`,
            `\nMiasto: ${Mpod}`,
            `\nŁącznie: ${Lpod}`,
+           `\nOkupowana Wieś: ${ok_Wpod}`,
+           `\nOkupowane Misto: ${ok_Mpod}`,
+           `\nŁącznie: ${ok_Lpod}`,
+           `\nSuma: ${Pod_suma}`,
            `\n---Armia---`,
            `\nInfantry: ${INF + rINF}`,
            `\nArchers: ${ARC + rARC}`,
@@ -356,7 +405,7 @@ function Main()
            `\nWskaźnik zadłużenia: ${WskZad}`,
            `\nBankructwo: ${Ban}`,
            `\n---Bilans---`,
-           `\nSuma rozliczenia (-Skarbiec): ${SuRoz}`,
+           `\nSuma rozliczenia: ${SuRoz}`,
            `\nNowy skarbiec: ${Nska}`,
            `\n------`,
            `\nKoszt działań w turze: ${Skdwt}`,
@@ -368,9 +417,8 @@ function Main()
            `\n-----------------------------------`,
            `\n---Kraj---`,
            `\nZmaina stabilności: ${nstab}`,
-           `\n---Government capacity---`,
            `\nObecny GovCap: ${GovCap}`,
-           `\n%: ${((GovCap / LGovCap)*100).toFixed(2)/1}`
+           `\n% GovCap: ${((GovCap / LGovCap)*100).toFixed(2)/1}`
           ], 
             {type: "text"}
         );
