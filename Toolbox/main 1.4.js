@@ -4,6 +4,12 @@ function Main()
         NazKra = "",
         tura = document.getElementById("tura").value,
         TECH = parseInt(document.getElementById("TECH").value),
+        IPR = parseInt(document.getElementById("IPR").value),
+        PRr = parseInt(document.getElementById("PRr").value),
+        DR = parseInt(document.getElementById("DR").value),
+        SPR = IPR + PRr + DR,
+        prPRO = 0,
+        nTECH = TECH,
         wies = parseInt(document.getElementById("wies").value), 
         miasto = parseInt(document.getElementById("miasto").value),
         ok_wies = parseInt(document.getElementById("ok_wies").value),
@@ -27,11 +33,18 @@ function Main()
 
         BProd = parseInt(document.getElementById("BProd").value),
         BNmiasto = parseInt(document.getElementById("BNmiasto").value),
-        BRmiasto = parseInt(document.getElementById("BRmiasto").value),
         BSmiasto = parseInt(document.getElementById("BSmiasto").value),
         Drogi = parseInt(document.getElementById("Drogi").value),
         WDrogi = parseInt(document.getElementById("WDrogi").value),
         MDrogi = parseInt(document.getElementById("MDrogi").value),
+
+        R_Tdf = parseInt(document.getElementById("R_Tdf").value),
+        R_Tr = parseInt(document.getElementById("R_Tr").value),
+        R_Ta = parseInt(document.getElementById("R_Ta").value),
+        R_Gr = parseInt(document.getElementById("R_Gr").value),
+        R_We = parseInt(document.getElementById("R_We").value),
+        R_Tu = parseInt(document.getElementById("R_Tu").value),
+
         EKS = parseInt(document.getElementById("EKS").value),
         NAW = parseInt(document.getElementById("NAW").value),
         ZMK = parseInt(document.getElementById("ZMK").value),
@@ -40,14 +53,20 @@ function Main()
         KDwT = 
             BProd * 200 + 
             BNmiasto * 2000 + 
-            BRmiasto + 
+            R_Tdf * 750 +
+            R_Tr * 825 +
+            R_Ta * 1410 + 
+            R_Gr * 1275 +
+            R_We * 1410 +
+            R_Tu * 1470 +
             BSmiasto * 1500 + 
             Drogi * 250 + 
             WDrogi * 500 + 
             MDrogi * 250 + 
             EKS * 200 + 
             NAW * 100 +
-            ZMK * 300,
+            ZMK * 300 +
+            DR * 350,
 
         ZAD = parseInt(document.getElementById("ZAD").value),
         Pocz_ZAD = ZAD,
@@ -63,7 +82,6 @@ function Main()
         Skdwt = 0,
         StDa = parseInt(document.getElementById("StDa").value),
         WarDa = 0,
-        OBilWas = 0,
 
         LGovCap = parseInt(document.getElementById("LGovCap").value),
         Ipro = parseInt(document.getElementById("Ipro").value),
@@ -99,16 +117,17 @@ function Main()
 
         plPOP_suma = plPOP + ok_plPOP,
 
-        Wpod = ((psp/2 * (plwies + wies))/50).toFixed(0)/1,
-        Mpod = ((psp * (plmiasto + miasto))/50).toFixed(0)/1,
+        Wpod = ((psp * (plwies + wies))/50).toFixed(0)/1,
+        Mpod = ((psp*2 * (plmiasto + miasto))/50).toFixed(0)/1,
         Lpod = Wpod + Mpod,
         
-        ok_Wpod = ((psp/4 * (ok_plwies + ok_wies))/50).toFixed(0)/1,
-        ok_Mpod = ((psp/2 * (ok_plmiasto + ok_miasto))/50).toFixed(0)/1,
+        ok_Wpod = ((psp/2 * (ok_plwies + ok_wies))/50).toFixed(0)/1,
+        ok_Mpod = ((psp * (ok_plmiasto + ok_miasto))/50).toFixed(0)/1,
         ok_Lpod = ok_Wpod + ok_Mpod,
 
         Pod_suma = Lpod + ok_Lpod,
-
+        Nska = 0,
+        Obil = 0,
         StabPod = (psp - 0.15).toFixed(2)/1,
 
         zstab = 0,
@@ -128,7 +147,7 @@ function Main()
     if(ZAD > MaxZad) Ban = "TAK";
     else             Ban = "NIE";
 
-    let Nska = ska + ryn + DanWas + Pod_suma + rep - Intrest;
+    Nska = ska + ryn + DanWas + Pod_suma + rep - Intrest;
 
     if(TECH>0 && TECH<=14)
     {
@@ -227,13 +246,21 @@ function Main()
     Nska -= KUA;
 
     SuRoz = Nska - ska;
-    let Obil = Nska - KDwT + WzPo - SpPo - KRA + inpr - inko;
+    Obil = Nska - KDwT + WzPo - SpPo - KRA + inpr - inko;
+    nstab = (stab - zstab).toFixed(2)/1;
     Skdwt = Obil - Nska;
-    WarDa = ((Obil * StDa)/100).toFixed(0)/1;
-    OBilWas = Obil - WarDa;
-    nstab = stab - zstab;
-        
+
+    if(document.getElementById("JW").checked)
+    {
+        WarDa = ((Obil * StDa)/100).toFixed(0)/1;
+        Obil -= WarDa;
+    }
+ 
     if(nstab > 100) nstab = 100;
+
+    nTECH += Math.floor(SPR/400);
+    SPR -= 400 * Math.floor(SPR/400);
+    prPRO = ((SPR/400)*100).toFixed(2)/1;
 
     document.getElementById("plwies").innerHTML = plwies + wies;
     document.getElementById("plmiasto").innerHTML = plmiasto + miasto;
@@ -276,7 +303,6 @@ function Main()
     document.getElementById("SuRoz").innerHTML = SuRoz;
     document.getElementById("Skdwt").innerHTML = Skdwt;
     document.getElementById("WarDa").innerHTML = WarDa;
-    document.getElementById("OBilWas").innerHTML = OBilWas;
 
     document.getElementById("oINF").innerHTML = INF + rINF;
     document.getElementById("oARC").innerHTML = ARC + rARC;
@@ -290,6 +316,10 @@ function Main()
     document.getElementById("KUA").innerHTML = KUA;
     document.getElementById("KA").innerHTML = KA;
 
+    document.getElementById("SPR").innerHTML = SPR;
+    document.getElementById("nTECH").innerHTML = nTECH;
+    document.getElementById("prPRO").innerHTML = prPRO;
+
     for(let i = 0; i < nazkra.length; i++)
     {
         if(nazkra[i] == "/" || nazkra[i] == "\\" || nazkra[i] == ":" || nazkra[i] == "*" || nazkra[i] == "?" || nazkra[i] == "\"" || nazkra[i] == "<" || nazkra[i] == ">" || nazkra[i] == "|") {}
@@ -299,11 +329,16 @@ function Main()
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-          [`///KRAJ///`,
+          [`///INPUT///`,
+           `\n\n---Kraj---`,
            `\nNazwa kraju: ${NazKra}`,
+           `\nJestem wasalem: ${document.getElementById("JW").checked}`,
            `\nTura: ${tura}`,
            `\nTechnologia: ${TECH}`,
-           `\n---Populacja początkowa---`,
+           `\nIlość punktów rozwoju: ${IPR}`,
+           `\nPunkty rozwoju (roll): ${PRr}`,
+           `\nPotrzebne punkty: 400`,
+           `\n\n---Populacja początkowa---`,
            `\nWieś: ${wies}`,
            `\nMiasto: ${miasto}`,
            `\nŁącznie: ${POP}`,
@@ -312,16 +347,14 @@ function Main()
            `\nŁącznie: ${ok_POP}`,
            `\nSuma: ${POP_suma}`,
            `\nPrzyrost naturalny (%): ${pn*100}`,
-           `\n---Rozliczenie---`,
+           `\n\n---Rozliczenie---`,
            `\nSkarbiec: ${ska}`,
            `\nRynek: ${ryn}`,
            `\nDanina od Wasala/li: ${DanWas}`,
            `\nPodstawowa stawka podatku: ${psp}`,
            `\nReparacje wojenne: ${rep}`,
-           `\n---Długi---`,
-           `\nZadłużenie: ${Pocz_ZAD}`,
-           `\nOprocentowanie (%): ${OPR}`,
-           `\n---Armia---`,
+           `\nStawka daniny (%): ${StDa}`,
+           `\n\n---Armia---`,
            `\nInfantry: ${INF}, T: ${t_INF}`,
            `\nArchers: ${ARC}, T: ${t_ARC}`,
            `\nCavalary: ${CAV}, T: ${t_CAV}`,
@@ -329,46 +362,55 @@ function Main()
            `\nMarynarka: ${FLO}`,
            `\nKonwoje: ${KON}`,
            `\nLimit poboru (%): ${LP}`,
-           `\n---Kraj---`,
+           `\n\n---Kraj---`,
            `\nStabilność: ${stab}`,
            `\nZaspokojenie potrzeb populacji: ${ZPP}`,
-           `\n---Government capacity---`,
            `\nLimit GovCap: ${LGovCap}`,
            `\nIlość prowincji: ${Ipro}`,
            `\nIlość miast: ${Imiast}`,
            `\nIlość prowincji z inną kulturą: ${Ipik}`,
            `\nIlość prowincji z inną religią: ${Ipir}`,
            `\nIlość prowincji niezintegrowanych: ${Ipnz}`,
+           `\n\n---Długi---`,
+           `\nZadłużenie: ${Pocz_ZAD}`,
+           `\nOprocentowanie (%): ${OPR}`,
 
            `\n\n///KOSZT DZIAŁAŃ W TURZE///`,
-           `\n---Budynki---`,
+           `\n\n---Budynki---`,
            `\nBudynki produkcyjne: ${BProd}`,
            `\nZałożenie Miasta: ${BNmiasto}`,
-           `\nRozrost miast: ${BRmiasto}`,
            `\nBudynki specjalne miast: ${BSmiasto}`,
            `\nDrogi: ${Drogi}`,
            `\nWielkie Drogi: ${WDrogi}`,
            `\nSzlaki morskie: ${MDrogi}`,
-           `\n---Pożyczki---`,
-           `\nWzięcie pożyczki: ${WzPo}`,
-           `\n% Zwrotu: ${PrZw}`,
-           `\nSpłacenie pożyczki: ${SpPo}`,
-           `\n---Rekrutacja---`,
+           `\n\n---Rozbudowa miasta na biomie---`,
+           `\nTemperate deciduous forest: ${R_Tdf}`,
+           `\nTemperate rainforest: ${R_Tr}`,
+           `\nTaiga: ${R_Ta}`,
+           `\nGrassland: ${R_Gr}`,
+           `\nWetland: ${R_We}`,
+           `\nTundra: ${R_Tu}`,
+           `\n\n---Rekrutacja---`,
            `\nInfantry: ${rINF}`,
            `\nArchers: ${rARC}`,
            `\nCavalary: ${rCAV}`,
            `\nArtillery: ${rART}`,
            `\nMarynarka: ${rFLO}`,
            `\nKonwoje: ${rKON}`,
-           `\n---Kraj---`,
+           `\n\n---Pożyczki---`,
+           `\nWzięcie pożyczki: ${WzPo}`,
+           `\n% Zwrotu: ${PrZw}`,
+           `\nSpłacenie pożyczki: ${SpPo}`,
+           `\n\n---Kraj---`,
            `\nEkspansja na niezajęte tereny: ${EKS}`,
            `\nNawracanie: ${NAW}`,
            `\nZmiana kultury: ${ZMK}`,
+           `\nDofinansowanie rozwoju: ${DR}`,
            `\nInne przychody: ${inpr}`,
            `\nInne koszta: ${inko}`,
 
            `\n\n///OUTPUT///`,
-           `\n---Populacja---`,
+           `\n\n---Populacja---`,
            `\nWieś: ${plwies + wies}`,
            `\nMiasto: ${plmiasto + miasto}`,
            `\nPrzyrost o: ${spn}`,
@@ -378,7 +420,7 @@ function Main()
            `\nPrzyrost o: ${ok_spn}`,
            `\nŁącznie: ${ok_plPOP}`,
            `\nSuma: ${plPOP_suma}`,
-           `\n---Podatki---`,
+           `\n\n---Podatki---`,
            `\nWieś: ${Wpod}`,
            `\nMiasto: ${Mpod}`,
            `\nŁącznie: ${Lpod}`,
@@ -386,37 +428,37 @@ function Main()
            `\nOkupowane Misto: ${ok_Mpod}`,
            `\nŁącznie: ${ok_Lpod}`,
            `\nSuma: ${Pod_suma}`,
-           `\n---Armia---`,
+           `\n\n---Zadłużenie---`,
+           `\nZadłużenie na: ${ZAD}`,
+           `\nKoszt oprocentowania: ${Intrest}`,
+           `\nMaksymalne zadłużenie: ${MaxZad}`,
+           `\nWskaźnik zadłużenia: ${WskZad}`,
+           `\nBankructwo: ${Ban}`,
+           `\n\n---Armia---`,
            `\nInfantry: ${INF + rINF}`,
            `\nArchers: ${ARC + rARC}`,
            `\nCavalary: ${CAV + rCAV}`,
            `\nArtillary: ${ART + rART}`,
            `\nMarynarka: ${FLO + rFLO}`,
            `\nKonwoje: ${KON + rKON}`,
+           `\n\n---Armia---`,
+           `\nŻołnierze i Marynarze: ${ARM}`,
+           `\n% Poboru: ${APP}`,
            `\nKoszt utrzymania: ${KUA}`,
            `\nKoszt rekrutacji: ${KRA}`,
            `\nKara za rozmiar armii: ${KA}`,
-           `\nŻołnierze: ${ARM}`,
-           `\n% Poboru: ${APP}`,
-           `\n---Zadłużenie---`,
-           `\nZadłużenie na: ${ZAD}`,
-           `\nKoszt oprocentowania: ${Intrest}`,
-           `\nMaksymalne zadłużenie: ${MaxZad}`,
-           `\nWskaźnik zadłużenia: ${WskZad}`,
-           `\nBankructwo: ${Ban}`,
-           `\n---Bilans---`,
+           `\n\n---Bilans---`,
            `\nSuma rozliczenia: ${SuRoz}`,
            `\nNowy skarbiec: ${Nska}`,
            `\n------`,
            `\nKoszt działań w turze: ${Skdwt}`,
            `\nOSTATECZNY BILANS: ${Obil}`,
-           `\n--- Jeśli jesteś czyimś Wasalem ---`,
-           `\nStawka daniny (%): ${StDa}`,
-           `\nWartość daniny dla Suwerena: ${WarDa}`,
-           `\nOSTATECZNY BILANS: ${OBilWas}`,
-           `\n-----------------------------------`,
-           `\n---Kraj---`,
+           `\nDanina dla Suwerena: ${WarDa}`,
+           `\n\n---Kraj---`,
            `\nZmaina stabilności: ${nstab}`,
+           `\nIlość punktów rozwoju: ${SPR}`,
+           `\nTechnologia: ${nTECH}`,
+           `\n% progresu: ${prPRO}`,
            `\nObecny GovCap: ${GovCap}`,
            `\n% GovCap: ${((GovCap / LGovCap)*100).toFixed(2)/1}`
           ], 
@@ -430,4 +472,99 @@ function Main()
         a.click();    
         a.remove();
     }
+}
+function NEXTTURA()
+{
+    document.getElementById("tura").value = parseInt(document.getElementById("tura").value)+1;
+    document.getElementById("TECH").value = parseInt(document.getElementById("nTECH").innerHTML);
+    document.getElementById("IPR").value = parseInt(document.getElementById("SPR").innerHTML);
+    document.getElementById("PRr").value = 0;
+    document.getElementById("wies").value = 0;
+    document.getElementById("miasto").value = 0;
+    document.getElementById("POP").innerHTML = 0;
+    document.getElementById("ok_wies").value = 0;
+    document.getElementById("ok_miasto").value = 0;
+    document.getElementById("ok_POP").innerHTML = 0;
+    document.getElementById("POP_suma").innerHTML = 0;
+    document.getElementById("ska").value = parseInt(document.getElementById("Obil").innerHTML);
+    document.getElementById("ryn").value = 0;
+    document.getElementById("DanWas").value = 0;
+    document.getElementById("INF").value = parseInt(document.getElementById("oINF").innerHTML);
+    document.getElementById("ARC").value = parseInt(document.getElementById("oARC").innerHTML);
+    document.getElementById("CAV").value = parseInt(document.getElementById("oCAV").innerHTML);
+    document.getElementById("ART").value = parseInt(document.getElementById("oART").innerHTML);
+    document.getElementById("FLO").value = parseInt(document.getElementById("oFLO").innerHTML);
+    document.getElementById("KON").value = parseInt(document.getElementById("oKON").innerHTML);
+    document.getElementById("stab").value = parseFloat(document.getElementById("zstab").innerHTML);
+    document.getElementById("ZAD").value = parseInt(document.getElementById("ZADL").innerHTML);
+
+    document.getElementById("BProd").value = 0;
+    document.getElementById("BNmiasto").value = 0;
+    document.getElementById("BSmiasto").value = 0;
+    document.getElementById("Drogi").value = 0;
+    document.getElementById("WDrogi").value = 0;
+    document.getElementById("MDrogi").value = 0;
+    document.getElementById("R_Tdf").value = 0;
+    document.getElementById("R_Tr").value = 0;
+    document.getElementById("R_Ta").value = 0;
+    document.getElementById("R_Gr").value = 0;
+    document.getElementById("R_We").value = 0;
+    document.getElementById("R_Tu").value = 0;
+    document.getElementById("rINF").value = 0;
+    document.getElementById("rARC").value = 0;
+    document.getElementById("rCAV").value = 0;
+    document.getElementById("rART").value = 0;
+    document.getElementById("rFLO").value = 0;
+    document.getElementById("rKON").value = 0;
+    document.getElementById("WzPo").value = 0;
+    document.getElementById("SpPo").value = 0;
+    document.getElementById("EKS").value = 0;
+    document.getElementById("NAW").value = 0;
+    document.getElementById("ZMK").value = 0;
+    document.getElementById("DR").value = 0;
+    document.getElementById("inpr").value = 0;
+    document.getElementById("inko").value = 0;
+
+    document.getElementById("plwies").innerHTML = 0;
+    document.getElementById("plmiasto").innerHTML = 0;
+    document.getElementById("spn").innerHTML = 0;
+    document.getElementById("plPOP").innerHTML = 0;
+    document.getElementById("ok_plwies").innerHTML = 0;
+    document.getElementById("ok_plmiasto").innerHTML = 0;
+    document.getElementById("ok_spn").innerHTML = 0;
+    document.getElementById("ok_plPOP").innerHTML = 0;
+    document.getElementById("plPOP_suma").innerHTML = 0;
+    document.getElementById("Wpod").innerHTML = 0;
+    document.getElementById("Mpod").innerHTML = 0;
+    document.getElementById("Lpod").innerHTML = 0;
+    document.getElementById("ok_Wpod").innerHTML = 0;
+    document.getElementById("ok_Mpod").innerHTML = 0;
+    document.getElementById("ok_Lpod").innerHTML = 0;
+    document.getElementById("Pod_suma").innerHTML = 0;
+    document.getElementById("ZADL").innerHTML = 0;
+    document.getElementById("INTREST").innerHTML = 0;
+    document.getElementById("MaxZad").innerHTML = 0;
+    document.getElementById("WskZad").innerHTML = 0;
+    document.getElementById("oINF").innerHTML = 0;
+    document.getElementById("oARC").innerHTML = 0;
+    document.getElementById("oCAV").innerHTML = 0;
+    document.getElementById("oART").innerHTML = 0;
+    document.getElementById("oFLO").innerHTML = 0;
+    document.getElementById("oKON").innerHTML = 0;
+    document.getElementById("ARM").innerHTML = 0;
+    document.getElementById("APP").innerHTML = 0;
+    document.getElementById("KUA").innerHTML = 0;
+    document.getElementById("KRA").innerHTML = 0;
+    document.getElementById("KA").innerHTML = 0;
+    document.getElementById("SuRoz").innerHTML = 0;
+    document.getElementById("Nska").innerHTML = 0;
+    document.getElementById("Skdwt").innerHTML = 0;
+    document.getElementById("Obil").innerHTML = 0;
+    document.getElementById("WarDa").innerHTML = 0;
+
+    document.getElementById("zstab").innerHTML = 0;
+    document.getElementById("SPR").innerHTML = 0;
+    document.getElementById("prPRO").innerHTML = 0;
+    document.getElementById("GovCap").innerHTML = 0;
+    document.getElementById("%GovCap").innerHTML = 0;
 }

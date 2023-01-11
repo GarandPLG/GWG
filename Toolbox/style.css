@@ -13,17 +13,17 @@ input
 #Kraj 
 {
     float: left; 
-    width: 24%;
+    width: 33%;
 }
 #DwT 
 {
     float: left; 
-    width: 20%;
+    width: 33%;
 }
-#output 
+#Output 
 {
     float: left; 
-    width: 56%;
+    width: 34%;
 }
 table, tr, td, th
 {
@@ -33,14 +33,17 @@ table, tr, td, th
 }
 td 
 {
-    height: 30px; 
-    padding: 3px;
+    height: 36px; 
 }
-th{padding: 4px;}
-a{color: white;}
-#obl
+th
 {
-    width: 90%; 
+    padding: 4px;
+    color: rgb(105, 96, 79);
+    border: 1px solid rgb(105, 96, 79);
+}
+a{color: white;}
+#obl, #NextTura
+{
     background-color: white; 
     color: black;
 }
@@ -50,8 +53,22 @@ h1
     border: 1px solid grey; 
     border-collapse: collapse;
 }
-#TAB1, #TAB2, #TAB3, #TAB4, #TAB5, #TAB6, #TAB7, #TAB8
+#TAB1I, #TAB2I, #TAB3I, #TAB4I, #TAB5I, #TAB6I, #TAB7I
 {
-    width: 25%; float: left;
+    width: 50%; float: left;
 }
-#TAB5 { clear: both; }
+#TAB3I, #TAB5I, #TAB7I { clear: both; }
+#TAB7I { width: 100%; }
+
+#TAB1D, #TAB2D, #TAB3D, #TAB4D, #TAB5D
+{
+    width: 50%; float: left;
+}
+#TAB3D, #TAB5D { clear: both; }
+
+#TAB1O, #TAB2O, #TAB3O, #TAB4O, #TAB5O, #TAB6O, #TAB7O, #TAB8O
+{
+    width: 33.3%; float: left;
+}
+#TAB4O, #TAB7O, #TAB8O { clear: both; }
+#TAB8O { width: 100%; }

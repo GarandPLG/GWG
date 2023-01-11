@@ -6,290 +6,376 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="garand.ico">
     <link rel="stylesheet" href="style.css">
-    <title>Toolbox - Main 1.3</title>
+    <title>Toolbox - Main 1.4</title>
 </head>
 <body>
 <div id="Kraj">
-    <table>
-        <form>
-            <tr>
-                <th colspan="3"><b>Input</b></th>
-            </tr>
-            <tr>
-                <td colspan="3">Kraj</td>
-            </tr>
-            <tr>
-                <td>Nazwa kraju</td>
-                <td colspan="2"><input type="text" id="nazkra"></td>
-            </tr>
-            <tr>
-                <td>Tura</td>
-                <td colspan="2"><input type="number" id="tura" min="1" value="1"></td>
-            </tr>
-            <tr>
-                <td>Technologia</td>
-                <td colspan="2"><input id="TECH" type="number" value="1" min="1" max="50"></td>
-            </tr>
-            <tr>
-                <td colspan="3">Populacja początkowa</td>
-            </tr>
-            <tr>
-                <td>Wieś</td>
-                <td colspan="2"><input id="wies" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Miasto</td>
-                <td colspan="2"><input id="miasto" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Łącznie</td>
-                <td colspan="2" id="POP">0</td>
-            </tr>
-            <tr>
-                <td>Okupowana Wieś</td>
-                <td colspan="2"><input id="ok_wies" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Okupowane Miasto</td>
-                <td colspan="2"><input id="ok_miasto" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Łącznie</td>
-                <td colspan="2" id="ok_POP">0</td>
-            </tr>
-            <tr>
-                <td>Suma</td>
-                <td colspan="2" id="POP_suma">0</td>
-            </tr>
-            <tr>
-                <td>Przyrost naturalny (%)</td>
-                <td colspan="2"><input id="pn" type="number" value="0.09"></td>
-            </tr>
-            <tr>
-                <td colspan="3">Rozliczenie</td>
-            </tr>
-            <tr>
-                <td>Skarbiec</td>
-                <td colspan="2"><input id="ska" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Rynek</td>
-                <td colspan="2"><input id="ryn" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Danina od Wasala/li</td>
-                <td colspan="2"><input id="DanWas" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Podstawowa stawka podatku<br>przedział: &lt;0.10; 0.20&gt;</td>
-                <td colspan="2"><input id="psp" type="number"step="0.01" min="0.10" max="0.20" value="0.15"></td>
-            </tr>
-            <tr>
-                <td>Reparacje wojenne</td>
-                <td colspan="2"><input id="rep" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td colspan="3">Długi</td>
-            </tr>
-            <tr>
-                <td>Zadłużenie</td>
-                <td colspan="2"><input type="number" id="ZAD" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Oprocentowanie (%)</td>
-                <td colspan="2"><input type="number" id="OPR" value="3.0" min="0"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Armia</td>
-                <td>Tier</td>
-            </tr>
-            <tr>
-                <td>Infantry</td>
-                <td><input type="number" id="INF" value="0" min="0"></td>
-                <td id="t_INF">I</td>
-            </tr>
-            <tr>
-                <td>Archers</td>
-                <td><input type="number" id="ARC" value="0" min="0"></td>
-                <td id="t_ARC">I</td>
-            </tr>
-            <tr>
-                <td>Cavalary</td>
-                <td><input type="number" id="CAV" value="0" min="0"></td>
-                <td id="t_CAV">I</td>
-            </tr>
-            <tr>
-                <td>Artillery</td>
-                <td><input type="number" id="ART" value="0" min="0"></td>
-                <td id="t_ART">0</td>
-            </tr>
-            <tr>
-                <td>Marynarka</td>
-                <td colspan="2"><input id="FLO" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Konwoje</td>
-                <td colspan="2"><input id="KON" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Limit poboru (%)</td>
-                <td colspan="2"><input id="LP" type="number" value="3.0" min="0"></td>
-            </tr>
-            <tr>
-                <td colspan="3">Kraj</td>
-            </tr>
-            <tr>
-                <td>Stabilność</td>
-                <td colspan="2"><input id="stab" type="number" value="100"></td>
-            </tr>
-            <tr>
-                <td>Zaspokojenie potrzeb populacji</td>
-                <td colspan="2"><input id="ZPP" type="number" value="100"></td>
-            </tr>
-            <tr>
-                <td colspan="3">Government capacity</td>
-            </tr>
-            <tr>
-                <td>Limit GovCap</td>
-                <td colspan="2"><input id="LGovCap" type="number" value="1000"></td>
-            </tr>
-            <tr>
-                <td>Ilość prowincji</td>
-                <td colspan="2"><input id="Ipro" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Ilość miast</td>
-                <td colspan="2"><input id="Imiast" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Ilość prowincji z inną kulturą</td>
-                <td colspan="2"><input id="Ipik" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Ilość prowincji z inną religią</td>
-                <td colspan="2"><input id="Ipir" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Ilość prowincji niezintegrowanych</td>
-                <td colspan="2"><input id="Ipnz" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td colspan="3"><input id="obl" type="button" value="Oblicz" onclick="Main()"></td>
-            </tr>
-            <tr>
-                <td colspan="3"><input type="checkbox" id="kopia"><label><br>Pobrać kopię?</label></td>
-            </tr>
-        </form>
+    <h1><b>Input</b></h1>
+    <table id="TAB1I">
+        <tr>
+            <th colspan="2"><b>Kraj</b></th>
+        </tr>
+        <tr>
+            <td>Nazwa kraju</td>
+            <td><input type="text" id="nazkra"></td>
+        </tr>
+        <tr>
+            <td>Jestem wasalem</td>
+            <td><input type="checkbox" id="JW"></td>
+        </tr>
+        <tr>
+            <td>Tura</td>
+            <td><input type="number" id="tura" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td>Technologia</td>
+            <td><input id="TECH" type="number" value="1" min="1" max="50"></td>
+        </tr>
+        <tr>
+            <td>Ilość punktów rozwoju</td>
+            <td><input type="number" id="IPR" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Punkty rozwoju (roll)</td>
+            <td><input type="number" id="PRr" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Potrzebne punkty</td>
+            <td>400</td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+    <table id="TAB2I">
+        <tr>
+            <th colspan="2"><b>Populacja początkowa</b></th>
+        </tr>
+        <tr>
+            <td>Wieś</td>
+            <td><input id="wies" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Miasto</td>
+            <td><input id="miasto" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Łącznie</td>
+            <td id="POP">0</td>
+        </tr>
+        <tr>
+            <td>Okupowana Wieś</td>
+            <td><input id="ok_wies" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Okupowane Miasto</td>
+            <td><input id="ok_miasto" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Łącznie</td>
+            <td id="ok_POP">0</td>
+        </tr>
+        <tr>
+            <td>Suma</td>
+            <td id="POP_suma">0</td>
+        </tr>
+        <tr>
+            <td>Przyrost naturalny (%)</td>
+            <td><input id="pn" type="number" value="0.09"></td>
+        </tr>
+    </table>
+    <table id="TAB3I">
+        <tr>
+            <th colspan="2"><b>Rozliczenie</b></th>
+        </tr>
+        <tr>
+            <td>Skarbiec</td>
+            <td><input id="ska" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Rynek</td>
+            <td><input id="ryn" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Danina od Wasala/li</td>
+            <td><input id="DanWas" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Stawka podatku<br>&lt;0.10; 0.20&gt;</td>
+            <td><input id="psp" type="number"step="0.01" min="0.10" max="0.20" value="0.15"></td>
+        </tr>
+        <tr>
+            <td>Reparacje wojenne</td>
+            <td><input id="rep" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Stawka daniny (%)</td>
+            <td><input id="StDa" type="number" value="20" min="0" max="100"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+    <table id="TAB4I">
+        <tr>
+            <th colspan="2"><b>Armia</b></th>
+            <th><b>Tier</b></th>
+        </tr>
+        <tr>
+            <td>Infantry</td>
+            <td><input type="number" id="INF" value="0" min="0"></td>
+            <td id="t_INF">I</td>
+        </tr>
+        <tr>
+            <td>Archers</td>
+            <td><input type="number" id="ARC" value="0" min="0"></td>
+            <td id="t_ARC">I</td>
+        </tr>
+        <tr>
+            <td>Cavalary</td>
+            <td><input type="number" id="CAV" value="0" min="0"></td>
+            <td id="t_CAV">I</td>
+        </tr>
+        <tr>
+            <td>Artillery</td>
+            <td><input type="number" id="ART" value="0" min="0"></td>
+            <td id="t_ART">0</td>
+        </tr>
+        <tr>
+            <td>Marynarka</td>
+            <td colspan="2"><input id="FLO" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Konwoje</td>
+            <td colspan="2"><input id="KON" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Limit poboru (%)</td>
+            <td colspan="2"><input id="LP" type="number" value="3.0" min="0"></td>
+        </tr>
+    </table>
+    <table id="TAB5I">
+        <tr>
+            <th colspan="2"><b>Kraj</b></th>
+        </tr>
+        <tr>
+            <td>Stabilność</td>
+            <td><input id="stab" type="number" value="100"></td>
+        </tr>
+        <tr>
+            <td>Zaspokojenie potrzeb populacji</td>
+            <td><input id="ZPP" type="number" value="100"></td>
+        </tr>
+        <tr>
+            <td>Limit GovCap</td>
+            <td><input id="LGovCap" type="number" value="1000"></td>
+        </tr>
+        <tr>
+            <td>Ilość prowincji</td>
+            <td><input id="Ipro" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Ilość miast</td>
+            <td><input id="Imiast" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Ilość prowincji z inną kulturą</td>
+            <td><input id="Ipik" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Ilość prowincji z inną religią</td>
+            <td><input id="Ipir" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Ilość prowincji niezintegrowanych</td>
+            <td><input id="Ipnz" type="number" value="0"></td>
+        </tr>
+    </table>
+    <table id="TAB6I">
+        <tr>
+            <th colspan="2"><b>Długi</b></th>
+        </tr>
+        <tr>
+            <td>Zadłużenie</td>
+            <td><input type="number" id="ZAD" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Oprocentowanie (%)</td>
+            <td><input type="number" id="OPR" value="3.0" min="0"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+    <table id="TAB7I">
+        <tr>
+            <td><input id="obl" type="button" value="Oblicz" onclick="Main()"><input type="checkbox" id="kopia"><label><br>Pobrać kopię?</label></td>
+        </tr>
     </table>
 </div>
 <div id="DwT">
-    <table>
-        <form>
-            <tr>
-                <th colspan="2">Działania w turze</th>
-            </tr>
-            <tr>
-                <td colspan="2">Budynki</td>
-            </tr>
-            <tr>
-                <td>Budynki produkcyjne</td>
-                <td><input id="BProd" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Założenie Miasta</td>
-                <td><input id="BNmiasto" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td><a href="RM.txt">Rozrost miast</a></td>
-                <td><input id="BRmiasto" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Budynki specjalne miast</a></td>
-                <td><input id="BSmiasto" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Drogi</td>
-                <td><input id="Drogi" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Wielkie drogi</td>
-                <td><input id="WDrogi" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td>Szlaki morskie</td>
-                <td><input id="MDrogi" type="number" value="0"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Pożyczki</td>
-            </tr>
-            <tr>
-                <td>Wzięcie pożyczki</td>
-                <td><input id="WzPo" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>% Zwrotu</td>
-                <td><input id="PrZw" type="number" value="5.0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Spłacenie pożyczki</td>
-                <td><input type="number" id="SpPo" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Rektutacja</td>
-            </tr>
-            <tr>
-                <td>Infantry</td>
-                <td><input type="number" id="rINF" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Archers</td>
-                <td><input type="number" id="rARC" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Cavalary</td>
-                <td><input type="number" id="rCAV" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Artillery</td>
-                <td><input type="number" id="rART" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Marynarka</td>
-                <td colspan="2"><input id="rFLO" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Konwoje</td>
-                <td colspan="2"><input id="rKON" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Kraj</td>
-            </tr>
-            <tr>
-                <td>Ekspansja na niezajęte tereny</td>
-                <td colspan="2"><input id="EKS" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Nawracanie</td>
-                <td colspan="2"><input id="NAW" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Zmiana kultury</td>
-                <td colspan="2"><input id="ZMK" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Inne przychody</td>
-                <td colspan="2"><input id="inpr" type="number" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td>Inne koszta</td>
-                <td colspan="2"><input id="inko" type="number" value="0" max="0"></td>
-            </tr>
-        </form>
+    <h1><b>Działania w turze</b></h1>
+    <table id="TAB1D">
+        <tr>
+            <th colspan="2"><b>Budynki</b></th>
+        </tr>
+        <tr>
+            <td>Budynki produkcyjne</td>
+            <td><input id="BProd" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Założenie Miasta</td>
+            <td><input id="BNmiasto" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Budynki specjalne miast</td>
+            <td><input id="BSmiasto" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Drogi</td>
+            <td><input id="Drogi" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Wielkie drogi</td>
+            <td><input id="WDrogi" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Szlaki morskie</td>
+            <td><input id="MDrogi" type="number" value="0"></td>
+        </tr>
+    </table>
+    <table id="TAB2D">
+        <tr>
+            <th colspan="2"><b>Rozbudowa miasta na biomie</b></th>
+        </tr>
+        <tr>
+            <td>Temperate deciduous forest</td>
+            <td><input id="R_Tdf" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Temperate rainforest</td>
+            <td><input id="R_Tr" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Taiga</td>
+            <td><input id="R_Ta" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Grassland</td>
+            <td><input id="R_Gr" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Wetland</td>
+            <td><input id="R_We" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Tundra</td>
+            <td><input id="R_Tu" type="number" value="0" min="0"></td>
+        </tr>
+    </table>
+    <table id="TAB3D">
+        <tr>
+            <th colspan="2"><b>Rektutacja</b></th>
+        </tr>
+        <tr>
+            <td>Infantry</td>
+            <td><input type="number" id="rINF" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Archers</td>
+            <td><input type="number" id="rARC" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Cavalary</td>
+            <td><input type="number" id="rCAV" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Artillery</td>
+            <td><input type="number" id="rART" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Marynarka</td>
+            <td colspan="2"><input id="rFLO" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Konwoje</td>
+            <td colspan="2"><input id="rKON" type="number" value="0" min="0"></td>
+        </tr>
+    </table>
+    <table id="TAB4D">
+        <tr>
+            <th colspan="2"><b>Pożyczki</b></th>
+        </tr>
+        <tr>
+            <td>Wzięcie</td>
+            <td><input id="WzPo" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>% Zwrotu</td>
+            <td><input id="PrZw" type="number" value="5.0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Spłacenie</td>
+            <td><input type="number" id="SpPo" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+    <table id="TAB5D">
+        <tr>
+            <th colspan="2"><b>Kraj</b></th>
+        </tr>
+        <tr>
+            <td>Ekspansja</td>
+            <td><input id="EKS" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Nawracanie</td>
+            <td><input id="NAW" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Zmiana kultury</td>
+            <td><input id="ZMK" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Dofinansowanie rozwoju</td>
+            <td><input type="number" id="DR" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Inne przychody</td>
+            <td><input id="inpr" type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Inne koszta</td>
+            <td><input id="inko" type="number" value="0" max="0"></td>
+        </tr>
     </table>
 </div>
-<div id="output">
+<div id="Output">
     <h1><b>Output</b></h1>
-    <table id="TAB1">
+    <table id="TAB1O">
         <tr>
             <th colspan="2"><b>Populacja</b></th>
         </tr>
@@ -329,11 +415,8 @@
             <td>Suma</td>
             <td id="plPOP_suma">0</td>
         </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
     </table>
-    <table id="TAB2">
+    <table id="TAB2O">
         <tr>
             <th colspan="2"><b>Podatki</b></th>
         </tr>
@@ -371,11 +454,45 @@
             <td>Suma</td>
             <td id="Pod_suma">0</td>
         </tr>
+    </table>
+    <table id="TAB3O">
+        <tr>
+            <th colspan="2"><b>Zadłużenie</b></th>
+        </tr>
+        <tr>
+            <td>Zadłużenie na</td>
+            <td id="ZADL">0</td>
+        </tr>
+        <tr>
+            <td>Koszt oprocentowania</td>
+            <td id="INTREST">0</td>
+        </tr>
+        <tr>
+            <td>Maksymalne zadłużenie</td>
+            <td id="MaxZad">0</td>
+        </tr>
+        <tr>
+            <td>Wskaźnik zadłużenia</td>
+            <td id="WskZad">0</td>
+        </tr>
+        <tr>
+            <td>Bankructwo</td>
+            <td id="Ban">NIE</td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
         <tr>
             <td colspan="2"></td>
         </tr>
     </table>
-    <table id="TAB3">
+    <table id="TAB4O">
         <tr>
             <th colspan="2"><b>Armia</b></th>
         </tr>
@@ -403,20 +520,8 @@
             <td>Konwoje</td>
             <td id="oKON">0</td>
         </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
     </table>
-    <table id="TAB4">
+    <table id="TAB5O">
         <tr>
             <th colspan="2"><b>Armia</b></th>
         </tr>
@@ -443,45 +548,8 @@
         <tr>
             <td colspan="2"></td>
         </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
     </table>
-    <table id="TAB5">
-        <tr>
-            <th colspan="2"><b>Zadłużenie</b></th>
-        </tr>
-        <tr>
-            <td>Zadłużenie na</td>
-            <td id="ZADL">0</td>
-        </tr>
-        <tr>
-            <td>Koszt oprocentowania</td>
-            <td id="INTREST">0</td>
-        </tr>
-        <tr>
-            <td>Maksymalne zadłużenie</td>
-            <td id="MaxZad">0</td>
-        </tr>
-        <tr>
-            <td>Wskaźnik zadłużenia</td>
-            <td id="WskZad">0</td>
-        </tr>
-        <tr>
-            <td>Bankructwo</td>
-            <td id="Ban">NIE</td>
-        </tr>
-    </table>
-    <table id="TAB6">
+    <table id="TAB6O">
         <tr>
             <th colspan="2"><b>Bilans</b></th>
         </tr>
@@ -504,37 +572,30 @@
             <td>OSTATECZNY BILANS</td>
             <td id="Obil">0</td>
         </tr>
-    </table>
-    <table id="TAB7">
-        <tr>
-            <th colspan="2"><b>(Jeśli jesteś czyimś Wasalem)</b></th>
-        </tr>
-        <tr>
-            <td>Stawka daniny (%)</td>
-            <td><input id="StDa" type="number" value="20" min="0" max="100"></td>
-        </tr>
         <tr>
             <td>Danina dla Suwerena</td>
             <td id="WarDa">0</td>
         </tr>
-        <tr>
-            <td>OSTATECZNY BILANS</td>
-            <td id="OBilWas">0</td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
     </table>
-    <table id="TAB8">
+    <table id="TAB7O">
         <tr>
             <th colspan="2"><b>Kraj</b></th>
         </tr>
         <tr>
             <td>Zmiana stabilności</td>
             <td id="zstab">0</td>
+        </tr>
+        <tr>
+            <td>Ilość punktów rozwoju</td>
+            <td id="SPR">0</td>
+        </tr>
+        <tr>
+            <td>Technologia</td>
+            <td id="nTECH">1</td>
+        </tr>
+        <tr>
+            <td>% progresu</td>
+            <td id="prPRO">0</td>
         </tr>
         <tr>
             <td>Obecny GovCap</td>
@@ -544,14 +605,11 @@
             <td>% GovCap</td>
             <td id="%GovCap">0</td>
         </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-        </tr>
+    </table>
+    <table id="TAB8O">
+        <td><input id="NextTura" type="button" value="Przejdź do kolejnej tury" onclick="NEXTTURA()"></td>
     </table>
 </div>
-<script src="main 1.3.js"></script>
+<script src="main 1.4.js"></script>
 </body>
 </html>
