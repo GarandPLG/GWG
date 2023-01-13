@@ -89,7 +89,7 @@ function Main()
         Ipik = parseInt(document.getElementById("Ipik").value),
         Ipir = parseInt(document.getElementById("Ipir").value),
         Ipnz = parseInt(document.getElementById("Ipnz").value),
-        GovCap = Ipro * 1 + Imiast * 1 + Ipik * 1 + Ipir * 1 + Ipnz * 5,
+        GovCap = Ipro * 1 + Imiast * 1 + Ipik * 1 + Ipir * 1 + Ipnz * 50,
 
         rINF = parseInt(document.getElementById("rINF").value),
         rARC = parseInt(document.getElementById("rARC").value),
