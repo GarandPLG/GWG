@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="garand.ico">
     <link rel="stylesheet" href="style.css">
-    <title>Toolbox - Main 1.4</title>
+    <title>Toolbox 1.4.1</title>
 </head>
 <body>
 <div id="Kraj">
@@ -235,60 +235,68 @@
     <h1><b>Działania w turze</b></h1>
     <table id="TAB1D">
         <tr>
-            <th colspan="2"><b>Budynki</b></th>
+            <th colspan="3"><b>Budynki</b></th>
         </tr>
         <tr>
             <td>Budynki produkcyjne</td>
-            <td><input id="BProd" type="number" value="0"></td>
+            <td colspan="2"><input id="BProd" type="number" value="0"></td>
         </tr>
         <tr>
             <td>Założenie Miasta</td>
             <td><input id="BNmiasto" type="number" value="0"></td>
+            <td><input type="text" id="op_BNmiasto" placeholder="[nazwa],"></td>
         </tr>
         <tr>
             <td>Budynki specjalne miast</td>
             <td><input id="BSmiasto" type="number" value="0"></td>
+            <td><input type="text" id="op_BSmiasto" placeholder="[miasto]:[nazwa],"></td>
         </tr>
         <tr>
             <td>Drogi</td>
-            <td><input id="Drogi" type="number" value="0"></td>
+            <td colspan="2"><input id="Drogi" type="number" value="0"></td>
         </tr>
         <tr>
             <td>Wielkie drogi</td>
-            <td><input id="WDrogi" type="number" value="0"></td>
+            <td colspan="2"><input id="WDrogi" type="number" value="0"></td>
         </tr>
         <tr>
             <td>Szlaki morskie</td>
-            <td><input id="MDrogi" type="number" value="0"></td>
+            <td colspan="2"><input id="MDrogi" type="number" value="0"></td>
         </tr>
     </table>
     <table id="TAB2D">
         <tr>
-            <th colspan="2"><b>Rozbudowa miasta na biomie</b></th>
+            <th colspan="3"><b>Rozbudowa miasta na biomie</b></th>
         </tr>
         <tr>
             <td>Temperate deciduous forest</td>
             <td><input id="R_Tdf" type="number" value="0" min="0"></td>
+            <td><input id="op_Tdf" type="text" placeholder="[miasto]:[ile],"></td>
         </tr>
         <tr>
             <td>Temperate rainforest</td>
             <td><input id="R_Tr" type="number" value="0" min="0"></td>
+            <td><input id="op_Tr" type="text" placeholder="[miasto]:[ile],"></td>
         </tr>
         <tr>
             <td>Taiga</td>
             <td><input id="R_Ta" type="number" value="0" min="0"></td>
+            <td><input id="op_Ta" type="text" placeholder="[miasto]:[ile],"></td>
         </tr>
         <tr>
             <td>Grassland</td>
             <td><input id="R_Gr" type="number" value="0" min="0"></td>
+            <td><input id="op_Gr" type="text" placeholder="[miasto]:[ile],"></td>
         </tr>
         <tr>
             <td>Wetland</td>
             <td><input id="R_We" type="number" value="0" min="0"></td>
+            <td><input id="op_We" type="text" placeholder="[miasto]:[ile],"></td>
         </tr>
         <tr>
             <td>Tundra</td>
             <td><input id="R_Tu" type="number" value="0" min="0"></td>
+            <td><input id="op_Tu" type="text" placeholder="[miasto]:[ile],"></td>
         </tr>
     </table>
     <table id="TAB3D">
@@ -348,31 +356,33 @@
     </table>
     <table id="TAB5D">
         <tr>
-            <th colspan="2"><b>Kraj</b></th>
+            <th colspan="3"><b>Kraj</b></th>
         </tr>
         <tr>
             <td>Ekspansja</td>
-            <td><input id="EKS" type="number" value="0" min="0"></td>
+            <td colspan="2"><input id="EKS" type="number" value="0" min="0"></td>
         </tr>
         <tr>
             <td>Nawracanie</td>
-            <td><input id="NAW" type="number" value="0" min="0"></td>
+            <td colspan="2"><input id="NAW" type="number" value="0" min="0"></td>
         </tr>
         <tr>
             <td>Zmiana kultury</td>
-            <td><input id="ZMK" type="number" value="0" min="0"></td>
+            <td colspan="2"><input id="ZMK" type="number" value="0" min="0"></td>
         </tr>
         <tr>
             <td>Dofinansowanie rozwoju</td>
-            <td><input type="number" id="DR" value="0" min="0"></td>
+            <td colspan="2"><input type="number" id="DR" value="0" min="0"></td>
         </tr>
         <tr>
             <td>Inne przychody</td>
             <td><input id="inpr" type="number" value="0" min="0"></td>
+            <td><input id="op_inpr" type="text" placeholder="[rozpiska]"></td>
         </tr>
         <tr>
             <td>Inne koszta</td>
             <td><input id="inko" type="number" value="0" max="0"></td>
+            <td><input id="op_inko" type="text" placeholder="[rozpiska]"></td>
         </tr>
     </table>
 </div>
@@ -613,6 +623,6 @@
         <td><input id="NextTura" type="button" value="Przejdź do kolejnej tury" onclick="NEXTTURA()"></td>
     </table>
 </div>
-<script src="main 1.4.js"></script>
+<script src="main 1.4.1.js"></script>
 </body>
 </html>
