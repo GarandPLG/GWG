@@ -29,6 +29,7 @@ function main()
         KosBud = 0,                                                                                                                                                            // Koszt utrzymania budynków
         Gor = 0, Rob = 0, Rol = 0, Pla = 0,                                                                                                                                    // Górnicy, Robotnicy, Rolnicy, Plantatorzy
         Pib = parseInt(document.getElementById("Pib").value),   Pik = parseInt(document.getElementById("Pik").value),                                                          // Początkowa ilość budynków, Początkowa ilość kopalnii
+        Ub = parseInt(document.getElementById("Ub").value),     Uk = parseInt(document.getElementById("Uk").value),                                                            // Usuwanie budynków, Usuwanie kopalni
 
         p_Ps = 0, z_Ps = 0, r_Ps = 0, c_Ps = 0,  p_U = 0, z_U = 0, r_U = 0, c_U = 0,          p_Me = 0, z_Me = 0, r_Me = 0, c_Me = 0,      p_R = 0, z_R = 0, r_R = 0, c_R = 0,          // Produkty spożywcze, Ubranie, Mebel, Ryba
         p_Tk = 0, z_Tk = 0, r_Tk = 0, c_Tk = 0,  p_Zb = 0, z_Zb = 0, r_Zb = 0, c_Zb = 0,      p_Pa = 0, z_Pa = 0, r_Pa = 0, c_Pa = 0,      p_D = 0, z_D = 0, r_D = 0, c_D = 0,          // Tkanina, Zboże, Papier, Drewno
@@ -2244,7 +2245,11 @@ rozliczenie();
 
         kop_przy = sum_kop - Pik,
 
-        sum_przy = (sum_bud + sum_kop) - (sum_pocz);
+        sum_przy = (sum_bud + sum_kop) - (sum_pocz),
+
+        sum_usu = Ub + Uk,
+
+        pods_budy = sum_przy + sum_usu;
 
     document.getElementById("L_p").innerHTML = L_p;
     document.getElementById("L_m").innerHTML = L_m; 
@@ -2266,6 +2271,8 @@ rozliczenie();
     document.getElementById("bud_przy").innerHTML = bud_przy;
     document.getElementById("kop_przy").innerHTML = kop_przy;
     document.getElementById("sum_przy").innerHTML = sum_przy;
+    document.getElementById("sum_usu").innerHTML = sum_usu;
+    document.getElementById("pods_budy").innerHTML = pods_budy;
 
     let NAZ = document.getElementById("NAZ").value,
         Nazwa = "";
@@ -2279,21 +2286,17 @@ rozliczenie();
     {
         let blob = new Blob(
            [`Rynek 1.4.3`,
-            `\nNazwa Kraju / Uni celnej: ${Nazwa}`,
+            `\n\nNazwa Kraju / Uni celnej: ${Nazwa}`,
             `\nIlość członków uni celnej: ${CzUC}`,
             `\nTechnologia: ${TECH}`,
             `\nTura: ${tura}`,
             `\nPopulacja: ${POP}`,
             `\nZaspokojenie potrzeb populacji: ${ZasPot}%`,
-            `\n\nPoczątkowa ilość budynków: ${Pib}`,
-            `\nPoczątkowa ilość kopalni: ${Pik}`,
-            `\nSuma: ${sum_pocz}`,
-            `\nIlość budynków: ${sum_bud}`,
-            `\nIlość kopalń: ${sum_kop}`,
-            `\nŁącznie: ${sum_sum}`,
-            `\nPrzyrost budynków: ${bud_przy}`,
-            `\nPrzyrost kopalń: ${kop_przy}`,
-            `\nPrzyrost o: ${sum_przy}`,
+            `\n\nPoczątkowa ilość budynków: ${Pib}, Początkowa ilość kopalni: ${Pik}, Suma: ${sum_pocz}`,
+            `\nIlość budynków: ${sum_bud},            Ilość kopalń: ${sum_kop},             Łącznie: ${sum_sum}`,
+            `\nPrzyrost budynków: ${bud_przy},         Przyrost kopalń: ${kop_przy},          Przyrost o: ${sum_przy}`,
+            `\nUsunięte budynki: ${Ub},          Usunięte kopalnie: ${Uk},        Łącznie: ${sum_usu}`,
+            `\nDo Toolboxa: ${pods_budy}`,
             `\n\n//BUDYNKI//`, 
             `\n---Zasoby---`, 
             `\nTartak: ${T}`,
