@@ -28,6 +28,7 @@ function main()
         ARC = parseInt(document.getElementById("ARC").value),   FLO = parseInt(document.getElementById("FLO").value), KON = parseInt(document.getElementById("KON").value),    // Łucznicy, Marynarka, Konwoje 
         KosBud = 0,                                                                                                                                                            // Koszt utrzymania budynków
         Gor = 0, Rob = 0, Rol = 0, Pla = 0,                                                                                                                                    // Górnicy, Robotnicy, Rolnicy, Plantatorzy
+        Pib = parseInt(document.getElementById("Pib").value),   Pik = parseInt(document.getElementById("Pik").value),                                                          // Początkowa ilość budynków, Początkowa ilość kopalnii
 
         p_Ps = 0, z_Ps = 0, r_Ps = 0, c_Ps = 0,  p_U = 0, z_U = 0, r_U = 0, c_U = 0,          p_Me = 0, z_Me = 0, r_Me = 0, c_Me = 0,      p_R = 0, z_R = 0, r_R = 0, c_R = 0,          // Produkty spożywcze, Ubranie, Mebel, Ryba
         p_Tk = 0, z_Tk = 0, r_Tk = 0, c_Tk = 0,  p_Zb = 0, z_Zb = 0, r_Zb = 0, c_Zb = 0,      p_Pa = 0, z_Pa = 0, r_Pa = 0, c_Pa = 0,      p_D = 0, z_D = 0, r_D = 0, c_D = 0,          // Tkanina, Zboże, Papier, Drewno
@@ -2231,11 +2232,19 @@ rozliczenie();
 
         UC = ((Czysto - KosBud)/CzUC).toFixed(0)/1;
 
-        sum_sum = T + Kw + Kze + Ko + Ks + Kzl + Zsp + Fw + Fm + Hsz + N + P + Zch + Zsy + Hst + Sd + Ss + Zz + Za + Fz + Fps + Fr + Fk + Fpr + R + Mr + Pk + Pbaw + Pbar + Ph + Pt + Pc + Po + Pj,
-
         sum_kop = Kw + Kze + Ko + Ks + Kzl,
 
-        sum_bud = T + Zsp + Fw + Fm + Hsz + N + P + Zch + Zsy + Hst + Sd + Ss + Zz + Za + Fz + Fps + Fr + Fk + Fpr + R + Mr + Pk + Pbaw + Pbar + Ph + Pt + Pc + Po + Pj;
+        sum_bud = T + Zsp + Fw + Fm + Hsz + N + P + Zch + Zsy + Hst + Sd + Ss + Zz + Za + Fz + Fps + Fr + Fk + Fpr + R + Mr + Pk + Pbaw + Pbar + Ph + Pt + Pc + Po + Pj,
+
+        sum_sum = sum_bud + sum_kop,
+
+        sum_pocz = Pib + Pik,
+
+        bud_przy = sum_bud - Pib,
+
+        kop_przy = sum_kop - Pik,
+
+        sum_przy = (sum_bud + sum_kop) - (sum_pocz);
 
     document.getElementById("L_p").innerHTML = L_p;
     document.getElementById("L_m").innerHTML = L_m; 
@@ -2250,9 +2259,13 @@ rozliczenie();
     document.getElementById("Czysto").innerHTML = Czysto - KosBud;
     document.getElementById("UC").innerHTML = UC;
 
-    document.getElementById("sum_sum").innerHTML = sum_sum;
     document.getElementById("sum_kop").innerHTML = sum_kop;
     document.getElementById("sum_bud").innerHTML = sum_bud;
+    document.getElementById("sum_sum").innerHTML = sum_sum;
+    document.getElementById("sum_pocz").innerHTML = sum_pocz;
+    document.getElementById("bud_przy").innerHTML = bud_przy;
+    document.getElementById("kop_przy").innerHTML = kop_przy;
+    document.getElementById("sum_przy").innerHTML = sum_przy;
 
     let NAZ = document.getElementById("NAZ").value,
         Nazwa = "";
@@ -2265,10 +2278,22 @@ rozliczenie();
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-           [`Nazwa Kraju / Uni celnej: ${Nazwa}`,
+           [`Rynek 1.4.3`,
+            `\nNazwa Kraju / Uni celnej: ${Nazwa}`,
             `\nIlość członków uni celnej: ${CzUC}`,
             `\nTechnologia: ${TECH}`,
             `\nTura: ${tura}`,
+            `\nPopulacja: ${POP}`,
+            `\nZaspokojenie potrzeb populacji: ${ZasPot}%`,
+            `\n\nPoczątkowa ilość budynków: ${Pib}`,
+            `\nPoczątkowa ilość kopalni: ${Pik}`,
+            `\nSuma: ${sum_pocz}`,
+            `\nIlość budynków: ${sum_bud}`,
+            `\nIlość kopalń: ${sum_kop}`,
+            `\nŁącznie: ${sum_sum}`,
+            `\nPrzyrost budynków: ${bud_przy}`,
+            `\nPrzyrost kopalń: ${kop_przy}`,
+            `\nPrzyrost o: ${sum_przy}`,
             `\n\n//BUDYNKI//`, 
             `\n---Zasoby---`, 
             `\nTartak: ${T}`,
@@ -2309,8 +2334,6 @@ rozliczenie();
             `\nPlantacja owoców: ${Po}`,
             `\nPlantacja jedwabiu: ${Pj}`,
             `\n\n//KRAJ//`,
-            `\nPopulacja: ${POP}`,
-            `\nZaspokojenie potrzeb populacji: ${ZasPot}%`,
             `\n---Armia---`,
             `\nInfantry: ${INF}`,
             `\nArchers: ${ARC}`,
@@ -2383,9 +2406,6 @@ rozliczenie();
             `\nArtyleria: ${p_Ar}, ${z_Ar}, ${p_Ar - z_Ar}, ${c_Ar}, ${r_Ar}`,
             `\nAmunicja: ${p_Am}, ${z_Am}, ${p_Am - z_Am}, ${c_Am}, ${r_Am}`,
             `\nStatek: ${p_Sta}, ${z_Sta}, ${p_Sta - z_Sta}, ${c_Sta}, ${r_Sta}`,
-            `\n\nIlość kopalń: ${sum_kop}`,
-            `\nIlość budynków: ${sum_bud}`,
-            `\nŁącznie: ${sum_sum}`,
             `\n\n//ŁĄCZNIE//`,
             `\nŁącznie (potrzeby populacji): ${L_pp_p}, ${L_pp_m}, ${L_pp_p - L_pp_m}, ${Suma_pp}`,
             `\nŁącznie (produkcja): ${L_p}, ${L_m}, ${L_p - L_m}, ${Suma}`,

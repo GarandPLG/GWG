@@ -468,7 +468,7 @@ function Main()
            `\nZmaina stabilności: ${nstab}`,
            `\nIlość punktów rozwoju: ${SPR}`,
            `\nTechnologia: ${nTECH}`,
-           `\n% progresu: ${prPRO}`,
+           `\nProgres rozwoju: ${prPRO}%`,
            `\nObecny GovCap: ${GovCap}`,
            `\n% GovCap: ${((GovCap / LGovCap)*100).toFixed(2)/1}`
           ], 

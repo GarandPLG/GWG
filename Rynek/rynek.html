@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="garand.ico">
-    <title>Rynek 1.4.2</title>
+    <title>Rynek 1.4.3</title>
 </head>
 <body>
 <div id="Budynki">
@@ -589,12 +589,28 @@
                 <td colspan="6"><b>Suma budynków</b></td>
             </tr>
             <tr>
+                <td>Początkowa ilość budynków:</td>
+                <td><input id="Pib" type="number" value="0" min="0"></td>
+                <td>Początkowa ilość kopalni:</td>
+                <td><input id="Pik" type="number" value="0" min="0"></td>
+                <td>Suma:</td>
+                <td id="sum_pocz">0</td>
+            </tr>
+            <tr>
                 <td>Budynki produkcyjne:</td>
                 <td id="sum_bud">0</td>
                 <td>Kopalnie:</td>
                 <td id="sum_kop">0</td>
                 <td>Łącznie:</td>
                 <td id="sum_sum">0</td>
+            </tr>
+            <tr>
+                <td>Przyrost budynków:</td>
+                <td id="bud_przy">0</td>
+                <td>Przyrost kopalń:</td>
+                <td id="kop_przy">0</td>
+                <td>Przyrost o:</td>
+                <td id="sum_przy">0</td>
             </tr>
             <tr>
                 <td colspan="6"><b>Koszt utrzymania</b></td>
@@ -1221,6 +1237,6 @@
         </tr>
     </table>
 </div>
-<script src="main 1.4.2.js"></script>
+<script src="main 1.4.3.js"></script>
 </body>
 </html>
