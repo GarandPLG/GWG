@@ -52,13 +52,13 @@ function Main()
         inko = parseInt(document.getElementById("inko").value),
         KDwT = 
             BProd * 200 + 
-            BNmiasto * 2000 + 
-            R_Tdf * 750 +
-            R_Tr * 825 +
-            R_Ta * 1410 + 
-            R_Gr * 1275 +
-            R_We * 1410 +
-            R_Tu * 1470 +
+            BNmiasto * 1500 + 
+            R_Tdf * 200 +
+            R_Tr * 220 +
+            R_Ta * 376 + 
+            R_Gr * 340 +
+            R_We * 376 +
+            R_Tu * 392 +
             BSmiasto * 1500 + 
             Drogi * 250 + 
             WDrogi * 500 + 
@@ -67,6 +67,7 @@ function Main()
             NAW * 100 +
             ZMK * 300 +
             DR * 350,
+
         op_BNmiasto = document.getElementById("op_BNmiasto").value,
         op_BSmiasto = document.getElementById("op_BSmiasto").value,
         op_Tdf = document.getElementById("op_Tdf").value,
@@ -127,11 +128,11 @@ function Main()
         plPOP_suma = plPOP + ok_plPOP,
 
         Wpod = ((psp * (plwies + wies))/50).toFixed(0)/1,
-        Mpod = ((psp*2 * (plmiasto + miasto))/50).toFixed(0)/1,
+        Mpod = ((psp*4 * (plmiasto + miasto))/50).toFixed(0)/1,
         Lpod = Wpod + Mpod,
         
         ok_Wpod = ((psp/2 * (ok_plwies + ok_wies))/50).toFixed(0)/1,
-        ok_Mpod = ((psp * (ok_plmiasto + ok_miasto))/50).toFixed(0)/1,
+        ok_Mpod = ((psp*2 * (ok_plmiasto + ok_miasto))/50).toFixed(0)/1,
         ok_Lpod = ok_Wpod + ok_Mpod,
 
         Pod_suma = Lpod + ok_Lpod,
