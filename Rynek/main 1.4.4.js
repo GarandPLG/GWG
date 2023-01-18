@@ -27,9 +27,10 @@ function main()
         INF = parseInt(document.getElementById("INF").value),   CAV = parseInt(document.getElementById("CAV").value), ART = parseInt(document.getElementById("ART").value),    // Piechota, Kawaleria, Artyleria
         ARC = parseInt(document.getElementById("ARC").value),   FLO = parseInt(document.getElementById("FLO").value), KON = parseInt(document.getElementById("KON").value),    // Łucznicy, Marynarka, Konwoje 
         KosBud = 0,                                                                                                                                                            // Koszt utrzymania budynków
-        Gor = 0, Rob = 0, Rol = 0, Pla = 0,                                                                                                                                    // Górnicy, Robotnicy, Rolnicy, Plantatorzy
+        Gor = 0, Rob = 0, Rol = 0, Pla = 0, pr_Gor = 0, pr_Rob = 0, pr_Rol = 0, pr_Pla = 0, pr_zaw = 0,                                                                        // Górnicy, Robotnicy, Rolnicy, Plantatorzy
         Pib = parseInt(document.getElementById("Pib").value),   Pik = parseInt(document.getElementById("Pik").value),                                                          // Początkowa ilość budynków, Początkowa ilość kopalnii
         Ub = parseInt(document.getElementById("Ub").value),     Uk = parseInt(document.getElementById("Uk").value),                                                            // Usuwanie budynków, Usuwanie kopalni
+
 
         p_Ps = 0, z_Ps = 0, r_Ps = 0, c_Ps = 0,  p_U = 0, z_U = 0, r_U = 0, c_U = 0,          p_Me = 0, z_Me = 0, r_Me = 0, c_Me = 0,      p_R = 0, z_R = 0, r_R = 0, c_R = 0,          // Produkty spożywcze, Ubranie, Mebel, Ryba
         p_Tk = 0, z_Tk = 0, r_Tk = 0, c_Tk = 0,  p_Zb = 0, z_Zb = 0, r_Zb = 0, c_Zb = 0,      p_Pa = 0, z_Pa = 0, r_Pa = 0, c_Pa = 0,      p_D = 0, z_D = 0, r_D = 0, c_D = 0,          // Tkanina, Zboże, Papier, Drewno
@@ -1703,19 +1704,26 @@ function zapotrzebowania()
         ARM += 25 * KON;
         z_Sta += 1 * KON;
 
-    /*% Poboru*/              APP = ((ARM / POP)*100).toFixed(2);
+    /*% Poboru*/              APP = ((ARM / POP)*100).toFixed(2)/1;
 
     /*Górnicy*/               document.getElementById("Gor").innerHTML = Gor;
-    /*% Górnicy*/             document.getElementById("%_Gor").innerHTML = ((Gor / POP)*100).toFixed(2);
+                              pr_Gor = ((Gor / POP)*100).toFixed(2)/1;
+    /*% Górnicy*/             document.getElementById("%_Gor").innerHTML = pr_Gor;
 
     /*Robotnicy*/             document.getElementById("Rob").innerHTML = Rob;
-    /*% Robotnicy*/           document.getElementById("%_Rob").innerHTML = ((Rob / POP)*100).toFixed(2);
+                              pr_Rob = ((Rob / POP)*100).toFixed(2)/1;
+    /*% Robotnicy*/           document.getElementById("%_Rob").innerHTML = pr_Rob;
 
     /*Rolnicy*/               document.getElementById("Rol").innerHTML = Rol;
-    /*% Rolnicy*/             document.getElementById("%_Rol").innerHTML = ((Rol / POP)*100).toFixed(2);
+                              pr_Rol = ((Rol / POP)*100).toFixed(2)/1;
+    /*% Rolnicy*/             document.getElementById("%_Rol").innerHTML = pr_Rol;
 
     /*Plantatorzy*/           document.getElementById("Pla").innerHTML = Pla;
-    /*% Plantatorzy*/         document.getElementById("%_Pla").innerHTML = ((Pla / POP)*100).toFixed(2);
+                              pr_Pla = ((Pla / POP)*100).toFixed(2)/1;
+    /*% Plantatorzy*/         document.getElementById("%_Pla").innerHTML = pr_Pla;
+
+    /*Suma*/                  pr_zaw = (pr_Gor + pr_Rob + pr_Rol + pr_Pla + APP).toFixed(2)/1;
+                              document.getElementById("pr_zaw").innerHTML = pr_zaw;
 }
 zapotrzebowania();
 
@@ -2285,7 +2293,7 @@ rozliczenie();
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-           [`Rynek 1.4.3`,
+           [`Rynek 1.4.4`,
             `\n\nNazwa Kraju / Uni celnej: ${Nazwa}`,
             `\nIlość członków uni celnej: ${CzUC}`,
             `\nTechnologia: ${TECH}`,
@@ -2297,6 +2305,13 @@ rozliczenie();
             `\nPrzyrost budynków: ${bud_przy},         Przyrost kopalń: ${kop_przy},          Przyrost o: ${sum_przy}`,
             `\nUsunięte budynki: ${Ub},          Usunięte kopalnie: ${Uk},        Łącznie: ${sum_usu}`,
             `\nDo Toolboxa: ${pods_budy}`,
+            `\n\n//Zatrudnienie//`,
+            `\nGórnicy: ${Gor}, ${pr_Gor}%`,
+            `\nRobotnicy: ${Rob}, ${pr_Rob}%`,
+            `\nRolnicy: ${Rol}, ${pr_Rol}%`,
+            `\nPlantatorzy: ${Pla}, ${pr_Pla}%`,
+            `\nŻołnierze i Marynarze: ${ARM}, ${APP}%`,
+            `\nSuma punktów procentowych zawodów: ${pr_zaw}%`,
             `\n\n//BUDYNKI//`, 
             `\n---Zasoby---`, 
             `\nTartak: ${T}`,
@@ -2344,9 +2359,7 @@ rozliczenie();
             `\nArtillery: ${ART}`,
             `\nMarynarka: ${FLO}`,
             `\nKonwoje: ${KON}`,
-            `\nŻołnierze i Marynarze: ${ARM}`,
-            `\n% Poboru: ${APP}`,
-            `\n---Mnożniki zapotrzebowań---`,
+            `\n\n---Mnożniki zapotrzebowań---`,
             `\nProdukty sporzywcze: ${m_Ps}`,
             `\nUbranie: ${m_U}`,
             `\nMebel: ${m_Me}`,

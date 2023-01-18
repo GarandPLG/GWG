@@ -85,7 +85,7 @@ function Main()
         PrZw = parseFloat(document.getElementById("PrZw").value),
         SpPo = parseInt(document.getElementById("SpPo").value),
         Intrest = 0,
-        MaxZad = ((wies + miasto)/10).toFixed(0)/1,
+        MaxZad = ((wies + miasto)*0.02).toFixed(0)/1,
         WskZad = 0,
         Ban = document.getElementById("Ban").innerHTML = "NIE",
         SuRoz = 0,
@@ -339,7 +339,7 @@ function Main()
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-          [`Wersja: 1.4.1`,
+          [`Wersja: 1.4.2`,
            `\n\n///////////\n///INPUT///\n///////////`,
            `\n\n---Kraj---`,
            `\nNazwa kraju: ${NazKra}`,
