@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="garand.ico">
     <link rel="stylesheet" href="style.css">
-    <title>Toolbox 1.4.2</title>
+    <title>Toolbox alfa-1.5</title>
 </head>
 <body>
 <div id="Kraj">
@@ -238,8 +238,12 @@
             <th colspan="3"><b>1. Budynki</b></th>
         </tr>
         <tr>
-            <td>Budynki produkcyjne</td>
+            <td>Zbudowane budynki</td>
             <td colspan="2"><input id="BProd" type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td>Zburzone budynki</td>
+            <td colspan="2"><input id="ZProd" type="number" value="0"></td>
         </tr>
         <tr>
             <td>Założenie Miasta</td>
@@ -297,6 +301,9 @@
             <td>Tundra</td>
             <td><input id="R_Tu" type="number" value="0" min="0"></td>
             <td><input id="op_Tu" type="text" placeholder="[miasto]:[ile],"></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
         </tr>
     </table>
     <table id="TAB3D">
@@ -623,6 +630,6 @@
         <td><input id="NextTura" type="button" value="Przejdź do kolejnej tury" onclick="NEXTTURA()"></td>
     </table>
 </div>
-<script src="main 1.4.2.js"></script>
+<script src="main 1.5.js"></script>
 </body>
 </html>

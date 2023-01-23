@@ -32,6 +32,7 @@ function Main()
         LP = parseFloat(document.getElementById("LP").value),
 
         BProd = parseInt(document.getElementById("BProd").value),
+        ZProd = parseInt(document.getElementById("ZProd").value),
         BNmiasto = parseInt(document.getElementById("BNmiasto").value),
         BSmiasto = parseInt(document.getElementById("BSmiasto").value),
         Drogi = parseInt(document.getElementById("Drogi").value),
@@ -52,6 +53,7 @@ function Main()
         inko = parseInt(document.getElementById("inko").value),
         KDwT = 
             BProd * 200 + 
+            ZProd * 150 +
             BNmiasto * 1500 + 
             R_Tdf * 200 +
             R_Tr * 220 +
@@ -143,7 +145,7 @@ function Main()
         zstab = 0,
         nstab = 0,
 
-        ARM = FLO * 200 + KON * 25,
+        ARM = (FLO + rFLO) * 200 + (KON + rKON) * 25,
         KUA = FLO * 10 + KON * 2, 
         KRA = rFLO * 400 + rKON * 50,
         KA = 0,
@@ -246,14 +248,13 @@ function Main()
     {
         zstab += StabPob.toFixed(2)/1;
         KA = ((StabPob/10) * (KUA + KRA)).toFixed(0)/1;
-        KUA += KA;
     }
 
     if(ZPP < 90)
     {
         zstab += ((100 - ZPP)/5).toFixed(2)/1;
     }
-    Nska -= KUA;
+    Nska -= KUA + KA;
 
     SuRoz = Nska - ska;
     Obil = Nska - KDwT + WzPo - SpPo - KRA + inpr - inko;
@@ -339,7 +340,7 @@ function Main()
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-          [`Wersja: 1.4.2`,
+          [`Wersja: alfa-1.5`,
            `\n\n///////////\n///INPUT///\n///////////`,
            `\n\n---Kraj---`,
            `\nNazwa kraju: ${NazKra}`,
@@ -388,7 +389,8 @@ function Main()
 
            `\n\n///////////////////////\n///Działania w Turze///\n///////////////////////`,
            `\n\n---Budynki---`,
-           `\nBudynki produkcyjne: ${BProd}`,
+           `\nZbudowane budynki: ${BProd}`,
+           `\nZburzone budynki: ${ZProd}`,
            `\nZałożenie Miasta: ${BNmiasto} > ${op_BNmiasto}`,
            `\nBudynki specjalne miast: ${BSmiasto} > ${op_BSmiasto}`,
            `\nDrogi: ${Drogi}`,

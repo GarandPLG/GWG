@@ -9,8 +9,25 @@ table, tr, td, th
     border: 1px solid grey;
     border-collapse: collapse;
 }
-td {height: 30px; padding: 3px;}
-th{padding: 4px;}
+td 
+{
+    height: 36px; 
+}
+th
+{
+    padding: 4px;
+    color: rgb(105, 96, 79);
+    border: 1px solid rgb(105, 96, 79);
+}
 a{color: white;}
-#obl{width: 90%; background-color: white; color: black;}
+#obl, #imp {width: 90%; background-color: white; color: black;}
 #NaCzysto, #PUC {text-align: right;}
+h1 
+{
+    text-align: center; 
+    border: 1px solid grey; 
+    border-collapse: collapse;
+    clear: both;
+}
+#INP1, #INP2, #INP3 {width: 100%;}
+#BUD, #DAN, #RYN {width: 100%;}

@@ -6,844 +6,885 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="garand.ico">
-    <title>Rynek 1.4.4</title>
+    <title>Rynek 1.5</title>
 </head>
 <body>
 <div id="Budynki">
-    <table>
-        <form>
-            <tr>
-                <td colspan="2"><b>Technologia</b></td>
-                <td colspan="4"><input id="TECH" type="number" value="1" min="1" max="50"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><b>Tura</b></td>
-                <td colspan="4"><input id="tura" type="number" value="1" min="1"></td>
-            </tr>
+    <table id="INP1">
+        <tr>
+            <td><b>Tura</b></td>
+            <td><input id="tura" type="number" value="1" min="1"></td>
+        </tr>
+        <tr>
+            <td><b>Technologia</b></td>
+            <td><input id="TECH" type="number" value="1" min="1" max="50"></td>
+        </tr>
+        <tr>
+            <td><b>IMPORT</b></td>
+            <td><input type="text" id="IMPO" placeholder="Kod importu" maxlength="9999"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" id="imp" value="Importuj" onclick="Import()"></td>
+        </tr>
+    </table>
 
-            <tr>
-                <td colspan="2"><b>Zasoby</b></td>
-                <td colspan="2"><b>Produkcja / Zapotrzebowanie</b></td>
-                <td><b>Zatrudnienie</b></td>
-                <td><b>Tier</b></td>
-            </tr>
-            <tr>
-                <td>Tartak</td>
-                <td><input type="number" id="T" value="0" min="0"></td>
-                <td id="T_p">
-                    +30 Drewno
-                </td>
-                <td id="T_z">
-                    -5 Narzędzia
-                </td>  
-                <td id="T_l">
-                    0
-                </td>
-                <td id="T_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Kopalnia węgla</td>
-                <td><input type="number" id="Kw" value="0" min="0"></td>
-                <td id="Kw_p">
-                    -
-                </td>
-                <td id="Kw_z">
-                    -
-                </td>
-                <td id="Kw_l">
-                    -
-                </td>
-                <td id="Kw_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Kopalnia żelaza</td>
-                <td><input type="number" id="Kze" value="0" min="0"></td>
-                <td id="Kze_p">
-                    +20 Żelazo
-                </td>
-                <td id="Kze_z">
-                    -5 Narzędzia
-                </td>
-                <td id="Kze_l">
-                    0
-                </td>
-                <td id="Kze_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Kopalnia ołowiu</td>
-                <td><input type="number" id="Ko" value="0" min="0"></td>
-                <td id="Ko_p">
-                    -
-                </td>
-                <td id="Ko_z">
-                    -
-                </td>
-                <td id="Ko_l">
-                    -
-                </td>
-                <td id="Ko_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Kopalnia siarki</td>
-                <td><input type="number" id="Ks" value="0" min="0"></td>
-                <td id="Ks_p">
-                    -
-                </td>
-                <td id="Ks_z">
-                    -
-                </td>
-                <td id="Ks_l">
-                    -
-                </td>
-                <td id="Ks_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Kopalnia złota</td>
-                <td><input type="number" id="Kzl" value="0" min="0"></td>
-                <td id="Kzl_p">
-                    +10 Złoto
-                </td>
-                <td id="Kzl_z">
-                    -5 Narzędzia
-                </td>
-                <td id="Kzl_l">
-                    0
-                </td>
-                <td id="Kzl_t">
-                    I
-                </td>
-            </tr>
+    <h1><b>I. BUDYNKI</b></h1>
 
-            <tr><td colspan="2"><b>Przemysł</b></td></tr>
-
-            <tr>
-                <td>Zakład spożywczy</td>
-                <td><input type="number" id="Zsp" value="0" min="0"></td>
-                <td id="Zsp_p">
-                    +45 Produkty sporzywcze
-                </td>
-                <td id="Zsp_z">
-                    -40 Zboże
-                </td>
-                <td id="Zsp_l">
-                    0
-                </td>
-                <td id="Zsp_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Fabryka włókiennicza</td>
-                <td><input type="number" id="Fw" value="0" min="0"></td>
-                <td id="Fw_p">
-                    +45 Ubranie
-                </td>
-                <td id="Fw_z">
-                    -40 Tkanina
-                </td>
-                <td id="Fw_l">
-                    0
-                </td>
-                <td id="Fw_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Fabryka mebli</td>
-                <td><input type="number" id="Fm" value="0" min="0"></td>
-                <td id="Fm_p">
-                    +45 Meblel
-                </td>
-                <td id="Fm_z">
-                    -30 Drewno<br>
-                    -10 Tkanina
-                </td>
-                <td id="Fm_l">
-                    0
-                </td>
-                <td id="Fm_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Huta szkła</td>
-                <td><input type="number" id="Hsz" value="0" min="0"></td>
-                <td id="Hsz_p">
-                    +30 Szkło
-                </td>
-                <td id="Hsz_z">
-                    -30 Drewno
-                </td>
-                <td id="Hsz_l">
-                    0
-                </td>
-                <td id="Hsz_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Narzędziownia</td>
-                <td><input type="number" id="N" value="0" min="0"></td>
-                <td id="N_p">
-                    +30 Narzędzia
-                </td>
-                <td id="N_z">
-                    -20 Drewno<br>
-                    -10 Żelazo
-                </td>
-                <td id="N_l">
-                    0
-                </td>
-                <td id="N_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Papiernia</td>
-                <td><input type="number" id="P" value="0" min="0"></td>
-                <td id="P_p">
-                    +40 Papier
-                </td>
-                <td id="P_z">
-                    -30 Drewno
-                </td>
-                <td id="P_l">
-                    0
-                </td>
-                <td id="P_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Zakład chemiczny</td>
-                <td><input type="number" id="Zch" value="0" min="0"></td>
-                <td id="Zch_p">
-                    -
-                </td>
-                <td id="Zch_z">
-                    -
-                </td>
-                <td id="Zch_l">
-                    -
-                </td>
-                <td id="Zch_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Zakład syntetyczny</td>
-                <td><input type="number" id="Zsy" value="0" min="0"></td>
-                <td id="Zsy_p">
-                    -
-                </td>
-                <td id="Zsy_z">
-                    -
-                </td>
-                <td id="Zsy_l">
-                    -
-                </td>
-                <td id="Zsy_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Huta stali</td>
-                <td><input type="number" id="Hst" value="0" min="0"></td>
-                <td id="Hst_p">
-                    -
-                </td>
-                <td id="Hst_z">
-                    -
-                </td>
-                <td id="Hst_l">
-                    -
-                </td>
-                <td id="Hst_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Stocznia (Drewno)</td>
-                <td><input type="number" id="Sd" value="0" min="0"></td>
-                <td id="Sd_p">
-                    +20 Statek
-                </td>
-                <td id="Sd_z">
-                    -40 Drewno<br>
-                    -20 Tkanina<br>
-                    -10 Narzędzia
-                </td>
-                <td id="Sd_l">
-                    0
-                </td>
-                <td id="Sd_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Stocznia (Stal)</td>
-                <td><input type="number" id="Ss" value="0" min="0"></td>
-                <td id="Ss_p">
-                    -
-                </td>
-                <td id="Ss_z">
-                    -
-                </td>
-                <td id="Ss_l">
-                    -
-                </td>
-                <td id="Ss_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Zakład zbrojeniowy</td>
-                <td><input type="number" id="Zz" value="0" min="0"></td>
-                <td id="Zz_p">
-                    -
-                </td>
-                <td id="Zz_z">
-                    -
-                </td>
-                <td id="Zz_l">
-                    -
-                </td>
-                <td id="Zz_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Zakład amunicyjny</td>
-                <td><input type="number" id="Za" value="0" min="0"></td>
-                <td id="Za_p">
-                    -
-                </td>
-                <td id="Za_z">
-                    -
-                </td>
-                <td id="Za_l">
-                    -
-                </td>
-                <td id="Za_t">
-                    0
-                </td>
-            </tr>
-
-            <tr><td colspan="2"><b>Żywność</b></td></tr>
-
-            <tr>
-                <td>Farma żyta</td>
-                <td><input type="number" id="Fz" value="0" min="0"></td>
-                <td id="Fz_p">
-                    +30 Zboże
-                </td>
-                <td id="Fz_z">
-                    -5 Narzędzia
-                </td>
-                <td id="Fz_l">
-                    0
-                </td>
-                <td id="Fz_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Farma pszenicy</td>
-                <td><input type="number" id="Fps" value="0" min="0"></td>
-                <td id="Fps_p">
-                    +30 Zboże
-                </td>
-                <td id="Fps_z">
-                    -5 Narzędzia
-                </td>
-                <td id="Fps_l">
-                    0
-                </td>
-                <td id="Fps_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Farma ryżu</td>
-                <td><input type="number" id="Fr" value="0" min="0"></td>
-                <td id="Fr_p">
-                    +35 Zboże
-                </td>
-                <td id="Fr_z">
-                    -5 Narzędzia
-                </td>
-                <td id="Fr_l">
-                    0
-                </td>
-                <td id="Fr_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Farma kukurydzy</td>
-                <td><input type="number" id="Fk" value="0" min="0"></td>
-                <td id="Fk_p">
-                    +30 Zboże
-                </td>
-                <td id="Fk_z">
-                    -5 Narzędzia
-                </td>
-                <td id="Fk_l">
-                    0
-                </td>
-                <td id="Fk_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Farma prosa</td>
-                <td><input type="number" id="Fpr" value="0" min="0"></td>
-                <td id="Fpr_p">
-                    +30 Zboże
-                </td>
-                <td id="Fpr_z">
-                    -5 Narzędzia
-                </td>
-                <td id="Fpr_l">
-                    0
-                </td>
-                <td id="Fpr_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Ranczo</td>
-                <td><input type="number" id="R" value="0" min="0"></td>
-                <td id="R_p">
-                    +25 Tkanina<br>
-                    +5 Mięso
-                </td>
-                <td id="R_z">
-                    -5 Narzędzia
-                </td>
-                <td id="R_l">
-                    0
-                </td>
-                <td id="R_t">
-                    I
-                </td>
-            </tr>
-            <tr>
-                <td>Molo rybackie</td>
-                <td><input type="number" id="Mr" value="0" min="0"></td>
-                <td id="Mr_p">
-                    +25 Ryba
-                </td>
-                <td id="Mr_z">
-                    -5 Narzędzia
-                </td>
-                <td id="Mr_l">
-                    0
-                </td>
-                <td id="Mr_t">
-                    I
-                </td>
-            </tr>
-
-            <tr><td colspan="2"><b>Plantacje</b></td></tr>
-
-            <tr>
-                <td>Plantacja kawy</td>
-                <td><input type="number" id="Pk" value="0" min="0"></td>
-                <td id="Pk_p">
-                    -
-                </td>
-                <td id="Pk_z">
-                    -
-                </td>
-                <td id="Pk_l">
-                    -
-                </td>
-                <td id="Pk_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Plantacja bawełny</td>
-                <td><input type="number" id="Pbaw" value="0" min="0"></td>
-                <td id="Pbaw_p">
-                    -
-                </td>
-                <td id="Pbaw_z">
-                    -
-                </td>
-                <td id="Pbaw_l">
-                    -
-                </td>
-                <td id="Pbaw_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Plantacja barwników</td>
-                <td><input type="number" id="Pbar" value="0" min="0"></td>
-                <td id="Pbar_p">
-                    -
-                </td>
-                <td id="Pbar_z">
-                    -
-                </td>
-                <td id="Pbar_l">
-                    -
-                </td>
-                <td id="Pbar_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Plantacja herbaty</td>
-                <td><input type="number" id="Ph" value="0" min="0"></td>
-                <td id="Ph_p">
-                    -
-                </td>
-                <td id="Ph_z">
-                    -
-                </td>
-                <td id="Ph_l">
-                    -
-                </td>  
-                <td id="Ph_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Plantacja tytoniu</td>
-                <td><input type="number" id="Pt" value="0" min="0"></td>
-                <td id="Pt_p">
-                    -
-                </td>
-                <td id="Pt_z">
-                    -
-                </td>
-                <td id="Pt_l">
-                    -
-                </td>
-                <td id="Pt_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Plantacja cukru</td>
-                <td><input type="number" id="Pc" value="0" min="0"></td>
-                <td id="Pc_p">
-                    -
-                </td>
-                <td id="Pc_z">
-                    -
-                </td>
-                <td id="Pc_l">
-                    -
-                </td>
-                <td id="Pc_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Plantacja owoców</td>
-                <td><input type="number" id="Po" value="0" min="0"></td>
-                <td id="Po_p">
-                    -
-                </td>
-                <td id="Po_z">
-                    -
-                </td>
-                <td id="Po_l">
-                    -
-                </td>
-                <td id="Po_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td>Plantacja jedwabiu</td>
-                <td><input type="number" id="Pj" value="0" min="0"></td>
-                <td id="Pj_p">
-                    -
-                </td>
-                <td id="Pj_z">
-                    -
-                </td>
-                <td id="Pj_l">
-                    -
-                </td>
-                <td id="Pj_t">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td colspan="6"><b>Suma budynków</b></td>
-            </tr>
-            <tr>
-                <td>Budynki produkcyjne:</td>
-                <td id="sum_bud">0</td>
-                <td>Kopalnie:</td>
-                <td id="sum_kop">0</td>
-                <td>Łącznie:</td>
-                <td id="sum_sum">0</td>
-            </tr>
-            <tr>
-                <td>Początkowa ilość budynków:</td>
-                <td><input id="Pib" type="number" value="0" min="0"></td>
-                <td>Początkowa ilość kopalni:</td>
-                <td><input id="Pik" type="number" value="0" min="0"></td>
-                <td>Suma:</td>
-                <td id="sum_pocz">0</td>
-            </tr>
-            <tr>
-                <td>Przyrost budynków:</td>
-                <td id="bud_przy">0</td>
-                <td>Przyrost kopalń:</td>
-                <td id="kop_przy">0</td>
-                <td>Przyrost o:</td>
-                <td id="sum_przy">0</td>
-            </tr>
-            <tr>
-                <td>Usunięte budynki:</td>
-                <td><input id="Ub" type="number" min="0" value="0"></td>
-                <td>Usunięte kopalnie:</td>
-                <td><input id="Uk" type="number" min="0" value="0"></td>
-                <td>Łącznie:</td>
-                <td id="sum_usu">0</td>
-            </tr>
-            <tr>
-                <td colspan="5">Do Toolboxa:</td>
-                <td id="pods_budy">0</td>
-            </tr>
-            <tr>
-                <td colspan="6"><b>Koszt utrzymania</b></td>
-            </tr>
-            <tr>
-                <td id="KosBud" colspan="6">0</td>
-            </tr>
-        </form>
+    <table id="BUD">
+        <tr>
+            <th><b>Budynki</b></th>
+            <th><b>Ilość pocz.</b></th>
+            <th><b>Ilość</b></th>
+            <th><b>Produkcja</b></th>
+            <th><b>Zapotrzebowania</b></th>
+            <th><b>Zatrudnienie</b></th>
+            <th><b>Tier</b></th>
+        </tr>
+        <tr>
+            <td colspan="7"><b>Zasoby</b></td>
+        </tr>
+        <tr>
+            <td>Tartak</td>
+            <td><input type="number" id="pocz_T" value="0" min="0"></td>
+            <td><input type="number" id="T" value="0" min="0"></td>
+            <td id="T_p">
+                +30 Drewno
+            </td>
+            <td id="T_z">
+                -5 Narzędzia
+            </td>  
+            <td id="T_l">
+                0
+            </td>
+            <td id="T_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Kopalnia węgla</td>
+            <td><input type="number" id="pocz_Kw" value="0" min="0"></td>
+            <td><input type="number" id="Kw" value="0" min="0"></td>
+            <td id="Kw_p">
+                -
+            </td>
+            <td id="Kw_z">
+                -
+            </td>
+            <td id="Kw_l">
+                -
+            </td>
+            <td id="Kw_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Kopalnia żelaza</td>
+            <td><input type="number" id="pocz_Kze" value="0" min="0"></td>
+            <td><input type="number" id="Kze" value="0" min="0"></td>
+            <td id="Kze_p">
+                +20 Żelazo
+            </td>
+            <td id="Kze_z">
+                -5 Narzędzia
+            </td>
+            <td id="Kze_l">
+                0
+            </td>
+            <td id="Kze_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Kopalnia ołowiu</td>
+            <td><input type="number" id="pocz_Ko" value="0" min="0"></td>
+            <td><input type="number" id="Ko" value="0" min="0"></td>
+            <td id="Ko_p">
+                -
+            </td>
+            <td id="Ko_z">
+                -
+            </td>
+            <td id="Ko_l">
+                -
+            </td>
+            <td id="Ko_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Kopalnia siarki</td>
+            <td><input type="number" id="pocz_Ks" value="0" min="0"></td>
+            <td><input type="number" id="Ks" value="0" min="0"></td>
+            <td id="Ks_p">
+                -
+            </td>
+            <td id="Ks_z">
+                -
+            </td>
+            <td id="Ks_l">
+                -
+            </td>
+            <td id="Ks_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Kopalnia złota</td>
+            <td><input type="number" id="pocz_Kzl" value="0" min="0"></td>
+            <td><input type="number" id="Kzl" value="0" min="0"></td>
+            <td id="Kzl_p">
+                +10 Złoto
+            </td>
+            <td id="Kzl_z">
+                -5 Narzędzia
+            </td>
+            <td id="Kzl_l">
+                0
+            </td>
+            <td id="Kzl_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7"><b>Przemysł</b></td>
+        </tr>
+        <tr>
+            <td>Zakład spożywczy</td>
+            <td><input type="number" id="pocz_Zsp" value="0" min="0"></td>
+            <td><input type="number" id="Zsp" value="0" min="0"></td>
+            <td id="Zsp_p">
+                +45 Produkty sporzywcze
+            </td>
+            <td id="Zsp_z">
+                -40 Zboże
+            </td>
+            <td id="Zsp_l">
+                0
+            </td>
+            <td id="Zsp_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Fabryka włókiennicza</td>
+            <td><input type="number" id="pocz_Fw" value="0" min="0"></td>
+            <td><input type="number" id="Fw" value="0" min="0"></td>
+            <td id="Fw_p">
+                +45 Ubranie
+            </td>
+            <td id="Fw_z">
+                -40 Tkanina
+            </td>
+            <td id="Fw_l">
+                0
+            </td>
+            <td id="Fw_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Fabryka mebli</td>
+            <td><input type="number" id="pocz_Fm" value="0" min="0"></td>
+            <td><input type="number" id="Fm" value="0" min="0"></td>
+            <td id="Fm_p">
+                +45 Meblel
+            </td>
+            <td id="Fm_z">
+                -30 Drewno<br>
+                -10 Tkanina
+            </td>
+            <td id="Fm_l">
+                0
+            </td>
+            <td id="Fm_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Huta szkła</td>
+            <td><input type="number" id="pocz_Hsz" value="0" min="0"></td>
+            <td><input type="number" id="Hsz" value="0" min="0"></td>
+            <td id="Hsz_p">
+                +30 Szkło
+            </td>
+            <td id="Hsz_z">
+                -30 Drewno
+            </td>
+            <td id="Hsz_l">
+                0
+            </td>
+            <td id="Hsz_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Narzędziownia</td>
+            <td><input type="number" id="pocz_N" value="0" min="0"></td>
+            <td><input type="number" id="N" value="0" min="0"></td>
+            <td id="N_p">
+                +30 Narzędzia
+            </td>
+            <td id="N_z">
+                -20 Drewno<br>
+                -10 Żelazo
+            </td>
+            <td id="N_l">
+                0
+            </td>
+            <td id="N_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Papiernia</td>
+            <td><input type="number" id="pocz_P" value="0" min="0"></td>
+            <td><input type="number" id="P" value="0" min="0"></td>
+            <td id="P_p">
+                +40 Papier
+            </td>
+            <td id="P_z">
+                -30 Drewno
+            </td>
+            <td id="P_l">
+                0
+            </td>
+            <td id="P_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Zakład chemiczny</td>
+            <td><input type="number" id="pocz_Zch" value="0" min="0"></td>
+            <td><input type="number" id="Zch" value="0" min="0"></td>
+            <td id="Zch_p">
+                -
+            </td>
+            <td id="Zch_z">
+                -
+            </td>
+            <td id="Zch_l">
+                -
+            </td>
+            <td id="Zch_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Zakład syntetyczny</td>
+            <td><input type="number" id="pocz_Zsy" value="0" min="0"></td>
+            <td><input type="number" id="Zsy" value="0" min="0"></td>
+            <td id="Zsy_p">
+                -
+            </td>
+            <td id="Zsy_z">
+                -
+            </td>
+            <td id="Zsy_l">
+                -
+            </td>
+            <td id="Zsy_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Huta stali</td>
+            <td><input type="number" id="pocz_Hst" value="0" min="0"></td>
+            <td><input type="number" id="Hst" value="0" min="0"></td>
+            <td id="Hst_p">
+                -
+            </td>
+            <td id="Hst_z">
+                -
+            </td>
+            <td id="Hst_l">
+                -
+            </td>
+            <td id="Hst_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Stocznia (Drewno)</td>
+            <td><input type="number" id="pocz_Sd" value="0" min="0"></td>
+            <td><input type="number" id="Sd" value="0" min="0"></td>
+            <td id="Sd_p">
+                +20 Statek
+            </td>
+            <td id="Sd_z">
+                -40 Drewno<br>
+                -20 Tkanina<br>
+                -10 Narzędzia
+            </td>
+            <td id="Sd_l">
+                0
+            </td>
+            <td id="Sd_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Stocznia (Stal)</td>
+            <td><input type="number" id="pocz_Ss" value="0" min="0"></td>
+            <td><input type="number" id="Ss" value="0" min="0"></td>
+            <td id="Ss_p">
+                -
+            </td>
+            <td id="Ss_z">
+                -
+            </td>
+            <td id="Ss_l">
+                -
+            </td>
+            <td id="Ss_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Zakład zbrojeniowy</td>
+            <td><input type="number" id="pocz_Zz" value="0" min="0"></td>
+            <td><input type="number" id="Zz" value="0" min="0"></td>
+            <td id="Zz_p">
+                -
+            </td>
+            <td id="Zz_z">
+                -
+            </td>
+            <td id="Zz_l">
+                -
+            </td>
+            <td id="Zz_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Zakład amunicyjny</td>
+            <td><input type="number" id="pocz_Za" value="0" min="0"></td>
+            <td><input type="number" id="Za" value="0" min="0"></td>
+            <td id="Za_p">
+                -
+            </td>
+            <td id="Za_z">
+                -
+            </td>
+            <td id="Za_l">
+                -
+            </td>
+            <td id="Za_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7"><b>Żywność</b></td>
+        </tr>
+        <tr>
+            <td>Farma żyta</td>
+            <td><input type="number" id="pocz_Fz" value="0" min="0"></td>
+            <td><input type="number" id="Fz" value="0" min="0"></td>
+            <td id="Fz_p">
+                +30 Zboże
+            </td>
+            <td id="Fz_z">
+                -5 Narzędzia
+            </td>
+            <td id="Fz_l">
+                0
+            </td>
+            <td id="Fz_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Farma pszenicy</td>
+            <td><input type="number" id="pocz_Fps" value="0" min="0"></td>
+            <td><input type="number" id="Fps" value="0" min="0"></td>
+            <td id="Fps_p">
+                +30 Zboże
+            </td>
+            <td id="Fps_z">
+                -5 Narzędzia
+            </td>
+            <td id="Fps_l">
+                0
+            </td>
+            <td id="Fps_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Farma ryżu</td>
+            <td><input type="number" id="pocz_Fr" value="0" min="0"></td>
+            <td><input type="number" id="Fr" value="0" min="0"></td>
+            <td id="Fr_p">
+                +35 Zboże
+            </td>
+            <td id="Fr_z">
+                -5 Narzędzia
+            </td>
+            <td id="Fr_l">
+                0
+            </td>
+            <td id="Fr_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Farma kukurydzy</td>
+            <td><input type="number" id="pocz_Fk" value="0" min="0"></td>
+            <td><input type="number" id="Fk" value="0" min="0"></td>
+            <td id="Fk_p">
+                +30 Zboże
+            </td>
+            <td id="Fk_z">
+                -5 Narzędzia
+            </td>
+            <td id="Fk_l">
+                0
+            </td>
+            <td id="Fk_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Farma prosa</td>
+            <td><input type="number" id="pocz_Fpr" value="0" min="0"></td>
+            <td><input type="number" id="Fpr" value="0" min="0"></td>
+            <td id="Fpr_p">
+                +30 Zboże
+            </td>
+            <td id="Fpr_z">
+                -5 Narzędzia
+            </td>
+            <td id="Fpr_l">
+                0
+            </td>
+            <td id="Fpr_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Ranczo</td>
+            <td><input type="number" id="pocz_R" value="0" min="0"></td>
+            <td><input type="number" id="R" value="0" min="0"></td>
+            <td id="R_p">
+                +25 Tkanina<br>
+                +5 Mięso
+            </td>
+            <td id="R_z">
+                -5 Narzędzia
+            </td>
+            <td id="R_l">
+                0
+            </td>
+            <td id="R_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td>Molo rybackie</td>
+            <td><input type="number" id="pocz_Mr" value="0" min="0"></td>
+            <td><input type="number" id="Mr" value="0" min="0"></td>
+            <td id="Mr_p">
+                +25 Ryba
+            </td>
+            <td id="Mr_z">
+                -5 Narzędzia
+            </td>
+            <td id="Mr_l">
+                0
+            </td>
+            <td id="Mr_t">
+                I
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7"><b>Plantacje</b></td>
+        </tr>
+        <tr>
+            <td>Plantacja kawy</td>
+            <td><input type="number" id="pocz_Pk" value="0" min="0"></td>
+            <td><input type="number" id="Pk" value="0" min="0"></td>
+            <td id="Pk_p">
+                -
+            </td>
+            <td id="Pk_z">
+                -
+            </td>
+            <td id="Pk_l">
+                -
+            </td>
+            <td id="Pk_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Plantacja bawełny</td>
+            <td><input type="number" id="pocz_Pbaw" value="0" min="0"></td>
+            <td><input type="number" id="Pbaw" value="0" min="0"></td>
+            <td id="Pbaw_p">
+                -
+            </td>
+            <td id="Pbaw_z">
+                -
+            </td>
+            <td id="Pbaw_l">
+                -
+            </td>
+            <td id="Pbaw_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Plantacja barwników</td>
+            <td><input type="number" id="pocz_Pbar" value="0" min="0"></td>
+            <td><input type="number" id="Pbar" value="0" min="0"></td>
+            <td id="Pbar_p">
+                -
+            </td>
+            <td id="Pbar_z">
+                -
+            </td>
+            <td id="Pbar_l">
+                -
+            </td>
+            <td id="Pbar_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Plantacja herbaty</td>
+            <td><input type="number" id="pocz_Ph" value="0" min="0"></td>
+            <td><input type="number" id="Ph" value="0" min="0"></td>
+            <td id="Ph_p">
+                -
+            </td>
+            <td id="Ph_z">
+                -
+            </td>
+            <td id="Ph_l">
+                -
+            </td>  
+            <td id="Ph_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Plantacja tytoniu</td>
+            <td><input type="number" id="pocz_Pt" value="0" min="0"></td>
+            <td><input type="number" id="Pt" value="0" min="0"></td>
+            <td id="Pt_p">
+                -
+            </td>
+            <td id="Pt_z">
+                -
+            </td>
+            <td id="Pt_l">
+                -
+            </td>
+            <td id="Pt_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Plantacja cukru</td>
+            <td><input type="number" id="pocz_Pc" value="0" min="0"></td>
+            <td><input type="number" id="Pc" value="0" min="0"></td>
+            <td id="Pc_p">
+                -
+            </td>
+            <td id="Pc_z">
+                -
+            </td>
+            <td id="Pc_l">
+                -
+            </td>
+            <td id="Pc_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Plantacja owoców</td>
+            <td><input type="number" id="pocz_Po" value="0" min="0"></td>
+            <td><input type="number" id="Po" value="0" min="0"></td>
+            <td id="Po_p">
+                -
+            </td>
+            <td id="Po_z">
+                -
+            </td>
+            <td id="Po_l">
+                -
+            </td>
+            <td id="Po_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>Plantacja jedwabiu</td>
+            <td><input type="number" id="pocz_Pj" value="0" min="0"></td>
+            <td><input type="number" id="Pj" value="0" min="0"></td>
+            <td id="Pj_p">
+                -
+            </td>
+            <td id="Pj_z">
+                -
+            </td>
+            <td id="Pj_l">
+                -
+            </td>
+            <td id="Pj_t">
+                0
+            </td>
+        </tr>
+        <tr>
+            <th colspan="7"><b>Koszt utrzymania</b></th>
+        </tr>
+        <tr>
+            <td id="KosBud" colspan="7">0</td>
+        </tr>
+        <tr>
+            <th colspan="7"><b>Podsumowanie budynków</b></th>
+        </tr>
+        <tr>
+            <td colspan="4">Początkowa ilość budynków:</td>
+            <td colspan="3" id="Pib">0</td>
+        </tr>
+        <tr>
+            <td colspan="4">Obecna ilość budynków:</td>
+            <td colspan="3" id="Oib">0</td>
+        </tr>
+        <tr>
+            <th colspan="7"><b>Do Toolboxa</b></th>
+        </tr>
+        <tr>
+            <td colspan="4">Ilość zbudowanych budynków:</td>
+            <td colspan="3" id="Izbudob">0</td>
+        </tr>
+        <tr>
+            <td colspan="4">Ilość zburzonych budynków:</td>
+            <td colspan="3" id="Izburzb">0</td>
+        </tr>
     </table>
 </div>
 <div id="Dane">
-    <table>
-        <form>
-            <tr>
-                <td colspan="4"><b>Kraj</b></td>
-            </tr>
-            <tr>
-                <td>Nazwa kraju<br>/Nazwa unii celnej</td>
-                <td colspan="3"><input type="text" id="NAZ"></td>
-            </tr>
-            <tr>
-                <td>Ilość członków<br>unii celnej (1 to brak)</td>
-                <td colspan="3"><input id="CzUC" type="number" min="1" value="1"></td>
-            </tr>
-            <tr>
-                <td>Populacja</td>
-                <td colspan="3"><input type="number" id="POP" value="0" min="0"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Zawód</td>
-                <td>Pracownicy</td>
-                <td>% Populacji</td>
-            </tr>
-            <tr>
-                <td colspan="2">Górnicy</td>
-                <td id="Gor">0</td>
-                <td id="%_Gor">0.00</td>
-            </tr>
-            <tr>
-                <td colspan="2">Robotnicy</td>
-                <td id="Rob">0</td>
-                <td id="%_Rob">0.00</td>
-            </tr>
-            <tr>
-                <td colspan="2">Rolnicy</td>
-                <td id="Rol">0</td>
-                <td id="%_Rol">0.00</td>
-            </tr>
-            <tr>
-                <td colspan="2">Plantatorzy</td>
-                <td id="Pla">0</td>
-                <td id="%_Pla">0.00</td>
-            </tr>
-            <tr>
-                <td colspan="3"><b>Armia</b></td> 
-                <td>Tier</td>  
-            </tr>
-            <tr>
-                <td colspan="2">Infantry</td>
-                <td><input type="number" id="INF" value="0" min="0"></td>
-                <td id="INF_t">I</td>
-            </tr>
-            <tr>
-                <td colspan="2">Archers</td>
-                <td><input type="number" id="ARC" value="0" min="0"></td>
-                <td id="ARC_t">I</td>
-            </tr>
-            <tr>
-                <td colspan="2">Cavalary</td>
-                <td><input type="number" id="CAV" value="0" min="0"></td>
-                <td id="CAV_t">I</td>
-            </tr>
-            <tr>
-                <td colspan="2">Artillery</td>
-                <td><input type="number" id="ART" value="0" min="0"></td>
-                <td id="ART_t">0</td>
-            </tr>
-            <tr>
-                <td colspan="2">Marynarka</td>
-                <td><input type="number" id="FLO" value="0" min="0"></td>
-                <td>Brak</td>
-            </tr>
-            <tr>
-                <td colspan="2">Konwoje</td>
-                <td><input type="number" id="KON" value="0" min="0"></td></td>
-                <td>Brak</td>
-            </tr>
-            <tr>
-                <td colspan="2">Żołnierze i Marynarze</td>
-                <td colspan="2" id="ARM">0</td>
-            </tr>
-            <tr>
-                <td colspan="2">% Poboru</td>
-                <td colspan="2" id="APP">0</td>
-            </tr>
-            <tr>
-                <td colspan="4"><b>Suma punktów procentowych zawodów (%)</b></td>
-            </tr>
-            <tr>
-                <td colspan="4" id="pr_zaw">0.00</td>
-            </tr>
-            <tr>
-                <td colspan="4"><b>Zaspokojenie potrzeb populacji (%)</b></td>   
-            </tr>
-            <tr><td id="ZasPot" colspan="4">0</td></tr>
-            <tr>
-                <td colspan="4"><b>Mnożnik zapotrzebowań</b></td>
-            </tr>
-            <tr>
-                <td colspan="2">Produkty sporzywcze</td>
-                <td colspan="2"><input id="m_Ps" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Ubranie</td>
-                <td colspan="2"><input id="m_U" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Mebel</td>
-                <td colspan="2"><input id="m_Me" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Ryba</td>
-                <td colspan="2"><input id="m_R" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Tkanina</td>
-                <td colspan="2"><input id="m_Tk" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Zboże</td>
-                <td colspan="2"><input id="m_Zb" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Papier</td>
-                <td colspan="2"><input id="m_Pa" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Drewno</td>
-                <td colspan="2"><input id="m_D" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Węgiel</td>
-                <td colspan="2"><input id="m_We" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Szkło</td>
-                <td colspan="2"><input id="m_Sz" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Kawa</td>
-                <td colspan="2"><input id="m_K" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Owoc</td>
-                <td colspan="2"><input id="m_Ow" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Alkohol</td>
-                <td colspan="2"><input id="m_Al" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Ubranie luksusowe</td>
-                <td colspan="2"><input id="m_Ul" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Meblel luksusowy</td>
-                <td colspan="2"><input id="m_Ml" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Mięso</td>
-                <td colspan="2"><input id="m_Mi" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Porcelana</td>
-                <td colspan="2"><input id="m_Po" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Cukier</td>
-                <td colspan="2"><input id="m_C" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Herbata</td>
-                <td colspan="2"><input id="m_H" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Tytoń</td>
-                <td colspan="2"><input id="m_Ty" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="2">Wino</td>
-                <td colspan="2"><input id="m_Wi" type="number" value="1.0" min="0" step="0.5"></td>
-            </tr>
-            <tr>
-                <td colspan="4"><b>Skrypt</b></td>
-            </tr>
-            <tr>
-                <td colspan="4"><input type="button" value="OBLICZ" onclick="main()" id="obl"></td>
-            </tr>
-            <tr>
-                <td colspan="4"><input type="checkbox" id="kopia"><label><b>Pobrać kopię?</b></label></td>
-            </tr>
-            <tr>
-                <td colspan="4"><b>Linki</b></td>
-            </tr> 
-            <tr>
-                <td colspan="4"><a href="Rynek.txt">Produkcja w zależności od Tieru</a></td>
-            </tr>
-            <tr>
-                <td colspan="4"><a href="Technologia.txt">Lista technologii</a></td>
-            </tr>
-            <tr>
-                <td colspan="4"><a href="Tiery.txt">Tiery budynków</a></td>
-            </tr>
-            <tr>
-                <td colspan="4"><a href="Rynek tutorial.pdf">Tutorial</a></td>
-            </tr>
-        </form>
+    <table id="INP2">
+        <tr>
+            <td>Nazwa kraju unii celnej</td>
+            <td><input type="text" id="NAZ"></td>
+        </tr>
+        <tr>
+            <td>Państwa unii celnej</td>
+            <td><input id="CzUC" type="number" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td>Populacja</td>
+            <td><input type="number" id="POP" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+
+    <h1>II. KRAJ</h1>
+
+    <table id="DAN">
+        <tr>
+            <th colspan="4"><b>Kraj</b></th>
+        </tr>
+        <tr>
+            <td colspan="2">Zawód</td>
+            <td>Pracownicy</td>
+            <td>% Populacji</td>
+        </tr>
+        <tr>
+            <td colspan="2">Górnicy</td>
+            <td id="Gor">0</td>
+            <td id="%_Gor">0.00</td>
+        </tr>
+        <tr>
+            <td colspan="2">Robotnicy</td>
+            <td id="Rob">0</td>
+            <td id="%_Rob">0.00</td>
+        </tr>
+        <tr>
+            <td colspan="2">Rolnicy</td>
+            <td id="Rol">0</td>
+            <td id="%_Rol">0.00</td>
+        </tr>
+        <tr>
+            <td colspan="2">Plantatorzy</td>
+            <td id="Pla">0</td>
+            <td id="%_Pla">0.00</td>
+        </tr>
+        <tr>
+            <th colspan="3"><b>Armia</b></th> 
+            <th>Tier</th>  
+        </tr>
+        <tr>
+            <td colspan="2">Infantry</td>
+            <td><input type="number" id="INF" value="0" min="0"></td>
+            <td id="INF_t">I</td>
+        </tr>
+        <tr>
+            <td colspan="2">Archers</td>
+            <td><input type="number" id="ARC" value="0" min="0"></td>
+            <td id="ARC_t">I</td>
+        </tr>
+        <tr>
+            <td colspan="2">Cavalary</td>
+            <td><input type="number" id="CAV" value="0" min="0"></td>
+            <td id="CAV_t">I</td>
+        </tr>
+        <tr>
+            <td colspan="2">Artillery</td>
+            <td><input type="number" id="ART" value="0" min="0"></td>
+            <td id="ART_t">0</td>
+        </tr>
+        <tr>
+            <td colspan="2">Marynarka</td>
+            <td><input type="number" id="FLO" value="0" min="0"></td>
+            <td>Brak</td>
+        </tr>
+        <tr>
+            <td colspan="2">Konwoje</td>
+            <td><input type="number" id="KON" value="0" min="0"></td></td>
+            <td>Brak</td>
+        </tr>
+        <tr>
+            <td colspan="2">Żołnierze i Marynarze</td>
+            <td colspan="2" id="ARM">0</td>
+        </tr>
+        <tr>
+            <td colspan="2">% Poboru</td>
+            <td colspan="2" id="APP">0</td>
+        </tr>
+        <tr>
+            <th colspan="4"><b>Suma punktów procentowych zatrudnienia (%)</b></th>
+        </tr>
+        <tr>
+            <td colspan="4" id="pr_zaw">0.00</td>
+        </tr>
+        <tr>
+            <th colspan="4"><b>Zaspokojenie potrzeb populacji (%)</b></th>   
+        </tr>
+        <tr><td id="ZasPot" colspan="4">0</td></tr>
+        <tr>
+            <th colspan="4"><b>Mnożnik zapotrzebowań</b></th>
+        </tr>
+        <tr>
+            <td colspan="2">Produkty sporzywcze</td>
+            <td colspan="2"><input id="m_Ps" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Ubranie</td>
+            <td colspan="2"><input id="m_U" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Mebel</td>
+            <td colspan="2"><input id="m_Me" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Ryba</td>
+            <td colspan="2"><input id="m_R" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Tkanina</td>
+            <td colspan="2"><input id="m_Tk" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Zboże</td>
+            <td colspan="2"><input id="m_Zb" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Papier</td>
+            <td colspan="2"><input id="m_Pa" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Drewno</td>
+            <td colspan="2"><input id="m_D" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Węgiel</td>
+            <td colspan="2"><input id="m_We" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Szkło</td>
+            <td colspan="2"><input id="m_Sz" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Kawa</td>
+            <td colspan="2"><input id="m_K" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Owoc</td>
+            <td colspan="2"><input id="m_Ow" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Alkohol</td>
+            <td colspan="2"><input id="m_Al" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Ubranie luksusowe</td>
+            <td colspan="2"><input id="m_Ul" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Meblel luksusowy</td>
+            <td colspan="2"><input id="m_Ml" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Mięso</td>
+            <td colspan="2"><input id="m_Mi" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Porcelana</td>
+            <td colspan="2"><input id="m_Po" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Cukier</td>
+            <td colspan="2"><input id="m_C" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Herbata</td>
+            <td colspan="2"><input id="m_H" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Tytoń</td>
+            <td colspan="2"><input id="m_Ty" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Wino</td>
+            <td colspan="2"><input id="m_Wi" type="number" value="1.0" min="0" step="0.5"></td>
+        </tr>
     </table>
 </div>
 <div id="Rynek">
-    <table>
+    <table id="INP3">
+        <tr>
+            <td colspan="2"><input type="button" value="OBLICZ" onclick="main()" id="obl"></td>
+
+            <td><a href="Rynek.txt">Produkcja w zależności od Tieru</a></td>
+        </tr>
+        <tr>
+            <td>Pobrać raport?</td>
+            <td><input type="checkbox" id="kopia"></td>
+            
+            <td><a href="Technologia.txt">Lista technologii</a></td>
+        </tr>
+        <tr>
+            <td>W przyszłości generator kodu SQL<br>(INSERT INTO) jak będzie baza danych</td>
+            <td>SQL</td>
+            
+            <td><a href="Tiery.txt">Tiery budynków</a></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+
+            <td><a href="Rynek tutorial.pdf">Tutorial (nieaktualny do 1.5)</a></td>
+        </tr>
+    </table>
+
+    <h1>III. RYNEK</h1>
+
+    <table id="RYN">
         <th>Produkt</th>
         <th>Produkcja</th>
         <th>Zapotrzebowanie</th>
@@ -1087,8 +1128,7 @@
             <td>-</td>
             <td id="b_Zl">0</td>
             <td>0</td>
-            <td>100</td>
-            <td>-</td>
+            <td colspan="2">100</td>
             <td id="r_Zl">0</td>
         </tr>
         <tr>
@@ -1255,6 +1295,6 @@
         </tr>
     </table>
 </div>
-<script src="main 1.4.4.js"></script>
+<script src="main 1.5.js"></script>
 </body>
 </html>

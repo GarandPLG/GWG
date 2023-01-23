@@ -11,6 +11,23 @@ function main()
     let TECH = parseInt(document.getElementById("TECH").value),
         tura = parseInt(document.getElementById("tura").value),
         CzUC = parseInt(document.getElementById("CzUC").value),
+
+
+        //Początkowa ilośc budynków
+        pocz_T = parseInt(document.getElementById("pocz_T").value),       pocz_Kw = parseInt(document.getElementById("pocz_Kw").value),   pocz_Kze = parseInt(document.getElementById("pocz_Kze").value),    // Tartak, Kopalnia węgla, Kopalnia żelaza, 
+        pocz_Ks = parseInt(document.getElementById("pocz_Ks").value),     pocz_Kzl = parseInt(document.getElementById("pocz_Kzl").value), pocz_Zsp = parseInt(document.getElementById("pocz_Zsp").value),    // Kopalnia siarki, Kopalnia złota, Zakład spożywczy
+        pocz_Fw = parseInt(document.getElementById("pocz_Fw").value),     pocz_Fm = parseInt(document.getElementById("pocz_Fm").value),   pocz_Hsz = parseInt(document.getElementById("pocz_Hsz").value),    // Fabryka włókiennicza, Fabryka mebli, Huta szkła
+        pocz_N = parseInt(document.getElementById("pocz_N").value),       pocz_P = parseInt(document.getElementById("pocz_P").value),     pocz_Zch = parseInt(document.getElementById("pocz_Zch").value),    // Narzędziownia, Papiernia, Zakład chemiczny
+        pocz_Zsy = parseInt(document.getElementById("pocz_Zsy").value),   pocz_Hst = parseInt(document.getElementById("pocz_Hst").value), pocz_Sd = parseInt(document.getElementById("pocz_Sd").value),      // Zakład syntetyczny, Huta stali, Stocznia (Drewno)
+        pocz_Ss = parseInt(document.getElementById("pocz_Ss").value),     pocz_Zz = parseInt(document.getElementById("pocz_Zz").value),   pocz_Za = parseInt(document.getElementById("pocz_Za").value),      // Stocznia (Stal), Zakład zbrojeniowy, Zakład amunicyjny 
+        pocz_Fz = parseInt(document.getElementById("pocz_Fz").value),     pocz_Fps = parseInt(document.getElementById("pocz_Fps").value), pocz_Fr = parseInt(document.getElementById("pocz_Fr").value),      // Farma żyta, Farma pszenicy, Farma ryżu
+        pocz_Fk = parseInt(document.getElementById("pocz_Fk").value),     pocz_Fpr = parseInt(document.getElementById("pocz_Fpr").value), pocz_R = parseInt(document.getElementById("pocz_R").value),        // Farma kukucolspan="8"rydzy, Farma prosa, Ranczo
+        pocz_Mr = parseInt(document.getElementById("pocz_Mr").value),     pocz_Pk = parseInt(document.getElementById("pocz_Pk").value),   pocz_Pbaw = parseInt(document.getElementById("pocz_Pbaw").value),  // Molo rybackie, Plantacja kawy, Plantacja bawełny
+        pocz_Pbar = parseInt(document.getElementById("pocz_Pbar").value), pocz_Ph = parseInt(document.getElementById("pocz_Ph").value),   pocz_Pt = parseInt(document.getElementById("pocz_Pt").value),      // Plantacja barwników, Plantacja herbaty, Plantacja tytoniu	
+        pocz_Pc = parseInt(document.getElementById("pocz_Pc").value),     pocz_Po = parseInt(document.getElementById("pocz_Po").value),   pocz_Pj = parseInt(document.getElementById("pocz_Pj").value),      // Plantacja cukru, Plantacja owoców, Plantacja jedwabiu
+        pocz_Ko = parseInt(document.getElementById("pocz_Ko").value),                                                                                                                                        // Kopalnia ołowiu
+
+        //Obecna ilość budynków
         T = parseInt(document.getElementById("T").value),       Kw = parseInt(document.getElementById("Kw").value),   Kze = parseInt(document.getElementById("Kze").value),    // Tartak, Kopalnia węgla, Kopalnia żelaza, 
         Ks = parseInt(document.getElementById("Ks").value),     Kzl = parseInt(document.getElementById("Kzl").value), Zsp = parseInt(document.getElementById("Zsp").value),    // Kopalnia siarki, Kopalnia złota, Zakład spożywczy
         Fw = parseInt(document.getElementById("Fw").value),     Fm = parseInt(document.getElementById("Fm").value),   Hsz = parseInt(document.getElementById("Hsz").value),    // Fabryka włókiennicza, Fabryka mebli, Huta szkła
@@ -23,13 +40,14 @@ function main()
         Pbar = parseInt(document.getElementById("Pbar").value), Ph = parseInt(document.getElementById("Ph").value),   Pt = parseInt(document.getElementById("Pt").value),      // Plantacja barwników, Plantacja herbaty, Plantacja tytoniu	
         Pc = parseInt(document.getElementById("Pc").value),     Po = parseInt(document.getElementById("Po").value),   Pj = parseInt(document.getElementById("Pj").value),      // Plantacja cukru, Plantacja owoców, Plantacja jedwabiu
         Ko = parseInt(document.getElementById("Ko").value),                                                                                                                    // Kopalnia ołowiu
+
+        //Reszta
         POP = parseInt(document.getElementById("POP").value),   ARM = 0,                                              APP = 0,                                                 // Populacja, Armia (ilość żołnierzy), % żołnierzy od populacji
         INF = parseInt(document.getElementById("INF").value),   CAV = parseInt(document.getElementById("CAV").value), ART = parseInt(document.getElementById("ART").value),    // Piechota, Kawaleria, Artyleria
         ARC = parseInt(document.getElementById("ARC").value),   FLO = parseInt(document.getElementById("FLO").value), KON = parseInt(document.getElementById("KON").value),    // Łucznicy, Marynarka, Konwoje 
         KosBud = 0,                                                                                                                                                            // Koszt utrzymania budynków
         Gor = 0, Rob = 0, Rol = 0, Pla = 0, pr_Gor = 0, pr_Rob = 0, pr_Rol = 0, pr_Pla = 0, pr_zaw = 0,                                                                        // Górnicy, Robotnicy, Rolnicy, Plantatorzy
-        Pib = parseInt(document.getElementById("Pib").value),   Pik = parseInt(document.getElementById("Pik").value),                                                          // Początkowa ilość budynków, Początkowa ilość kopalnii
-        Ub = parseInt(document.getElementById("Ub").value),     Uk = parseInt(document.getElementById("Uk").value),                                                            // Usuwanie budynków, Usuwanie kopalni
+        Pib = 0, Oib = 0, Izbudob = 0, Izburzb = 0, pom_bud = 0,                                                                                                               // Początkowa ilość budynków, Obecna ilość budynków, Ilość zbudowanych budynków, Ilość zburzonych budynków, zmienna pomocnicza do budynków
 
 
         p_Ps = 0, z_Ps = 0, r_Ps = 0, c_Ps = 0,  p_U = 0, z_U = 0, r_U = 0, c_U = 0,          p_Me = 0, z_Me = 0, r_Me = 0, c_Me = 0,      p_R = 0, z_R = 0, r_R = 0, c_R = 0,          // Produkty spożywcze, Ubranie, Mebel, Ryba
@@ -115,7 +133,7 @@ function main()
 function zapotrzebowania()
 {
     /*BUDYNKI*/
-    /*Tartak*/                //p_D += 20 * T;      p_Td += 20 * T;     z_Nar += 5 * T;  
+    /*Tartak*/
         if(TECH==1)
         {
             document.getElementById("T_p").innerHTML = "+30 Drewno";
@@ -151,7 +169,23 @@ function zapotrzebowania()
             p_Td += 20 * T; 
             z_Nar += 30 * T;
         }
-    /*Kopalnia wegla*/        //p_We += 40 * Kw;    z_Nar += 10 * Kw;   z_Mw += 5 * Kw; 
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_T;
+            Oib += T;
+            pom_bud = T - pocz_T;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Kopalnia wegla*/
         if(TECH<3)
         {
             document.getElementById("Kw_p").innerHTML = "-";
@@ -206,7 +240,23 @@ function zapotrzebowania()
             z_Nar += 30 * Kw; 
             z_Mw += 15 * Kw;
         }
-    /*Kopalnie żelaza*/       //p_Ze += 32 * Kze;   z_Nar += 10 * Kze;  z_Mw += 5 * Kze;   
+
+        if(TECH>2 && TECH<=50)
+        {
+            Pib += pocz_Kw;
+            Oib += Kw;
+            pom_bud = Kw - pocz_Kw;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Kopalnie żelaza*/
         if(TECH>0 && TECH<=22)
         {
             document.getElementById("Kze_p").innerHTML = "+20 Żelazo";
@@ -256,7 +306,23 @@ function zapotrzebowania()
             z_Mw += 15 * Kze;
             z_We += 10 * Kze;
         }
-    /*Kopalnia ołowiu*/       //p_Ol += 32 * Ko;    z_Nar += 10 * Ko;   z_Mw += 5 * Ko; 
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Kze;
+            Oib += Kze;
+            pom_bud = Kze - pocz_Kze;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Kopalnia ołowiu*/
         if(TECH<=11)
         {
             document.getElementById("Ko_p").innerHTML = "-";
@@ -312,8 +378,24 @@ function zapotrzebowania()
             z_Nar += 30 * Ko;
             z_Mw += 15 * Ko;
             z_We += 10 * Ko;
-        }  
-    /*Kopalnia siarki*/       //p_S += 32 * Ks;     z_Nar += 10 * Ks;   z_Mw += 5 * Ks;
+        }
+        
+        if(TECH>11 && TECH <=50)
+        {
+            Pib += pocz_Ko;
+            Oib += Ko;
+            pom_bud = Ko - pocz_Ko;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Kopalnia siarki*/
         if(TECH<3)
         {
             document.getElementById("Ks_p").innerHTML = "-";
@@ -370,7 +452,23 @@ function zapotrzebowania()
             z_Mw += 15 * Ks;
             z_We += 10 * Ks;          
         }
-    /*Kopalnia złota*/        //p_Zl += 30 * Kzl;   z_Nar += 10 * Kzl;  z_Mw += 5 * Kzl; 
+
+        if(TECH>2 && TECH<=50)
+        {
+            Pib += pocz_Ks;
+            Oib += Ks;
+            pom_bud = Ks - pocz_Ks;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Kopalnia złota*/
         if(TECH>0 && TECH<=25)
         {
             document.getElementById("Kzl_p").innerHTML = "+10 Złoto";
@@ -420,7 +518,23 @@ function zapotrzebowania()
             z_Mw += 15 * Kzl;
             z_We += 10 * Kzl;
         }
-    /*Zakład spożywczy*/      //p_Ps += 45 * Zsp;   z_Zb += 40 * Zsp;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Kzl;
+            Oib += Kzl;
+            pom_bud = Kzl - pocz_Kzl;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Zakład spożywczy*/
         if(TECH>0 && TECH<=10)
         {
             document.getElementById("Zsp_p").innerHTML = "+45 Produkty sporzywcze";
@@ -465,8 +579,24 @@ function zapotrzebowania()
             z_St += 10 * Zsp;
             z_Sz += 10 * Zsp;
             z_Nar += 10 * Zsp;
-        }          
-    /*Fabryka włókiennicza*/  //p_U += 40 * Fw;     p_Ul += 20 * Fw;    z_Tk += 30 * Fw;   z_J += 10 * Fw;    z_Ba += 5 * Fw;
+        }
+        
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Zsp;
+            Oib += Zsp;
+            pom_bud = Zsp - pocz_Zsp;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Fabryka włókiennicza*/
         if(TECH>0 && TECH<=15)
         {
             document.getElementById("Fw_p").innerHTML = "+45 Ubranie";
@@ -508,7 +638,23 @@ function zapotrzebowania()
             z_Ba += 10 * Fw;
             z_Nar += 20 * Fw;
         }
-    /*Fabryka mebli*/         //p_Me += 45 * Fm;    p_Ml += 20 * Fm;    z_D += 20 * Fm;    z_Td += 10 * Fm;   z_Tk += 10 * Fm;  z_Nar += 5 * Fm;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Fw;
+            Oib += Fw;
+            pom_bud = Fw - pocz_Fw;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Fabryka mebli*/
         if(TECH>0 && TECH<=16)
         {
             document.getElementById("Fm_p").innerHTML = "+45 Meblel";
@@ -553,7 +699,23 @@ function zapotrzebowania()
             z_Nar += 25 * Fm;
             z_We += 10 * Fm;
         }
-    /*Huta szkła*/            //p_Sz += 50 * Hsz;   p_Po += 25 * Hsz;   z_Ol += 35 * Hsz;  z_Ba += 15 * Hsz; 
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Fm;
+            Oib += Fm;
+            pom_bud = Fm - pocz_Fm;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Huta szkła*/
         if(TECH>0 && TECH<=12)
         {
             document.getElementById("Hsz_p").innerHTML = "+30 Szkło";
@@ -596,7 +758,23 @@ function zapotrzebowania()
             z_Nar += 5 * Hsz;
             z_We += 10 * Hsz;
         }
-    /*Narzędziownia*/         //p_Nar += 60 * N;    z_D += 30 * N;      z_Ze += 20 * N;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Hsz;
+            Oib += Hsz;
+            pom_bud = Hsz - pocz_Hsz;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Narzędziownia*/
         if(TECH>0 && TECH<=13)
         {
             document.getElementById("N_p").innerHTML = "+30 Narzędzia";
@@ -635,7 +813,23 @@ function zapotrzebowania()
             z_St += 20 * N;
             z_We += 5 * N;
         }
-    /*Papiernia*/             //p_Pa += 100 * P;    z_D += 30 * P;      z_S += 10 * P;     z_Ba += 10 * P;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_N;
+            Oib += N;
+            pom_bud = N - pocz_N;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Papiernia*/
         if(TECH>0 && TECH<=3)
         {
             document.getElementById("P_p").innerHTML = "+40 Papier";
@@ -676,7 +870,23 @@ function zapotrzebowania()
             z_Nar += 5 * P;
             z_We += 5 * P;
         }
-    /*Zakład chemiczny*/      //p_Naw += 125 * Zch; p_Mw += 40 * Zch;   z_S += 45 * Zch;   z_Ze += 30 * Zch;  z_We += 15 * Zch;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_P;
+            Oib += P;
+            pom_bud = P - pocz_P;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Zakład chemiczny*/
         if(TECH<=4)
         {
             document.getElementById("Zch_p").innerHTML = "-";
@@ -738,7 +948,23 @@ function zapotrzebowania()
             z_Ze += 25 * Zch;
             z_We += 20 * Zch;  
         }
-    /*Zakład syntetyczny*/    //p_Ba += 40 * Zsy;   p_J += 40 * Zsy;    z_D += 40 * Zsy;   z_Naw += 30 * Zsy; z_S += 20 * Zsy; 
+
+        if(TECH>4 && TECH<=50)
+        {
+            Pib += pocz_Zch;
+            Oib += Zch;
+            pom_bud = Zch - pocz_Zch;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Zakład syntetyczny*/
         if(TECH<=26)
         {
             document.getElementById("Zsy_p").innerHTML = "-";
@@ -772,7 +998,23 @@ function zapotrzebowania()
             z_Naw += 30 * Zsy;
             z_D += 40 * Zsy;
         }
-    /*Huta stali*/            //p_St += 90 * Hst;   z_Ze += 60 * Hst;   z_We += 30 * Hst;
+
+        if(TECH>26 && TECH<=50)
+        {
+            Pib += pocz_Zsy;
+            Oib += Zsy;
+            pom_bud = Zsy - pocz_Zsy;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Huta stali*/
         if(TECH<=18)
         {
             document.getElementById("Hst_p").innerHTML = "-";
@@ -818,7 +1060,23 @@ function zapotrzebowania()
             z_We += 40 * Hst;
             z_Nar += 5 * Hst;  
         }
-    /*Stocznia (Drewno)*/     //p_Sta += 35 * Sd;   z_D += 40 * Sd;     z_Tk += 20 * Sd;   z_Nar += 10 * Sd;
+
+        if(TECH>18 && TECH<=50)
+        {
+            Pib += pocz_Hst;
+            Oib += Hst;
+            pom_bud = Hst - pocz_Hst;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Stocznia (Drewno)*/
         if(TECH>0 && TECH<=20)
         {
             document.getElementById("Sd_p").innerHTML = "+20 Statek";
@@ -846,7 +1104,23 @@ function zapotrzebowania()
             z_Tk += 20 * Sd;
             z_Nar += 15 * Sd;
         }
-    /*Stocznia (Stal)*/       //p_Sta += 55 * Ss;   z_St += 30 * Ss;    z_We += 10 * Ss;    z_Nar += 15 * Ss;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Sd;
+            Oib += Sd;
+            pom_bud = Sd - pocz_Sd;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Stocznia (Stal)*/
         if(TECH<=30)
         {
             document.getElementById("Ss_p").innerHTML = "-";
@@ -880,7 +1154,23 @@ function zapotrzebowania()
             z_We += 15 * Ss;
             z_Nar += 25 * Ss;
         }
-    /*Zakład zbrojeniowy*/    //p_Br += 25 * Zz;    p_Ar += 15 * Zz;    z_St += 25 * Zz;   z_Td += 10 * Zz;
+
+        if(TECH>30 && TECH<50)
+        {
+            Pib += pocz_Ss;
+            Oib += Ss;
+            pom_bud = Ss - pocz_Ss;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Zakład zbrojeniowy*/
         if(TECH>0 && TECH<=14)
         {
             document.getElementById("Zz_p").innerHTML = "-";
@@ -945,7 +1235,23 @@ function zapotrzebowania()
             z_Td += 10 * Zz;
             z_Nar += 30 * Zz;
         }
-    /*Zakład amunicyjny*/     //p_Am += 50 * Za;    z_Mw += 20 * Za;    z_Ol += 20 * Za;
+
+        if(TECH>14 && TECH<50)
+        {
+            Pib += pocz_Zz;
+            Oib += Zz;
+            pom_bud = Zz - pocz_Zz;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Zakład amunicyjny*/
         if(TECH>0 && TECH<=29)
         {
             document.getElementById("Za_p").innerHTML = "-";
@@ -977,7 +1283,23 @@ function zapotrzebowania()
             z_Mw += 40 * Za;
             z_Ol += 30 * Za;
         }
-    /*Farma żyta*/            //p_Zb += 70 * Fz;    p_Al += 15 * Fz;    z_Naw += 15 * Fz;
+
+        if(TECH>29 && TECH<=50)
+        {
+            Pib += pocz_Za;
+            Oib += Za;
+            pom_bud = Za - pocz_Za;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Farma żyta*/
         if(TECH>0 && TECH<=5)
         {
             document.getElementById("Fz_p").innerHTML = "+30 Zboże";
@@ -1034,7 +1356,23 @@ function zapotrzebowania()
             z_Nar += 5 * Fz;
             z_We += 10 * Fz;
         }
-    /*Farma pszenicy*/        //p_Zb += 70 * Fps;   p_Wi += 10 * Fps;   z_Naw += 15 * Fps;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Fz;
+            Oib += Fz;
+            pom_bud = Fz - pocz_Fz;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Farma pszenicy*/
         if(TECH>0 && TECH<=5)
         {
             document.getElementById("Fps_p").innerHTML = "+30 Zboże";
@@ -1093,7 +1431,23 @@ function zapotrzebowania()
             z_Nar += 5 * Fps;
             z_We += 10 * Fps;
         }
-    /*Farma ryżu*/            //p_Zb += 70 * Fr;    p_Ow += 6 * Fr;     p_C += 9 * Fr;     z_Naw += 15 * Fr;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Fps;
+            Oib += Fps;
+            pom_bud = Fps - pocz_Fps;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Farma ryżu*/
         if(TECH>0 && TECH<=6)
         {
             document.getElementById("Fr_p").innerHTML = "+35 Zboże";
@@ -1134,7 +1488,23 @@ function zapotrzebowania()
             z_Nar += 5 * Fr;
             z_We += 5 * Fr;
         }
-    /*Farma kukurydzy*/       //p_Zb += 70 * Fk;    p_Al += 15 * Fk;    z_Naw += 15 * Fk;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Fr;
+            Oib += Fr;
+            pom_bud = Fr - pocz_Fr;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Farma kukurydzy*/
         if(TECH>0 && TECH<=6)
         {
             document.getElementById("Fk_p").innerHTML = "+30 Zboże";
@@ -1192,7 +1562,23 @@ function zapotrzebowania()
             z_Nar += 5 * Fk;
             z_We += 10 * Fk;
         }
-    /*Farma prosa*/           //p_Zb += 70 * Fpr;   p_Ow += 6 * Fpr;    p_C += 9 * Fpr;    z_Naw += 15 * Fpr;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Fk;
+            Oib += Fk;
+            pom_bud = Fk - pocz_Fk;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Farma prosa*/
         if(TECH>0 && TECH<=7)
         {
             document.getElementById("Fpr_p").innerHTML = "+30 Zboże";
@@ -1249,7 +1635,23 @@ function zapotrzebowania()
             z_Nar += 5 * Fpr;
             z_We += 10 * Fpr;
         }
-    /*Ranczo*/                //p_Tk += 40 * R;     p_Mi += 25 * R;     p_Naw += 10 * R;   z_Zb += 10 * R;    z_Nar += 10 * R;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Fpr;
+            Oib += Fpr;
+            pom_bud = Fpr - pocz_Fpr;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Ranczo*/
         if(TECH>0 && TECH<=7)
         {
             document.getElementById("R_p").innerHTML = "+25 Tkanina<br>+5 Mięso";
@@ -1292,7 +1694,23 @@ function zapotrzebowania()
             z_Nar += 10 * R;
             z_Ze += 10 * R;
         }
-    /*Molo rybackie*/         //p_R += 50 * Mr;     z_Sta += 5 * Mr;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_R;
+            Oib += R;
+            pom_bud = R - pocz_R;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Molo rybackie*/
         if(TECH>0 && TECH<=8)
         {
             document.getElementById("Mr_p").innerHTML = "+25 Ryba";
@@ -1329,7 +1747,23 @@ function zapotrzebowania()
             z_We += 15 * Mr;
             z_Nar += 10 * Mr;
         }
-    /*Plantacja kawy*/        //p_K += 30 * Pk;     z_Nar += 5 * Pk;
+
+        if(TECH>0 && TECH<=50)
+        {
+            Pib += pocz_Mr;
+            Oib += Mr;
+            pom_bud = Mr - pocz_Mr;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Plantacja kawy*/
         if(TECH>0 && TECH<=9)
         {
             document.getElementById("Pk_p").innerHTML = "-";
@@ -1359,7 +1793,23 @@ function zapotrzebowania()
             p_K += 40 * Pk;
             z_Nar += 15 * Pk;     
         }
-    /*Plantacja bawełny*/     //p_Tk += 60 * Pbaw;  z_Nar += 10 * Pbaw;
+
+        if(TECH>9 && TECH<=50)
+        {
+            Pib += pocz_Pk;
+            Oib += Pk;
+            pom_bud = Pk - pocz_Pk;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Plantacja bawełny*/
         if(TECH>0 && TECH<=9)
         {
             document.getElementById("Pbaw_p").innerHTML = "-";
@@ -1389,7 +1839,23 @@ function zapotrzebowania()
             p_Tk += 100 * Pbaw;
             z_Nar += 15 * Pbaw;
         }
-    /*Plantacja barwników*/   //p_Ba += 35 * Pbar;  z_Nar += 5 * Pbar;
+
+        if(TECH>9 && TECH<=50)
+        {
+            Pib += pocz_Pbaw;
+            Oib += Pbaw;
+            pom_bud = Pbaw - pocz_Pbaw;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Plantacja barwników*/
         if(TECH>0 && TECH<=9)
         {
             document.getElementById("Pbar_p").innerHTML = "-";
@@ -1419,7 +1885,23 @@ function zapotrzebowania()
             p_Ba += 50 * Pbar;
             z_Nar += 15 * Pbar;
         }
-    /*Plantacja herbaty*/     //p_H += 30 * Ph;     z_Nar += 5 * Ph;
+
+        if(TECH>9 && TECH<=50)
+        {
+            Pib += pocz_Pbar;
+            Oib += Pbar;
+            pom_bud = Pbar - pocz_Pbar;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Plantacja herbaty*/
         if(TECH>0 && TECH<=9)
         {
             document.getElementById("Ph_p").innerHTML = "-";
@@ -1449,7 +1931,23 @@ function zapotrzebowania()
             p_H += 40 * Ph;
             z_Nar += 15 * Ph;
         }
-    /*Plantacja tytoniu*/     //p_Ty += 35 * Pt;    z_Nar += 5 * Pt;
+
+        if(TECH>9 && TECH<=50)
+        {
+            Pib += pocz_Ph;
+            Oib += Ph;
+            pom_bud = Ph - pocz_Ph;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Plantacja tytoniu*/
         if(TECH>0 && TECH<=9)
         {
             document.getElementById("Pt_p").innerHTML = "-";
@@ -1479,7 +1977,23 @@ function zapotrzebowania()
             p_Ty += 50 * Pt;
             z_Nar += 15 * Pt;
         }
-    /*Plantacja cukru*/       //p_C += 45 * Pc;     z_Nar += 7 * Pc;
+
+        if(TECH>9 && TECH<=50)
+        {
+            Pib += pocz_Pt;
+            Oib += Pt;
+            pom_bud = Pt - pocz_Pt;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Plantacja cukru*/
         if(TECH>0 && TECH<=9)
         {
             document.getElementById("Pc_p").innerHTML = "-";
@@ -1508,6 +2022,22 @@ function zapotrzebowania()
             KosBud += 120 * Pc;
             p_C += 60 * Pc;
             z_Nar += 15 * Pc;
+        }
+
+        if(TECH>9 && TECH<=50)
+        {
+            Pib += pocz_Pc;
+            Oib += Pc;
+            pom_bud = Pc - pocz_Pc;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
         }
     /*Plantacja owoców*/      //p_Ow += 45 * Po;    z_Nar += 7 * Po;
         if(TECH>0 && TECH<=9)
@@ -1539,7 +2069,23 @@ function zapotrzebowania()
             p_Ow += 60 * Po;
             z_Nar += 15 * Po;
         }
-    /*Plantacja jedwabiu*/    //p_J += 30 * Pj;     z_Nar += 5 * Pj;
+
+        if(TECH>9 && TECH<=50)
+        {
+            Pib += pocz_Po;
+            Oib += Po;
+            pom_bud = Po - pocz_Po;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
+        }
+    /*Plantacja jedwabiu*/
         if(TECH>0 && TECH<=9)
         {
             document.getElementById("Pj_p").innerHTML = "-";
@@ -1568,6 +2114,22 @@ function zapotrzebowania()
             KosBud += 100 * Pj;
             p_J += 40 * Pj;
             z_Nar += 15 * Pj;
+        }
+
+        if(TECH>9 && TECH<=50)
+        {
+            Pib += pocz_Pj;
+            Oib += Pj;
+            pom_bud = Pj - pocz_Pj;
+            if(pom_bud > 0)
+            {
+                Izbudob += pom_bud;
+            }
+            else if(pom_bud < 0)
+            {
+                Izburzb += -pom_bud;
+            }
+            pom_bud = 0;
         }
 
     /*ARMIA*/
@@ -2241,24 +2803,6 @@ rozliczenie();
 
         UC = ((Czysto - KosBud)/CzUC).toFixed(0)/1;
 
-        sum_kop = Kw + Kze + Ko + Ks + Kzl,
-
-        sum_bud = T + Zsp + Fw + Fm + Hsz + N + P + Zch + Zsy + Hst + Sd + Ss + Zz + Za + Fz + Fps + Fr + Fk + Fpr + R + Mr + Pk + Pbaw + Pbar + Ph + Pt + Pc + Po + Pj,
-
-        sum_sum = sum_bud + sum_kop,
-
-        sum_pocz = Pib + Pik,
-
-        bud_przy = sum_bud - Pib,
-
-        kop_przy = sum_kop - Pik,
-
-        sum_przy = (sum_bud + sum_kop) - (sum_pocz),
-
-        sum_usu = Ub + Uk,
-
-        pods_budy = sum_przy + sum_usu;
-
     document.getElementById("L_p").innerHTML = L_p;
     document.getElementById("L_m").innerHTML = L_m; 
     document.getElementById("Roz").innerHTML = L_p - L_m;
@@ -2272,15 +2816,10 @@ rozliczenie();
     document.getElementById("Czysto").innerHTML = Czysto - KosBud;
     document.getElementById("UC").innerHTML = UC;
 
-    document.getElementById("sum_kop").innerHTML = sum_kop;
-    document.getElementById("sum_bud").innerHTML = sum_bud;
-    document.getElementById("sum_sum").innerHTML = sum_sum;
-    document.getElementById("sum_pocz").innerHTML = sum_pocz;
-    document.getElementById("bud_przy").innerHTML = bud_przy;
-    document.getElementById("kop_przy").innerHTML = kop_przy;
-    document.getElementById("sum_przy").innerHTML = sum_przy;
-    document.getElementById("sum_usu").innerHTML = sum_usu;
-    document.getElementById("pods_budy").innerHTML = pods_budy;
+    document.getElementById("Pib").innerHTML = Pib;
+    document.getElementById("Oib").innerHTML = Oib; 
+    document.getElementById("Izbudob").innerHTML = Izbudob;
+    document.getElementById("Izburzb").innerHTML = Izburzb;
 
     let NAZ = document.getElementById("NAZ").value,
         Nazwa = "";
@@ -2293,64 +2832,64 @@ rozliczenie();
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-           [`Rynek 1.4.4`,
+           [`Rynek 1.5`,
             `\n\nNazwa Kraju / Uni celnej: ${Nazwa}`,
             `\nIlość członków uni celnej: ${CzUC}`,
             `\nTechnologia: ${TECH}`,
             `\nTura: ${tura}`,
             `\nPopulacja: ${POP}`,
             `\nZaspokojenie potrzeb populacji: ${ZasPot}%`,
-            `\n\nPoczątkowa ilość budynków: ${Pib}, Początkowa ilość kopalni: ${Pik}, Suma: ${sum_pocz}`,
-            `\nIlość budynków: ${sum_bud},            Ilość kopalń: ${sum_kop},             Łącznie: ${sum_sum}`,
-            `\nPrzyrost budynków: ${bud_przy},         Przyrost kopalń: ${kop_przy},          Przyrost o: ${sum_przy}`,
-            `\nUsunięte budynki: ${Ub},          Usunięte kopalnie: ${Uk},        Łącznie: ${sum_usu}`,
-            `\nDo Toolboxa: ${pods_budy}`,
+            `\n\nPoczątkowa ilość budynków: ${Pib}`,
+            `\nObecna ilość budynków: ${Oib}`,
+            `\nIlość zbudowanych budynków: ${Izbudob}`,
+            `\nIlość zburzonych budynków: ${Izburzb}`,
             `\n\n//Zatrudnienie//`,
             `\nGórnicy: ${Gor}, ${pr_Gor}%`,
             `\nRobotnicy: ${Rob}, ${pr_Rob}%`,
             `\nRolnicy: ${Rol}, ${pr_Rol}%`,
             `\nPlantatorzy: ${Pla}, ${pr_Pla}%`,
             `\nŻołnierze i Marynarze: ${ARM}, ${APP}%`,
-            `\nSuma punktów procentowych zawodów: ${pr_zaw}%`,
+            `\nSuma punktów procentowych zatrudnienia: ${pr_zaw}%`,
             `\n\n//BUDYNKI//`, 
+            `\nBudynki - Ilość początkowa - Ilość obecna`,
             `\n---Zasoby---`, 
-            `\nTartak: ${T}`,
-            `\nKopalnia węgla: ${Kw}`,
-            `\nKopalnia żelaza: ${Kze}`,
-            `\nKopalnia ołowiu: ${Ko}`,
-            `\nKopalnia siarki: ${Ks}`,
-            `\nKopalnia złota: ${Kzl}`,
+            `\nTartak: ${pocz_T}, ${T}`,
+            `\nKopalnia węgla: ${pocz_Kw}, ${Kw}`,
+            `\nKopalnia żelaza: ${pocz_Kze}, ${Kze}`,
+            `\nKopalnia ołowiu: ${pocz_Ko}, ${Ko}`,
+            `\nKopalnia siarki: ${pocz_Ks}, ${Ks}`,
+            `\nKopalnia złota: ${pocz_Kzl}, ${Kzl}`,
             `\n\n---Przemysł---`,
-            `\nZakład spożywczy: ${Zsp}`,
-            `\nFabryka włókiennicza: ${Fw}`,
-            `\nFabryka mebli: ${Fm}`,
-            `\nHuta szkła: ${Hsz}`,
-            `\nNarzędziownia: ${N}`,
-            `\nPapiernia: ${P}`,
-            `\nZakład chemiczny: ${Zch}`,
-            `\nZakład syntetyczny: ${Zsy}`, 
-            `\nHuta stali: ${Hst}`,
-            `\nStocznia (drewno): ${Sd}`,
-            `\nStocznia (stal): ${Ss}`,
-            `\nZakład zbrojeniowy: ${Zz}`,
-            `\nZakład amunicyjny: ${Za}`,
+            `\nZakład spożywczy: ${pocz_Zsp}, ${Zsp}`,
+            `\nFabryka włókiennicza: ${pocz_Fw}, ${Fw}`,
+            `\nFabryka mebli: ${pocz_Fm}, ${Fm}`,
+            `\nHuta szkła: ${pocz_Hsz}, ${Hsz}`,
+            `\nNarzędziownia: ${pocz_N}, ${N}`,
+            `\nPapiernia: ${pocz_P}, ${P}`,
+            `\nZakład chemiczny: ${pocz_Zch}, ${Zch}`,
+            `\nZakład syntetyczny: ${pocz_Zsy}, ${Zsy}`, 
+            `\nHuta stali: ${pocz_Hst}, ${Hst}`,
+            `\nStocznia (drewno): ${pocz_Sd}, ${Sd}`,
+            `\nStocznia (stal): ${pocz_Ss}, ${Ss}`,
+            `\nZakład zbrojeniowy: ${pocz_Zz}, ${Zz}`,
+            `\nZakład amunicyjny: ${pocz_Za}, ${Za}`,
             `\n\n---Żywność---`,
-            `\nFarma żyta: ${Fz}`,
-            `\nFarma pszenicy: ${Fps}`,
-            `\nFarma ryżu: ${Fr}`,
-            `\nFarma kukurydzy: ${Fk}`,
-            `\nFarma prosa: ${Fpr}`,
-            `\nRanczo: ${R}`,
-            `\nMolo rybackie: ${Mr}`,
+            `\nFarma żyta: ${pocz_Fz}, ${Fz}`,
+            `\nFarma pszenicy: ${pocz_Fps}, ${Fps}`,
+            `\nFarma ryżu: ${pocz_Fr}, ${Fr}`,
+            `\nFarma kukurydzy: ${pocz_Fk}, ${Fk}`,
+            `\nFarma prosa: ${pocz_Fpr}, ${Fpr}`,
+            `\nRanczo: ${pocz_R}, ${R}`,
+            `\nMolo rybackie: ${pocz_Mr}, ${Mr}`,
             `\n\n---Plantacje---`,
-            `\nPlantacja kawy: ${Pk}`,
-            `\nPlantacja bawełny: ${Pbaw}`,
-            `\nPlantacja barwników: ${Pbar}`,
-            `\nPlantacja herbaty: ${Ph}`,
-            `\nPlantacja tytoniu: ${Pt}`,
-            `\nPlantacja cukru: ${Pc}`,
-            `\nPlantacja owoców: ${Po}`,
-            `\nPlantacja jedwabiu: ${Pj}`,
+            `\nPlantacja kawy: ${pocz_Pk}, ${Pk}`,
+            `\nPlantacja bawełny: ${pocz_Pbaw}, ${Pbaw}`,
+            `\nPlantacja barwników: ${pocz_Pbar}, ${Pbar}`,
+            `\nPlantacja herbaty: ${pocz_Ph}, ${Ph}`,
+            `\nPlantacja tytoniu: ${pocz_Pt}, ${Pt}`,
+            `\nPlantacja cukru: ${pocz_Pc}, ${Pc}`,
+            `\nPlantacja owoców: ${pocz_Po}, ${Po}`,
+            `\nPlantacja jedwabiu: ${pocz_Pj}, ${Pj}`,
             `\n\n//KRAJ//`,
             `\n---Armia---`,
             `\nInfantry: ${INF}`,
@@ -2427,7 +2966,9 @@ rozliczenie();
             `\nŁącznie (produkcja): ${L_p}, ${L_m}, ${L_p - L_m}, ${Suma}`,
             `\nKoszt utrzymania: ${KosBud}`,
             `\nNa czysto: ${Czysto - KosBud}`,
-            `\nPo podziale na członków uni celnej: ${UC}`
+            `\nPo podziale na członków uni celnej: ${UC}`,
+            `\n\nKopia:           ${tura}|${TECH}|${Nazwa}|${CzUC}|${POP}|${pocz_T}|${T}|${pocz_Kw}|${Kw}|${pocz_Kze}|${Kze}|${pocz_Ko}|${Ko}|${pocz_Ks}|${Ks}|${pocz_Kzl}|${Kzl}|${pocz_Zsp}|${Zsp}|${pocz_Fw}|${Fw}|${pocz_Fm}|${Fm}|${pocz_Hsz}|${Hsz}|${pocz_N}|${N}|${pocz_P}|${P}|${pocz_Zch}|${Zch}|${pocz_Zsy}|${Zsy}|${pocz_Hst}|${Hst}|${pocz_Sd}|${Sd}|${pocz_Ss}|${Ss}|${pocz_Zz}|${Zz}|${pocz_Za}|${Za}|${pocz_Fz}|${Fz}|${pocz_Fps}|${Fps}|${pocz_Fr}|${Fr}|${pocz_Fk}|${Fk}|${pocz_Fpr}|${Fpr}|${pocz_R}|${R}|${pocz_Mr}|${Mr}|${pocz_Pk}|${Pk}|${pocz_Pbaw}|${Pbaw}|${pocz_Pbar}|${Pbar}|${pocz_Ph}|${Ph}|${pocz_Pt}|${Pt}|${pocz_Pc}|${Pc}|${pocz_Po}|${Po}|${pocz_Pj}|${Pj}|${INF}|${ARC}|${CAV}|${ART}|${FLO}|${KON}|${m_Ps}|${m_U}|${m_Me}|${m_R}|${m_Tk}|${m_Zb}|${m_Pa}|${m_D}|${m_We}|${m_Sz}|${m_K}|${m_Ow}|${m_Al}|${m_Ul}|${m_Ml}|${m_Mi}|${m_Po}|${m_C}|${m_H}|${m_Ty}|${m_Wi}|`,
+            `\nDo następnej tury: ${tura}|${TECH}|${Nazwa}|${CzUC}|${POP}|${T}|${T}|${Kw}|${Kw}|${Kze}|${Kze}|${Ko}|${Ko}|${Ks}|${Ks}|${Kzl}|${Kzl}|${Zsp}|${Zsp}|${Fw}|${Fw}|${Fm}|${Fm}|${Hsz}|${Hsz}|${N}|${N}|${P}|${P}|${Zch}|${Zch}|${Zsy}|${Zsy}|${Hst}|${Hst}|${Sd}|${Sd}|${Ss}|${Ss}|${Zz}|${Zz}|${Za}|${Za}|${Fz}|${Fz}|${Fps}|${Fps}|${Fr}|${Fr}|${Fk}|${Fk}|${Fpr}|${Fpr}|${R}|${R}|${Mr}|${Mr}|${Pk}|${Pk}|${Pbaw}|${Pbaw}|${Pbar}|${Pbar}|${Ph}|${Ph}|${Pt}|${Pt}|${Pc}|${Pc}|${Po}|${Po}|${Pj}|${Pj}|${INF}|${ARC}|${CAV}|${ART}|${FLO}|${KON}|${m_Ps}|${m_U}|${m_Me}|${m_R}|${m_Tk}|${m_Zb}|${m_Pa}|${m_D}|${m_We}|${m_Sz}|${m_K}|${m_Ow}|${m_Al}|${m_Ul}|${m_Ml}|${m_Mi}|${m_Po}|${m_C}|${m_H}|${m_Ty}|${m_Wi}|`
            ], 
             {type: "text"}
         );
@@ -2442,15 +2983,138 @@ rozliczenie();
 }
 function Cena(BP, ZAP, PRO)
 {
-    let ret = 0;
-    if(ZAP == 0) ret = BP/2;
-    else if(PRO ==0) ret = BP*1.5;
+    let ret = 0, 
+    odch = BP/5;
+    if(ZAP == 0) ret = odch; //BP/2
+    else if(PRO ==0) ret = BP + (BP - odch); //BP*1.5
     if(ZAP == 0 && PRO ==0) ret = BP;
     else
         ret = (BP * (1 + 0.75 * ((ZAP - PRO)/Math.min(ZAP, PRO)))).toFixed(0)/1;
     
-    ret = (ret>BP*1.5)? BP*1.5 : ret;
-    ret = (ret<BP/2)? BP/2 : ret;
+    ret = (ret>BP*1.5)? BP + (BP - odch) : ret; //BP*1.5
+    ret = (ret<BP/2)? odch : ret; //BP/2
     return ret;
     //return BP;
+}
+function Import()
+{
+    let IMPO = document.getElementById("IMPO").value,
+        wart = "",
+        tab = []
+        ind = 0;
+    for(let i = 0; i < IMPO.length; i++)
+    {
+        if(IMPO[i]!="|")
+        {
+            wart += IMPO[i];
+        }
+        else
+        {
+            tab[ind] = wart;
+            ind++;
+            wart = "";
+        }
+    }
+    //console.log(tab);
+
+    document.getElementById("tura").value = tab[0];
+    document.getElementById("TECH").value = tab[1];
+    document.getElementById("NAZ").value = tab[2];
+    document.getElementById("CzUC").value = tab[3];
+    document.getElementById("POP").value = tab[4];
+    document.getElementById("pocz_T").value = tab[5];
+    document.getElementById("T").value = tab[6];
+    document.getElementById("pocz_Kw").value = tab[7];
+    document.getElementById("Kw").value = tab[8];
+    document.getElementById("pocz_Kze").value = tab[9];
+    document.getElementById("Kze").value = tab[10];
+    document.getElementById("pocz_Ko").value = tab[11];
+    document.getElementById("Ko").value = tab[12];
+    document.getElementById("pocz_Ks").value = tab[13];
+    document.getElementById("Ks").value = tab[14];
+    document.getElementById("pocz_Kzl").value = tab[15];
+    document.getElementById("Kzl").value = tab[16];
+    document.getElementById("pocz_Zsp").value = tab[17];
+    document.getElementById("Zsp").value = tab[18];
+    document.getElementById("pocz_Fw").value = tab[19];
+    document.getElementById("Fw").value = tab[20];
+    document.getElementById("pocz_Fm").value = tab[21];
+    document.getElementById("Fm").value = tab[22];
+    document.getElementById("pocz_Hsz").value = tab[23];
+    document.getElementById("Hsz").value = tab[24];
+    document.getElementById("pocz_N").value = tab[25];
+    document.getElementById("N").value = tab[26];
+    document.getElementById("pocz_P").value = tab[27];
+    document.getElementById("P").value = tab[28];
+    document.getElementById("pocz_Zch").value = tab[29];
+    document.getElementById("Zch").value = tab[30];
+    document.getElementById("pocz_Zsy").value = tab[31];
+    document.getElementById("Zsy").value = tab[32];
+    document.getElementById("pocz_Hst").value = tab[33];
+    document.getElementById("Hst").value = tab[34];
+    document.getElementById("pocz_Sd").value = tab[35];
+    document.getElementById("Sd").value = tab[36];
+    document.getElementById("pocz_Ss").value = tab[37];
+    document.getElementById("Ss").value = tab[38];
+    document.getElementById("pocz_Zz").value = tab[39];
+    document.getElementById("Zz").value = tab[40];
+    document.getElementById("pocz_Za").value = tab[41];
+    document.getElementById("Za").value = tab[42];
+    document.getElementById("pocz_Fz").value = tab[43];
+    document.getElementById("Fz").value = tab[44];
+    document.getElementById("pocz_Fps").value = tab[45];
+    document.getElementById("Fps").value = tab[46];
+    document.getElementById("pocz_Fr").value = tab[47];
+    document.getElementById("Fr").value = tab[48];
+    document.getElementById("pocz_Fk").value = tab[49];
+    document.getElementById("Fk").value = tab[50];
+    document.getElementById("pocz_Fpr").value = tab[51];
+    document.getElementById("Fpr").value = tab[52];
+    document.getElementById("pocz_R").value = tab[53];
+    document.getElementById("R").value = tab[54];
+    document.getElementById("pocz_Mr").value = tab[55];
+    document.getElementById("Mr").value = tab[56];
+    document.getElementById("pocz_Pk").value = tab[57];
+    document.getElementById("Pk").value = tab[58];
+    document.getElementById("pocz_Pbaw").value = tab[59];
+    document.getElementById("Pbaw").value = tab[60];
+    document.getElementById("pocz_Pbar").value = tab[61];
+    document.getElementById("Pbar").value = tab[62];
+    document.getElementById("pocz_Ph").value = tab[63];
+    document.getElementById("Ph").value = tab[64];
+    document.getElementById("pocz_Pt").value = tab[65];
+    document.getElementById("Pt").value = tab[66];
+    document.getElementById("pocz_Pc").value = tab[67];
+    document.getElementById("Pc").value = tab[68];
+    document.getElementById("pocz_Po").value = tab[69];
+    document.getElementById("Po").value = tab[70];
+    document.getElementById("pocz_Pj").value = tab[71];
+    document.getElementById("Pj").value = tab[72];
+    document.getElementById("INF").value = tab[73];
+    document.getElementById("ARC").value = tab[74];
+    document.getElementById("CAV").value = tab[75];
+    document.getElementById("ART").value = tab[76];
+    document.getElementById("FLO").value = tab[77];
+    document.getElementById("KON").value = tab[78];
+    document.getElementById("m_Ps").value = tab[79];
+    document.getElementById("m_U").value = tab[80];
+    document.getElementById("m_Me").value = tab[81];
+    document.getElementById("m_R").value = tab[82];
+    document.getElementById("m_Tk").value = tab[83];
+    document.getElementById("m_Zb").value = tab[84];
+    document.getElementById("m_Pa").value = tab[85];
+    document.getElementById("m_D").value = tab[86];
+    document.getElementById("m_We").value = tab[87];
+    document.getElementById("m_Sz").value = tab[88];
+    document.getElementById("m_K").value = tab[89];
+    document.getElementById("m_Ow").value = tab[90];
+    document.getElementById("m_Al").value = tab[91];
+    document.getElementById("m_Ul").value = tab[92];
+    document.getElementById("m_Ml").value = tab[93];
+    document.getElementById("m_Mi").value = tab[94];
+    document.getElementById("m_Po").value = tab[95];
+    document.getElementById("m_C").value = tab[96];
+    document.getElementById("m_H").value = tab[97];
+    document.getElementById("m_Ty").value = tab[98];
+    document.getElementById("m_Wi").value = tab[99];
 }
