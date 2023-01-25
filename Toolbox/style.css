@@ -42,7 +42,7 @@ th
     border: 1px solid rgb(105, 96, 79);
 }
 a{color: white;}
-#obl, #NextTura
+#obl, #imp
 {
     background-color: white; 
     color: black;
@@ -53,22 +53,21 @@ h1
     border: 1px solid grey; 
     border-collapse: collapse;
 }
-#TAB1I, #TAB2I, #TAB3I, #TAB4I, #TAB5I, #TAB6I, #TAB7I
+#TAB1I, #TAB2I, #TAB3I, #TAB4I, #TAB5I, #TAB6I, #TAB7I, #TAB8I
 {
     width: 50%; float: left;
 }
 #TAB3I, #TAB5I, #TAB7I { clear: both; }
-#TAB7I { width: 100%; }
 
-#TAB1D, #TAB2D, #TAB3D, #TAB4D, #TAB5D
+#TAB1D, #TAB2D, #TAB3D, #TAB4D, #TAB5D, #TAB6D
 {
     width: 50%; float: left;
 }
 #TAB3D, #TAB5D { clear: both; }
+#TAB7D { width: 100%;}
 
-#TAB1O, #TAB2O, #TAB3O, #TAB4O, #TAB5O, #TAB6O, #TAB7O, #TAB8O
+#TAB1O, #TAB2O, #TAB3O, #TAB4O, #TAB5O, #TAB6O, #TAB7O, #TAB8O, #TAB9O
 {
     width: 33.3%; float: left;
 }
-#TAB4O, #TAB7O, #TAB8O { clear: both; }
-#TAB8O { width: 100%; }
+#TAB4O, #TAB7O { clear: both; }
