@@ -605,7 +605,7 @@ function Main()
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement('a');
         a.href = url;
-        a.download = `Raport_${NazKra}_${tura}`;
+        a.download = `Raport_${NazKra}_${--tura}`;
         document.body.appendChild(a);
         a.click();    
         a.remove();
