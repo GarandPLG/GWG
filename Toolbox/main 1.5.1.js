@@ -56,7 +56,8 @@ function Main()
         Ipik = parseInt(document.getElementById("Ipik").value),
         Ipir = parseInt(document.getElementById("Ipir").value),
         Ipnz = parseInt(document.getElementById("Ipnz").value),
-        GovCap = Ipro * 1 + Imiast * 1 + Ipik * 1 + Ipir * 1 + Ipnz * 50,
+        Im = parseInt(document.getElementById("Im").value),
+        GovCap = Ipro * 1 + Imiast * 1 + Ipik * 1 + Ipir * 1 + Ipnz * 50 + Im * 500,
         GovCap_proc = ((GovCap / LGovCap)*100).toFixed(2)/1,
 
         ZAD = parseInt(document.getElementById("ZAD").value),
@@ -121,7 +122,7 @@ function Main()
         NAW = parseInt(document.getElementById("NAW").value),
         ZMK = parseInt(document.getElementById("ZMK").value),
         DR = parseInt(document.getElementById("DR").value),
-        SPR = IPR + PRr + DR + pocz_Uni + Uni,
+        SPR = IPR + PRr + DR + pocz_Uni * 2 + Uni * 2,
         prPRO = 0,
         nTECH = TECH,
         inpr = parseInt(document.getElementById("inpr").value),
@@ -144,11 +145,11 @@ function Main()
         sum_Po = Po + pocz_Po,
     
         Budynki_KiP =
-          Mipodr * 250
+          Mipodr * 125
         - pocz_Uni * 250
         - pocz_ObWo * 250
-        + Mipowidr * 500
-        + Miposzmo * 250
+        + Mipowidr * 250
+        + Miposzmo * 125
         + pocz_Pm * 150
         - pocz_Za * 100
         - pocz_Mm * 200
@@ -177,7 +178,7 @@ function Main()
         + Ry * 2500
         + Cr * 2500
         + Po * 1000 // -1 do czasu oblegania
-        + EKS * 200  
+        + EKS * 100  
         + NAW * 100 
         + ZMK * 300 
         + DR * 350,
@@ -345,9 +346,9 @@ function Main()
  
     if(nstab > 100) nstab = 100;
 
-    nTECH += Math.floor(SPR/400);
-    SPR -= 400 * Math.floor(SPR/400);
-    prPRO = ((SPR/400)*100).toFixed(2)/1;
+    nTECH += Math.floor(SPR/250);
+    SPR -= 250 * Math.floor(SPR/250);
+    prPRO = ((SPR/250)*100).toFixed(2)/1;
 
     document.getElementById("plwies").innerHTML = cawies;
     document.getElementById("plmiasto").innerHTML = camiasto;
@@ -429,7 +430,7 @@ function Main()
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-          [`Wersja: 1.5`,
+          [`Wersja: 1.5.1`,
            `\n\n//////////////\n///I. INPUT///\n//////////////`,
            `\n\n---1. Kraj---`,
            `\nNazwa kraju: ${NazKra}`,
@@ -438,7 +439,7 @@ function Main()
            `\nTechnologia: ${TECH}`,
            `\nIlość punktów rozwoju: ${IPR}`,
            `\nPunkty rozwoju (roll): ${PRr}`,
-           `\nPotrzebne punkty: 400`,
+           `\nPotrzebne punkty: 250`,
            `\n\n---2. Populacja początkowa---`,
            `\nWieś: ${wies}`,
            `\nMiasto: ${miasto}`,
@@ -485,6 +486,7 @@ function Main()
            `\nIlość prowincji z inną kulturą: ${Ipik}`,
            `\nIlość prowincji z inną religią: ${Ipir}`,
            `\nIlość prowincji niezintegrowanych: ${Ipnz}`,
+           `\nIlość pmarchii: ${Im}`,
            `\n\n---8. Długi---`,
            `\nZadłużenie: ${Pocz_ZAD}`,
            `\nOprocentowanie (%): ${OPR}`,
@@ -595,15 +597,15 @@ function Main()
            `\nProgres rozwoju: ${prPRO}%`,
            `\nObecny GovCap: ${GovCap}`,
            `\n% GovCap: ${GovCap_proc}`,
-           `\n\nKopia:             ${NazKra}|${tura}|${TECH}|${IPR}|${PRr}|${wies}|${miasto}|${ok_wies}|${ok_miasto}|${pn*100}|${ska}|${ryn}|${DanWas}|${psp}|${rep}|${StDa}|${INF}|${ARC}|${CAV}|${ART}|${FLO}|${KON}|${LP}|${pocz_Uni}|${pocz_ObWo}|${Mipodr}|${Mipowidr}|${Miposzmo}|${pocz_Pm}|${pocz_Za}|${pocz_Mm}|${pocz_Ry}|${pocz_Cr}|${pocz_Po}|${stab}|${ZPP}|${LGovCap}|${Ipro}|${Imiast}|${Ipik}|${Ipir}|${Ipnz}|${Pocz_ZAD}|${OPR}|${BProd}|${ZProd}|${Drogi}|${WDrogi}|${MDrogi}|${Uni}|${ObWo}|${BNmiasto}|${op_BNmiasto}|${R_Tdf}|${op_Tdf}|${R_Tr}|${op_Tr}|${R_Ta}|${op_Ta}|${R_Gr}|${op_Gr}|${R_We}|${op_We}|${R_Tu}|${op_Tu}|${Pm}|${op_Pm}|${Za}|${op_Za}|${Mm}|${op_Mm}|${Ry}|${op_Ry}|${Cr}|${op_Cr}|${Po}|${op_Po}|${rINF}|${rARC}|${rCAV}|${rART}|${rFLO}|${rKON}|${WzPo}|${PrZw}|${SpPo}|${EKS}|${NAW}|${ZMK}|${DR}|${inpr}|${op_inpr}|${inko}|${op_inko}|`,
-           `\nDo następnej tury: ${NazKra}|${++tura}|${nTECH}|${SPR}|${0}|${cawies}|${camiasto}|${ok_cawies}|${ok_camiasto}|${pn*100}|${Obil}|${0}|${0}|${psp}|${rep}|${StDa}|${oINF}|${oARC}|${oCAV}|${oART}|${oFLO}|${oKON}|${LP}|${sum_Uni}|${sum_ObWo}|${Mipodr}|${Mipowidr}|${Miposzmo}|${sum_Pm}|${sum_Za}|${sum_Mm}|${sum_Ry}|${sum_Cr}|${sum_Po}|${nstab}|${ZPP}|${LGovCap}|${Ipro+EKS}|${Imiast+BNmiasto}|${Ipik}|${Ipir}|${Ipnz}|${ZAD}|${OPR}|${0}|${0}|${0}|${0}|${0}|${0}|${0}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${0}|${0}|${0}|${0}|${0}|${0}|${PrZw}|${0}|${0}|${0}|${0}|${0}|${inpr}|${op_inpr}|${inko}|${op_inko}|`
+           `\n\nKopia:             ${NazKra}|${tura}|${TECH}|${IPR}|${PRr}|${wies}|${miasto}|${ok_wies}|${ok_miasto}|${pn*100}|${ska}|${ryn}|${DanWas}|${psp}|${rep}|${StDa}|${INF}|${ARC}|${CAV}|${ART}|${FLO}|${KON}|${LP}|${pocz_Uni}|${pocz_ObWo}|${Mipodr}|${Mipowidr}|${Miposzmo}|${pocz_Pm}|${pocz_Za}|${pocz_Mm}|${pocz_Ry}|${pocz_Cr}|${pocz_Po}|${stab}|${ZPP}|${LGovCap}|${Ipro}|${Imiast}|${Ipik}|${Ipir}|${Ipnz}|${Im}|${Pocz_ZAD}|${OPR}|${BProd}|${ZProd}|${Drogi}|${WDrogi}|${MDrogi}|${Uni}|${ObWo}|${BNmiasto}|${op_BNmiasto}|${R_Tdf}|${op_Tdf}|${R_Tr}|${op_Tr}|${R_Ta}|${op_Ta}|${R_Gr}|${op_Gr}|${R_We}|${op_We}|${R_Tu}|${op_Tu}|${Pm}|${op_Pm}|${Za}|${op_Za}|${Mm}|${op_Mm}|${Ry}|${op_Ry}|${Cr}|${op_Cr}|${Po}|${op_Po}|${rINF}|${rARC}|${rCAV}|${rART}|${rFLO}|${rKON}|${WzPo}|${PrZw}|${SpPo}|${EKS}|${NAW}|${ZMK}|${DR}|${inpr}|${op_inpr}|${inko}|${op_inko}|`,
+           `\nDo następnej tury: ${NazKra}|${++tura}|${nTECH}|${SPR}|${0}|${cawies}|${camiasto}|${ok_cawies}|${ok_camiasto}|${pn*100}|${Obil}|${0}|${0}|${psp}|${rep}|${StDa}|${oINF}|${oARC}|${oCAV}|${oART}|${oFLO}|${oKON}|${LP}|${sum_Uni}|${sum_ObWo}|${Mipodr}|${Mipowidr}|${Miposzmo}|${sum_Pm}|${sum_Za}|${sum_Mm}|${sum_Ry}|${sum_Cr}|${sum_Po}|${nstab}|${ZPP}|${LGovCap}|${Ipro+EKS}|${Imiast+BNmiasto}|${Ipik+EKS}|${Ipir+EKS-sum_Cr}|${Ipnz}|${Im}|${ZAD}|${OPR}|${0}|${0}|${0}|${0}|${0}|${0}|${0}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${""}|${0}|${0}|${0}|${0}|${0}|${0}|${0}|${PrZw}|${0}|${0}|${0}|${0}|${0}|${inpr}|${op_inpr}|${inko}|${op_inko}|`
           ], 
             {type: "text"}
         );
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement('a');
         a.href = url;
-        a.download = `Raport_${NazKra}_${tura}`;
+        a.download = `Raport_${NazKra}_${--tura}`;
         document.body.appendChild(a);
         a.click();    
         a.remove();
@@ -614,7 +616,8 @@ function Import()
     let IMPO = document.getElementById("IMPO").value,
         wart = "",
         tab = []
-        ind = 0;
+        ind = 0
+        xyz = 0;
     for(let i = 0; i < IMPO.length; i++)
     {
         if(IMPO[i]!="|")
@@ -629,99 +632,100 @@ function Import()
         }
     }
 
-    document.getElementById("nazkra").value = tab[0],
-    document.getElementById("tura").value = tab[1];
-    document.getElementById("TECH").value = tab[2];
-    document.getElementById("IPR").value = tab[3];
-    document.getElementById("PRr").value = tab[4];
-    document.getElementById("wies").value = tab[5];
-    document.getElementById("miasto").value = tab[6];
-    document.getElementById("ok_wies").value = tab[7];
-    document.getElementById("ok_miasto").value = tab[8];
-    document.getElementById("pn").value = tab[9];
-    document.getElementById("ska").value = tab[10];
-    document.getElementById("ryn").value = tab[11];
-    document.getElementById("DanWas").value = tab[12];
-    document.getElementById("psp").value = tab[13];
-    document.getElementById("rep").value = tab[14];
-    document.getElementById("StDa").value = tab[15];
-    document.getElementById("INF").value = tab[16];
-    document.getElementById("ARC").value = tab[17];
-    document.getElementById("CAV").value = tab[18];
-    document.getElementById("ART").value = tab[19];
-    document.getElementById("FLO").value = tab[20];
-    document.getElementById("KON").value = tab[21];
-    document.getElementById("LP").value = tab[22];
-    document.getElementById("pocz_Uni").value = tab[23];
-    document.getElementById("pocz_ObWo").value = tab[24];
-    document.getElementById("Mipodr").value = tab[25];
-    document.getElementById("Mipowidr").value = tab[26];
-    document.getElementById("Miposzmo").value = tab[27];
-    document.getElementById("pocz_Pm").value = tab[28];
-    document.getElementById("pocz_Za").value = tab[29];
-    document.getElementById("pocz_Mm").value = tab[30];
-    document.getElementById("pocz_Ry").value = tab[31];
-    document.getElementById("pocz_Cr").value = tab[32];
-    document.getElementById("pocz_Po").value = tab[33];
-    document.getElementById("stab").value = tab[34];
-    document.getElementById("ZPP").value = tab[35];
-    document.getElementById("LGovCap").value = tab[36];
-    document.getElementById("Ipro").value = tab[37];
-    document.getElementById("Imiast").value = tab[38];
-    document.getElementById("Ipik").value = tab[39];
-    document.getElementById("Ipir").value = tab[40];
-    document.getElementById("Ipnz").value = tab[41];
-    document.getElementById("ZAD").value = tab[42];
-    document.getElementById("OPR").value = tab[43];
+    document.getElementById("nazkra").value = tab[xyz++],
+    document.getElementById("tura").value = tab[xyz++];
+    document.getElementById("TECH").value = tab[xyz++];
+    document.getElementById("IPR").value = tab[xyz++];
+    document.getElementById("PRr").value = tab[xyz++];
+    document.getElementById("wies").value = tab[xyz++];
+    document.getElementById("miasto").value = tab[xyz++];
+    document.getElementById("ok_wies").value = tab[xyz++];
+    document.getElementById("ok_miasto").value = tab[xyz++];
+    document.getElementById("pn").value = tab[xyz++];
+    document.getElementById("ska").value = tab[xyz++];
+    document.getElementById("ryn").value = tab[xyz++];
+    document.getElementById("DanWas").value = tab[xyz++];
+    document.getElementById("psp").value = tab[xyz++];
+    document.getElementById("rep").value = tab[xyz++];
+    document.getElementById("StDa").value = tab[xyz++];
+    document.getElementById("INF").value = tab[xyz++];
+    document.getElementById("ARC").value = tab[xyz++];
+    document.getElementById("CAV").value = tab[xyz++];
+    document.getElementById("ART").value = tab[xyz++];
+    document.getElementById("FLO").value = tab[xyz++];
+    document.getElementById("KON").value = tab[xyz++];
+    document.getElementById("LP").value = tab[xyz++];
+    document.getElementById("pocz_Uni").value = tab[xyz++];
+    document.getElementById("pocz_ObWo").value = tab[xyz++];
+    document.getElementById("Mipodr").value = tab[xyz++];
+    document.getElementById("Mipowidr").value = tab[xyz++];
+    document.getElementById("Miposzmo").value = tab[xyz++];
+    document.getElementById("pocz_Pm").value = tab[xyz++];
+    document.getElementById("pocz_Za").value = tab[xyz++];
+    document.getElementById("pocz_Mm").value = tab[xyz++];
+    document.getElementById("pocz_Ry").value = tab[xyz++];
+    document.getElementById("pocz_Cr").value = tab[xyz++];
+    document.getElementById("pocz_Po").value = tab[xyz++];
+    document.getElementById("stab").value = tab[xyz++];
+    document.getElementById("ZPP").value = tab[xyz++];
+    document.getElementById("LGovCap").value = tab[xyz++];
+    document.getElementById("Ipro").value = tab[xyz++];
+    document.getElementById("Imiast").value = tab[xyz++];
+    document.getElementById("Ipik").value = tab[xyz++];
+    document.getElementById("Ipir").value = tab[xyz++];
+    document.getElementById("Ipnz").value = tab[xyz++];
+    document.getElementById("Im").value = tab[xyz++];
+    document.getElementById("ZAD").value = tab[xyz++];
+    document.getElementById("OPR").value = tab[xyz++];
 
-    document.getElementById("BProd").value = tab[44];
-    document.getElementById("ZProd").value = tab[45];
-    document.getElementById("Drogi").value = tab[46];
-    document.getElementById("WDrogi").value = tab[47];
-    document.getElementById("MDrogi").value = tab[48];
-    document.getElementById("Uni").value = tab[49];
-    document.getElementById("ObWo").value = tab[50];
-    document.getElementById("BNmiasto").value = tab[51];
-    document.getElementById("op_BNmiasto").value = tab[52];
-    document.getElementById("R_Tdf").value = tab[53];
-    document.getElementById("op_Tdf").value = tab[54];
-    document.getElementById("R_Tr").value = tab[55];
-    document.getElementById("op_Tr").value = tab[56];
-    document.getElementById("R_Ta").value = tab[57];
-    document.getElementById("op_Ta").value = tab[58];
-    document.getElementById("R_Gr").value = tab[59];
-    document.getElementById("op_Gr").value = tab[60];
-    document.getElementById("R_We").value = tab[61];
-    document.getElementById("op_We").value = tab[62];
-    document.getElementById("R_Tu").value = tab[63];
-    document.getElementById("op_Tu").value = tab[64];
-    document.getElementById("Pm").value = tab[65];
-    document.getElementById("op_Pm").value = tab[66];
-    document.getElementById("Za").value = tab[67];
-    document.getElementById("op_Za").value = tab[68];
-    document.getElementById("Mm").value = tab[69];
-    document.getElementById("op_Mm").value = tab[70];
-    document.getElementById("Ry").value = tab[71];
-    document.getElementById("op_Ry").value = tab[72];
-    document.getElementById("Cr").value = tab[73];
-    document.getElementById("op_Cr").value = tab[74];
-    document.getElementById("Po").value = tab[75];
-    document.getElementById("op_Po").value = tab[76];
-    document.getElementById("rINF").value = tab[77];
-    document.getElementById("rARC").value = tab[78];
-    document.getElementById("rCAV").value = tab[79];
-    document.getElementById("rART").value = tab[80];
-    document.getElementById("rFLO").value = tab[81];
-    document.getElementById("rKON").value = tab[82];
-    document.getElementById("WzPo").value = tab[83];
-    document.getElementById("PrZw").value = tab[84];
-    document.getElementById("SpPo").value = tab[85];
-    document.getElementById("EKS").value = tab[86];
-    document.getElementById("NAW").value = tab[87];
-    document.getElementById("ZMK").value = tab[88];
-    document.getElementById("DR").value = tab[89];
-    document.getElementById("inpr").value = tab[90];
-    document.getElementById("op_inpr").value = tab[91];
-    document.getElementById("inko").value = tab[92];
-    document.getElementById("op_inko").value = tab[93];
+    document.getElementById("BProd").value = tab[xyz++];
+    document.getElementById("ZProd").value = tab[xyz++];
+    document.getElementById("Drogi").value = tab[xyz++];
+    document.getElementById("WDrogi").value = tab[xyz++];
+    document.getElementById("MDrogi").value = tab[xyz++];
+    document.getElementById("Uni").value = tab[xyz++];
+    document.getElementById("ObWo").value = tab[xyz++];
+    document.getElementById("BNmiasto").value = tab[xyz++];
+    document.getElementById("op_BNmiasto").value = tab[xyz++];
+    document.getElementById("R_Tdf").value = tab[xyz++];
+    document.getElementById("op_Tdf").value = tab[xyz++];
+    document.getElementById("R_Tr").value = tab[xyz++];
+    document.getElementById("op_Tr").value = tab[xyz++];
+    document.getElementById("R_Ta").value = tab[xyz++];
+    document.getElementById("op_Ta").value = tab[xyz++];
+    document.getElementById("R_Gr").value = tab[xyz++];
+    document.getElementById("op_Gr").value = tab[xyz++];
+    document.getElementById("R_We").value = tab[xyz++];
+    document.getElementById("op_We").value = tab[xyz++];
+    document.getElementById("R_Tu").value = tab[xyz++];
+    document.getElementById("op_Tu").value = tab[xyz++];
+    document.getElementById("Pm").value = tab[xyz++];
+    document.getElementById("op_Pm").value = tab[xyz++];
+    document.getElementById("Za").value = tab[xyz++];
+    document.getElementById("op_Za").value = tab[xyz++];
+    document.getElementById("Mm").value = tab[xyz++];
+    document.getElementById("op_Mm").value = tab[xyz++];
+    document.getElementById("Ry").value = tab[xyz++];
+    document.getElementById("op_Ry").value = tab[xyz++];
+    document.getElementById("Cr").value = tab[xyz++];
+    document.getElementById("op_Cr").value = tab[xyz++];
+    document.getElementById("Po").value = tab[xyz++];
+    document.getElementById("op_Po").value = tab[xyz++];
+    document.getElementById("rINF").value = tab[xyz++];
+    document.getElementById("rARC").value = tab[xyz++];
+    document.getElementById("rCAV").value = tab[xyz++];
+    document.getElementById("rART").value = tab[xyz++];
+    document.getElementById("rFLO").value = tab[xyz++];
+    document.getElementById("rKON").value = tab[xyz++];
+    document.getElementById("WzPo").value = tab[xyz++];
+    document.getElementById("PrZw").value = tab[xyz++];
+    document.getElementById("SpPo").value = tab[xyz++];
+    document.getElementById("EKS").value = tab[xyz++];
+    document.getElementById("NAW").value = tab[xyz++];
+    document.getElementById("ZMK").value = tab[xyz++];
+    document.getElementById("DR").value = tab[xyz++];
+    document.getElementById("inpr").value = tab[xyz++];
+    document.getElementById("op_inpr").value = tab[xyz++];
+    document.getElementById("inko").value = tab[xyz++];
+    document.getElementById("op_inko").value = tab[xyz++];
 }

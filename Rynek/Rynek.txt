@@ -155,9 +155,10 @@ _Przemysł
     .Zakład spożywczy
 		Tier I
 			+4500 Robotnicy
-			-45 Utrzymanie
+			-55 Utrzymanie
 			+45 Produkty spożywcze
-			-40 Zboże
+			-30 Zboże
+			-5 Narzędzia
 		Tier II
 			+2850 Robotnicy
 			-35 Utrzymanie
@@ -183,9 +184,10 @@ _Przemysł
     .Fabryka włókiennicza
         Tier I
 			+4500 Robotnicy
-			-45 Utrzymanie
+			-55 Utrzymanie
 			+45 Ubranie
-			-40 Tkanina
+			-30 Tkanina
+			-5 Narzędzia
 		Tier II
 			+3500 Robotnicy
 			-115 Utrzymanie
@@ -236,9 +238,10 @@ _Przemysł
     .Huta szkła
 		Tier I
 			+4500 Robotnicy
-			-60 Utrzymanie
+			-30 Utrzymanie
 			+30 Szkło
-			-30 Drewno
+			-20 Drewno
+			-5 Narzędzia
 		Tier II
 			+2500 Robotnicy
 			-105 Utrzymanie
@@ -284,9 +287,10 @@ _Przemysł
     .Papiernia
 		Tier I
 			+4500 Robotnicy
-			-60 Utrzymanie
+			-20 Utrzymanie
 			+40 Papier
-			-30 Drewno
+			-20 Drewno
+			-5 Narzędzia
 		Tier II
 			+3000 Robotnicy
 			-65 Utrzymanie
