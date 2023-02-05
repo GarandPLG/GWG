@@ -538,13 +538,14 @@ function zapotrzebowania()
         if(TECH>0 && TECH<=10)
         {
             document.getElementById("Zsp_p").innerHTML = "+45 Produkty sporzywcze";
-            document.getElementById("Zsp_z").innerHTML = "-40 Zboże";
+            document.getElementById("Zsp_z").innerHTML = "-30 Zboże<br>-5 Narzędzia";
             document.getElementById("Zsp_l").innerHTML = 4500 * Zsp;
             document.getElementById("Zsp_t").innerHTML = "I";
             Rob += 4500 * Zsp; 
-            KosBud += 45 * Zsp;
+            KosBud += 55 * Zsp;
             p_Ps += 45 * Zsp;
-            z_Zb += 40 * Zsp;
+            z_Zb += 30 * Zsp;
+            z_Nar += 5 * Zsp;
         }
         else if(TECH>10 && TECH<=45)
         {
@@ -600,13 +601,14 @@ function zapotrzebowania()
         if(TECH>0 && TECH<=15)
         {
             document.getElementById("Fw_p").innerHTML = "+45 Ubranie";
-            document.getElementById("Fw_z").innerHTML = "-40 Tkanina";
+            document.getElementById("Fw_z").innerHTML = "-30 Tkanina<br>-5 Narzędzia";
             document.getElementById("Fw_l").innerHTML = 4500 * Fw;
             document.getElementById("Fw_t").innerHTML = "I";
             Rob += 4500 * Fw; 
-            KosBud += 45 * Fw;
+            KosBud += 55 * Fw;
             p_U += 45 * Fw;
-            z_Tk += 40 * Fw;
+            z_Tk += 30 * Fw;
+            z_Nar += 5 * Fw;
         }
         else if(TECH>15 && TECH<=27)
         {
@@ -719,13 +721,14 @@ function zapotrzebowania()
         if(TECH>0 && TECH<=12)
         {
             document.getElementById("Hsz_p").innerHTML = "+30 Szkło";
-            document.getElementById("Hsz_z").innerHTML = "-30 Drewno";
+            document.getElementById("Hsz_z").innerHTML = "-20 Drewno<br>-5 Narzędzia";
             document.getElementById("Hsz_l").innerHTML = 4500 * Hsz;
             document.getElementById("Hsz_t").innerHTML = "I";
             Rob += 4500 * Hsz; 
-            KosBud += 60 * Hsz;
+            KosBud += 30 * Hsz;
             p_Sz += 30 * Hsz;
-            z_D += 30 * Hsz;
+            z_D += 20 * Hsz;
+            z_Nar += 5 * Hsz;
         }
         else if(TECH>12 && TECH<=45)
         {
@@ -758,7 +761,7 @@ function zapotrzebowania()
             z_Nar += 5 * Hsz;
             z_We += 10 * Hsz;
         }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         if(TECH>0 && TECH<=50)
         {
             Pib += pocz_Hsz;
@@ -833,13 +836,14 @@ function zapotrzebowania()
         if(TECH>0 && TECH<=3)
         {
             document.getElementById("P_p").innerHTML = "+40 Papier";
-            document.getElementById("P_z").innerHTML = "-30 Drewno";
+            document.getElementById("P_z").innerHTML = "-20 Drewno<br>-5 Narzędzia";
             document.getElementById("P_l").innerHTML = 4500 * P;
             document.getElementById("P_t").innerHTML = "I";
             Rob += 4500 * P; 
-            KosBud += 60 * P;
+            KosBud += 20 * P;
             p_Pa += 40 * P;
-            z_D += 30 * P;
+            z_D += 20 * P;
+            z_Nar += 5 * P;
         }
         else if(TECH>3 && TECH<=27)
         {
@@ -2467,7 +2471,7 @@ function rozliczenie()
     document.getElementById("b_Pa").innerHTML = p_Pa - sz_Pa;
     if(sz_Pa == 0) document.getElementById("%_Pa").innerHTML = 0;
     else          document.getElementById("%_Pa").innerHTML = ((p_Pa/sz_Pa)*100).toFixed(0);
-    c_Pa = Cena(30, sz_Pa, p_Pa);
+    c_Pa = Cena(20, sz_Pa, p_Pa); //30
     document.getElementById("c_Pa").innerHTML = c_Pa;
     p_Pa -= p_p_Pa;
     r_Pa = c_Pa * (p_Pa - z_Pa);
@@ -2481,7 +2485,7 @@ function rozliczenie()
     document.getElementById("b_Sz").innerHTML = p_Sz - sz_Sz;
     if(sz_Sz == 0) document.getElementById("%_Sz").innerHTML = 0;
     else          document.getElementById("%_Sz").innerHTML = ((p_Sz/sz_Sz)*100).toFixed(0);
-    c_Sz = Cena(40, sz_Sz, p_Sz);
+    c_Sz = Cena(30, sz_Sz, p_Sz); //40
     document.getElementById("c_Sz").innerHTML = c_Sz;
     p_Sz -= p_p_Sz;
     r_Sz = c_Sz * (p_Sz - z_Sz);
@@ -2832,7 +2836,7 @@ rozliczenie();
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-           [`Rynek 1.5.1`,
+           [`Rynek 1.5.2`,
             `\n\nNazwa Kraju / Uni celnej: ${Nazwa}`,
             `\nIlość członków uni celnej: ${CzUC}`,
             `\nTechnologia: ${TECH}`,
@@ -2967,15 +2971,15 @@ rozliczenie();
             `\nKoszt utrzymania: ${KosBud}`,
             `\nNa czysto: ${Czysto - KosBud}`,
             `\nPo podziale na członków uni celnej: ${UC}`,
-            `\n\nKopia:           ${tura}|${TECH}|${Nazwa}|${CzUC}|${POP}|${pocz_T}|${T}|${pocz_Kw}|${Kw}|${pocz_Kze}|${Kze}|${pocz_Ko}|${Ko}|${pocz_Ks}|${Ks}|${pocz_Kzl}|${Kzl}|${pocz_Zsp}|${Zsp}|${pocz_Fw}|${Fw}|${pocz_Fm}|${Fm}|${pocz_Hsz}|${Hsz}|${pocz_N}|${N}|${pocz_P}|${P}|${pocz_Zch}|${Zch}|${pocz_Zsy}|${Zsy}|${pocz_Hst}|${Hst}|${pocz_Sd}|${Sd}|${pocz_Ss}|${Ss}|${pocz_Zz}|${Zz}|${pocz_Za}|${Za}|${pocz_Fz}|${Fz}|${pocz_Fps}|${Fps}|${pocz_Fr}|${Fr}|${pocz_Fk}|${Fk}|${pocz_Fpr}|${Fpr}|${pocz_R}|${R}|${pocz_Mr}|${Mr}|${pocz_Pk}|${Pk}|${pocz_Pbaw}|${Pbaw}|${pocz_Pbar}|${Pbar}|${pocz_Ph}|${Ph}|${pocz_Pt}|${Pt}|${pocz_Pc}|${Pc}|${pocz_Po}|${Po}|${pocz_Pj}|${Pj}|${INF}|${ARC}|${CAV}|${ART}|${FLO}|${KON}|${m_Ps}|${m_U}|${m_Me}|${m_R}|${m_Tk}|${m_Zb}|${m_Pa}|${m_D}|${m_We}|${m_Sz}|${m_K}|${m_Ow}|${m_Al}|${m_Ul}|${m_Ml}|${m_Mi}|${m_Po}|${m_C}|${m_H}|${m_Ty}|${m_Wi}|`,
-            `\nDo następnej tury: ${tura}|${TECH}|${Nazwa}|${CzUC}|${POP}|${T}|${T}|${Kw}|${Kw}|${Kze}|${Kze}|${Ko}|${Ko}|${Ks}|${Ks}|${Kzl}|${Kzl}|${Zsp}|${Zsp}|${Fw}|${Fw}|${Fm}|${Fm}|${Hsz}|${Hsz}|${N}|${N}|${P}|${P}|${Zch}|${Zch}|${Zsy}|${Zsy}|${Hst}|${Hst}|${Sd}|${Sd}|${Ss}|${Ss}|${Zz}|${Zz}|${Za}|${Za}|${Fz}|${Fz}|${Fps}|${Fps}|${Fr}|${Fr}|${Fk}|${Fk}|${Fpr}|${Fpr}|${R}|${R}|${Mr}|${Mr}|${Pk}|${Pk}|${Pbaw}|${Pbaw}|${Pbar}|${Pbar}|${Ph}|${Ph}|${Pt}|${Pt}|${Pc}|${Pc}|${Po}|${Po}|${Pj}|${Pj}|${INF}|${ARC}|${CAV}|${ART}|${FLO}|${KON}|${m_Ps}|${m_U}|${m_Me}|${m_R}|${m_Tk}|${m_Zb}|${m_Pa}|${m_D}|${m_We}|${m_Sz}|${m_K}|${m_Ow}|${m_Al}|${m_Ul}|${m_Ml}|${m_Mi}|${m_Po}|${m_C}|${m_H}|${m_Ty}|${m_Wi}|`
+            `\n\nKopia:             ${tura}|${TECH}|${Nazwa}|${CzUC}|${POP}|${pocz_T}|${T}|${pocz_Kw}|${Kw}|${pocz_Kze}|${Kze}|${pocz_Ko}|${Ko}|${pocz_Ks}|${Ks}|${pocz_Kzl}|${Kzl}|${pocz_Zsp}|${Zsp}|${pocz_Fw}|${Fw}|${pocz_Fm}|${Fm}|${pocz_Hsz}|${Hsz}|${pocz_N}|${N}|${pocz_P}|${P}|${pocz_Zch}|${Zch}|${pocz_Zsy}|${Zsy}|${pocz_Hst}|${Hst}|${pocz_Sd}|${Sd}|${pocz_Ss}|${Ss}|${pocz_Zz}|${Zz}|${pocz_Za}|${Za}|${pocz_Fz}|${Fz}|${pocz_Fps}|${Fps}|${pocz_Fr}|${Fr}|${pocz_Fk}|${Fk}|${pocz_Fpr}|${Fpr}|${pocz_R}|${R}|${pocz_Mr}|${Mr}|${pocz_Pk}|${Pk}|${pocz_Pbaw}|${Pbaw}|${pocz_Pbar}|${Pbar}|${pocz_Ph}|${Ph}|${pocz_Pt}|${Pt}|${pocz_Pc}|${Pc}|${pocz_Po}|${Po}|${pocz_Pj}|${Pj}|${INF}|${ARC}|${CAV}|${ART}|${FLO}|${KON}|${m_Ps}|${m_U}|${m_Me}|${m_R}|${m_Tk}|${m_Zb}|${m_Pa}|${m_D}|${m_We}|${m_Sz}|${m_K}|${m_Ow}|${m_Al}|${m_Ul}|${m_Ml}|${m_Mi}|${m_Po}|${m_C}|${m_H}|${m_Ty}|${m_Wi}|`,
+            `\nDo następnej tury: ${++tura}|${TECH}|${Nazwa}|${CzUC}|${POP}|${T}|${T}|${Kw}|${Kw}|${Kze}|${Kze}|${Ko}|${Ko}|${Ks}|${Ks}|${Kzl}|${Kzl}|${Zsp}|${Zsp}|${Fw}|${Fw}|${Fm}|${Fm}|${Hsz}|${Hsz}|${N}|${N}|${P}|${P}|${Zch}|${Zch}|${Zsy}|${Zsy}|${Hst}|${Hst}|${Sd}|${Sd}|${Ss}|${Ss}|${Zz}|${Zz}|${Za}|${Za}|${Fz}|${Fz}|${Fps}|${Fps}|${Fr}|${Fr}|${Fk}|${Fk}|${Fpr}|${Fpr}|${R}|${R}|${Mr}|${Mr}|${Pk}|${Pk}|${Pbaw}|${Pbaw}|${Pbar}|${Pbar}|${Ph}|${Ph}|${Pt}|${Pt}|${Pc}|${Pc}|${Po}|${Po}|${Pj}|${Pj}|${INF}|${ARC}|${CAV}|${ART}|${FLO}|${KON}|${m_Ps}|${m_U}|${m_Me}|${m_R}|${m_Tk}|${m_Zb}|${m_Pa}|${m_D}|${m_We}|${m_Sz}|${m_K}|${m_Ow}|${m_Al}|${m_Ul}|${m_Ml}|${m_Mi}|${m_Po}|${m_C}|${m_H}|${m_Ty}|${m_Wi}|`
            ], 
             {type: "text"}
         );
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement('a');
         a.href = url;
-        a.download = `Rynek_${Nazwa}_${tura}`;
+        a.download = `Rynek_${Nazwa}_${--tura}`;
         document.body.appendChild(a);
         a.click();    
         a.remove();
@@ -3000,8 +3004,9 @@ function Import()
 {
     let IMPO = document.getElementById("IMPO").value,
         wart = "",
-        tab = []
-        ind = 0;
+        tab = [],
+        ind = 0,
+        xyz = 0;
     for(let i = 0; i < IMPO.length; i++)
     {
         if(IMPO[i]!="|")
@@ -3010,111 +3015,110 @@ function Import()
         }
         else
         {
-            tab[ind] = wart;
-            ind++;
+            tab[ind++] = wart;
             wart = "";
         }
     }
     //console.log(tab);
 
-    document.getElementById("tura").value = tab[0];
-    document.getElementById("TECH").value = tab[1];
-    document.getElementById("NAZ").value = tab[2];
-    document.getElementById("CzUC").value = tab[3];
-    document.getElementById("POP").value = tab[4];
-    document.getElementById("pocz_T").value = tab[5];
-    document.getElementById("T").value = tab[6];
-    document.getElementById("pocz_Kw").value = tab[7];
-    document.getElementById("Kw").value = tab[8];
-    document.getElementById("pocz_Kze").value = tab[9];
-    document.getElementById("Kze").value = tab[10];
-    document.getElementById("pocz_Ko").value = tab[11];
-    document.getElementById("Ko").value = tab[12];
-    document.getElementById("pocz_Ks").value = tab[13];
-    document.getElementById("Ks").value = tab[14];
-    document.getElementById("pocz_Kzl").value = tab[15];
-    document.getElementById("Kzl").value = tab[16];
-    document.getElementById("pocz_Zsp").value = tab[17];
-    document.getElementById("Zsp").value = tab[18];
-    document.getElementById("pocz_Fw").value = tab[19];
-    document.getElementById("Fw").value = tab[20];
-    document.getElementById("pocz_Fm").value = tab[21];
-    document.getElementById("Fm").value = tab[22];
-    document.getElementById("pocz_Hsz").value = tab[23];
-    document.getElementById("Hsz").value = tab[24];
-    document.getElementById("pocz_N").value = tab[25];
-    document.getElementById("N").value = tab[26];
-    document.getElementById("pocz_P").value = tab[27];
-    document.getElementById("P").value = tab[28];
-    document.getElementById("pocz_Zch").value = tab[29];
-    document.getElementById("Zch").value = tab[30];
-    document.getElementById("pocz_Zsy").value = tab[31];
-    document.getElementById("Zsy").value = tab[32];
-    document.getElementById("pocz_Hst").value = tab[33];
-    document.getElementById("Hst").value = tab[34];
-    document.getElementById("pocz_Sd").value = tab[35];
-    document.getElementById("Sd").value = tab[36];
-    document.getElementById("pocz_Ss").value = tab[37];
-    document.getElementById("Ss").value = tab[38];
-    document.getElementById("pocz_Zz").value = tab[39];
-    document.getElementById("Zz").value = tab[40];
-    document.getElementById("pocz_Za").value = tab[41];
-    document.getElementById("Za").value = tab[42];
-    document.getElementById("pocz_Fz").value = tab[43];
-    document.getElementById("Fz").value = tab[44];
-    document.getElementById("pocz_Fps").value = tab[45];
-    document.getElementById("Fps").value = tab[46];
-    document.getElementById("pocz_Fr").value = tab[47];
-    document.getElementById("Fr").value = tab[48];
-    document.getElementById("pocz_Fk").value = tab[49];
-    document.getElementById("Fk").value = tab[50];
-    document.getElementById("pocz_Fpr").value = tab[51];
-    document.getElementById("Fpr").value = tab[52];
-    document.getElementById("pocz_R").value = tab[53];
-    document.getElementById("R").value = tab[54];
-    document.getElementById("pocz_Mr").value = tab[55];
-    document.getElementById("Mr").value = tab[56];
-    document.getElementById("pocz_Pk").value = tab[57];
-    document.getElementById("Pk").value = tab[58];
-    document.getElementById("pocz_Pbaw").value = tab[59];
-    document.getElementById("Pbaw").value = tab[60];
-    document.getElementById("pocz_Pbar").value = tab[61];
-    document.getElementById("Pbar").value = tab[62];
-    document.getElementById("pocz_Ph").value = tab[63];
-    document.getElementById("Ph").value = tab[64];
-    document.getElementById("pocz_Pt").value = tab[65];
-    document.getElementById("Pt").value = tab[66];
-    document.getElementById("pocz_Pc").value = tab[67];
-    document.getElementById("Pc").value = tab[68];
-    document.getElementById("pocz_Po").value = tab[69];
-    document.getElementById("Po").value = tab[70];
-    document.getElementById("pocz_Pj").value = tab[71];
-    document.getElementById("Pj").value = tab[72];
-    document.getElementById("INF").value = tab[73];
-    document.getElementById("ARC").value = tab[74];
-    document.getElementById("CAV").value = tab[75];
-    document.getElementById("ART").value = tab[76];
-    document.getElementById("FLO").value = tab[77];
-    document.getElementById("KON").value = tab[78];
-    document.getElementById("m_Ps").value = tab[79];
-    document.getElementById("m_U").value = tab[80];
-    document.getElementById("m_Me").value = tab[81];
-    document.getElementById("m_R").value = tab[82];
-    document.getElementById("m_Tk").value = tab[83];
-    document.getElementById("m_Zb").value = tab[84];
-    document.getElementById("m_Pa").value = tab[85];
-    document.getElementById("m_D").value = tab[86];
-    document.getElementById("m_We").value = tab[87];
-    document.getElementById("m_Sz").value = tab[88];
-    document.getElementById("m_K").value = tab[89];
-    document.getElementById("m_Ow").value = tab[90];
-    document.getElementById("m_Al").value = tab[91];
-    document.getElementById("m_Ul").value = tab[92];
-    document.getElementById("m_Ml").value = tab[93];
-    document.getElementById("m_Mi").value = tab[94];
-    document.getElementById("m_Po").value = tab[95];
-    document.getElementById("m_C").value = tab[96];
-    document.getElementById("m_H").value = tab[97];
-    document.getElementById("m_Ty").value = tab[98];
-    document.getElementById("m_Wi").value = tab[99];
+    document.getElementById("tura").value = tab[xyz++];
+    document.getElementById("TECH").value = tab[xyz++];
+    document.getElementById("NAZ").value = tab[xyz++];
+    document.getElementById("CzUC").value = tab[xyz++];
+    document.getElementById("POP").value = tab[xyz++];
+    document.getElementById("pocz_T").value = tab[xyz++];
+    document.getElementById("T").value = tab[xyz++];
+    document.getElementById("pocz_Kw").value = tab[xyz++];
+    document.getElementById("Kw").value = tab[xyz++];
+    document.getElementById("pocz_Kze").value = tab[xyz++];
+    document.getElementById("Kze").value = tab[xyz++];
+    document.getElementById("pocz_Ko").value = tab[xyz++];
+    document.getElementById("Ko").value = tab[xyz++];
+    document.getElementById("pocz_Ks").value = tab[xyz++];
+    document.getElementById("Ks").value = tab[xyz++];
+    document.getElementById("pocz_Kzl").value = tab[xyz++];
+    document.getElementById("Kzl").value = tab[xyz++];
+    document.getElementById("pocz_Zsp").value = tab[xyz++];
+    document.getElementById("Zsp").value = tab[xyz++];
+    document.getElementById("pocz_Fw").value = tab[xyz++];
+    document.getElementById("Fw").value = tab[xyz++];
+    document.getElementById("pocz_Fm").value = tab[xyz++];
+    document.getElementById("Fm").value = tab[xyz++];
+    document.getElementById("pocz_Hsz").value = tab[xyz++];
+    document.getElementById("Hsz").value = tab[xyz++];
+    document.getElementById("pocz_N").value = tab[xyz++];
+    document.getElementById("N").value = tab[xyz++];
+    document.getElementById("pocz_P").value = tab[xyz++];
+    document.getElementById("P").value = tab[xyz++];
+    document.getElementById("pocz_Zch").value = tab[xyz++];
+    document.getElementById("Zch").value = tab[xyz++];
+    document.getElementById("pocz_Zsy").value = tab[xyz++];
+    document.getElementById("Zsy").value = tab[xyz++];
+    document.getElementById("pocz_Hst").value = tab[xyz++];
+    document.getElementById("Hst").value = tab[xyz++];
+    document.getElementById("pocz_Sd").value = tab[xyz++];
+    document.getElementById("Sd").value = tab[xyz++];
+    document.getElementById("pocz_Ss").value = tab[xyz++];
+    document.getElementById("Ss").value = tab[xyz++];
+    document.getElementById("pocz_Zz").value = tab[xyz++];
+    document.getElementById("Zz").value = tab[xyz++];
+    document.getElementById("pocz_Za").value = tab[xyz++];
+    document.getElementById("Za").value = tab[xyz++];
+    document.getElementById("pocz_Fz").value = tab[xyz++];
+    document.getElementById("Fz").value = tab[xyz++];
+    document.getElementById("pocz_Fps").value = tab[xyz++];
+    document.getElementById("Fps").value = tab[xyz++];
+    document.getElementById("pocz_Fr").value = tab[xyz++];
+    document.getElementById("Fr").value = tab[xyz++];
+    document.getElementById("pocz_Fk").value = tab[xyz++];
+    document.getElementById("Fk").value = tab[xyz++];
+    document.getElementById("pocz_Fpr").value = tab[xyz++];
+    document.getElementById("Fpr").value = tab[xyz++];
+    document.getElementById("pocz_R").value = tab[xyz++];
+    document.getElementById("R").value = tab[xyz++];
+    document.getElementById("pocz_Mr").value = tab[xyz++];
+    document.getElementById("Mr").value = tab[xyz++];
+    document.getElementById("pocz_Pk").value = tab[xyz++];
+    document.getElementById("Pk").value = tab[xyz++];
+    document.getElementById("pocz_Pbaw").value = tab[xyz++];
+    document.getElementById("Pbaw").value = tab[xyz++];
+    document.getElementById("pocz_Pbar").value = tab[xyz++];
+    document.getElementById("Pbar").value = tab[xyz++];
+    document.getElementById("pocz_Ph").value = tab[xyz++];
+    document.getElementById("Ph").value = tab[xyz++];
+    document.getElementById("pocz_Pt").value = tab[xyz++];
+    document.getElementById("Pt").value = tab[xyz++];
+    document.getElementById("pocz_Pc").value = tab[xyz++];
+    document.getElementById("Pc").value = tab[xyz++];
+    document.getElementById("pocz_Po").value = tab[xyz++];
+    document.getElementById("Po").value = tab[xyz++];
+    document.getElementById("pocz_Pj").value = tab[xyz++];
+    document.getElementById("Pj").value = tab[xyz++];
+    document.getElementById("INF").value = tab[xyz++];
+    document.getElementById("ARC").value = tab[xyz++];
+    document.getElementById("CAV").value = tab[xyz++];
+    document.getElementById("ART").value = tab[xyz++];
+    document.getElementById("FLO").value = tab[xyz++];
+    document.getElementById("KON").value = tab[xyz++];
+    document.getElementById("m_Ps").value = tab[xyz++];
+    document.getElementById("m_U").value = tab[xyz++];
+    document.getElementById("m_Me").value = tab[xyz++];
+    document.getElementById("m_R").value = tab[xyz++];
+    document.getElementById("m_Tk").value = tab[xyz++];
+    document.getElementById("m_Zb").value = tab[xyz++];
+    document.getElementById("m_Pa").value = tab[xyz++];
+    document.getElementById("m_D").value = tab[xyz++];
+    document.getElementById("m_We").value = tab[xyz++];
+    document.getElementById("m_Sz").value = tab[xyz++];
+    document.getElementById("m_K").value = tab[xyz++];
+    document.getElementById("m_Ow").value = tab[xyz++];
+    document.getElementById("m_Al").value = tab[xyz++];
+    document.getElementById("m_Ul").value = tab[xyz++];
+    document.getElementById("m_Ml").value = tab[xyz++];
+    document.getElementById("m_Mi").value = tab[xyz++];
+    document.getElementById("m_Po").value = tab[xyz++];
+    document.getElementById("m_C").value = tab[xyz++];
+    document.getElementById("m_H").value = tab[xyz++];
+    document.getElementById("m_Ty").value = tab[xyz++];
+    document.getElementById("m_Wi").value = tab[xyz++];
 }
