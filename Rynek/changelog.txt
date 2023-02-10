@@ -1,0 +1,56 @@
+1.5.2:
+- Zmiana zapotrzebowania dla I tieru zakładu spożywczego - 30 Zboże i 5 Narzędzi,
+- Zmiana zapotrzebowania dla I tieru fabryki włukienniczej - 30 Tkanina i 5 Narzędzi,
+- Zmiana zapotrzebowania dla I tieru huta szkła - 20 Drewno i 5 Narzędzi,
+- Zmiana zapotrzebowania dla I tieru Papierni - 20 Drewno i 5 Narzędzi,
+- Zmiana podstawowej ceny Papieru z 30 na 20,
+- Zmiana podstawowej ceny Szkła z 40 na 30,
+- Dostosowania Kosztów utrzymania do powyższych zmian.
+
+
+1.5.1:
+- Jednak mnie trochę pojebao z tak dużą zmianą maksymalnego odchylenia Ceny realnej. Teraz dla produktu o cenie np. 40 maksymalne odchylenie cen wynosi 67 i 13.
+
+1.5 (MEGAPATCH I):
+- Dodanie opcji szybkiego importu raportu (na samym dole raportu w .txt jest kod importu, który się przekleja. Jest też osobny do zaczynania następnej tury),
+- Reorganizacja wyglądu na styl Toolboxa,
+- Zmiana umiejscowienia ważnych tabel wejściowych i przycisku OBLICZ,
+- Dodanie miejsce na przyszły generator komend w języku SQL (INSERT INTO) jak bym kiedyś zrobił bazę danych,
+- Usunięcie starego systemu sumowania budynków oraz wyliczania zbudowanych i usuniętych budynków. W jego miejsce wszedł nowy system odręcznego wpisania najpierw ilości początkowej (takiej z jaką skończyliśmy poprzednią turę) jak i ilości obecnie pracujących budynków. Wszystko jest ładnie sumowane pod Kosztami Utrzymania,
+- Zwiększenie maksymalnego odchylenia Ceny realnej. Poprzednio dla produktu kosztującego np. 40 maksymalne odchylenia wynosiły 60 i 20, teraz wynoszą 72 i 8.
+
+1.4.4:
+- OD NASTĘPNEJ TURY SUMA PUNKTÓW PROCENTOWYCH POPULACJI WEDŁUG ZATRUDNIENIA NIE MOŻE PRZEKROCZYĆ 100%.
+- Dodanie wskaźnika pokazującego wyżej wymienioną sumę.
+
+1.4.3:
+- Dodanie opcji na usuwanie budynków/kopalń. Jako, że nie zrobiłem oddzielnej rubryki na usuwanie budynków, to są one doliczane do rubryki z budową budynków (koszt rozbiórki).
+
+1.4.3:
+- Rework sekcji Suma budynków - Dodanie inputów na ilość budynków z poprzedniej tury i wyliczenie, ile przybyło budynków. Liczbę budynków po "Przyrost o:" wpisujemy do Toolboxa,
+- Mniejsze poprawki.
+
+1.4.2:
+- Dodanie tutoriala.
+
+1.4.2:
+- Dodanie mechaniki Unii Celnej (kraje zrzeszone w takiej mają wspólnie liczoną gospodarkę oraz przychody bądź koszta dzielą między sobą),
+- Dodanie rubryki na turę.
+
+1.4.1:
+- Lekka poprawka kodu odpowiedzialnego za generowanie .txt.
+
+1.4.1:
+- Ikonka w karcie przeglądarki,
+- Rebalans Zakładu chemicznego,
+- Usunięcie uśrednionych cen,
+- Dodanie "Nazwa kraju" - nazwa .txt będzie zawierać nazwę kraju,
+- Mniejsze poprawki.
+
+1.4:
+- Dodałem mnożniki zapotrzebowań populacji,
+- Rework floty,
+- Zaimplementowanie zmian w generatorze .txt,
+- Dodanie to stylów input text-align: center.
+
+>Dodanie kodu na GitHuba

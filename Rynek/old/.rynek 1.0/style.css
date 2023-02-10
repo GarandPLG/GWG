@@ -1,0 +1,14 @@
+body{background-color: #242526; color: white;}
+input{background-color: #242526; color: white; width: 90%;}
+#Budynki{float: left; width: 40%;}
+#Rynek{float: right; width: 33%;}
+#Dane{float: left;}
+table, tr, td, th
+{
+    text-align: center;
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+td {height: 30px; padding: 3px;}
+th{padding: 4px;}
+#obl{width: 90%; background-color: white; color: black;}

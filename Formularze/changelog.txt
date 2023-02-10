@@ -1,0 +1,10 @@
+1.0:
+- Rozdzielenie kodu na pliki .html .js i .css,
+- Dodanie ciemnego stylu,
+- Dodanie ikonki w karcie przeglądarki,
+- Zmiana nazwy pliku .html z Formularze na formularze (oznacza to zmianę linka do kodu. Ręcznie poprawię link na #skrypty).
+
+1.0:
+- Rename Formularze.html to formularze.html.
+
+>Dodanie kodu na GitHuba

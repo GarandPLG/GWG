@@ -1,0 +1,62 @@
+body
+{
+    background-color: #242526; 
+    color: white;
+}
+table, tr, td, th
+{
+    text-align: center;
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+td 
+{
+    height: 36px; 
+}
+th
+{
+    padding: 4px;
+    color: rgb(105, 96, 79);
+    border: 1px solid rgb(105, 96, 79);
+}
+a
+{
+    color: white;
+}
+h1
+{
+    text-align: center; 
+    border: 1px solid grey; 
+    border-collapse: collapse;
+}
+#Naglowek 
+{
+    width: 100%;
+    float: left;
+    height: 200px;
+}
+#info
+{
+    width: 85%;
+    float: left;
+}
+#witam
+{
+    width: 15%;
+    float: left;
+}
+#wwd
+{
+    width: 100%;
+}
+#Skrypty
+{
+    width: 100%;
+    clear: both;
+    float: left;
+}
+#Rynek, #Toolbox, #Formularze, #PH
+{
+    width: 25%;
+    float: left;
+}

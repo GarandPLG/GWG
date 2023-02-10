@@ -1,0 +1,109 @@
+Technologia: 50
+//BUDYNKI//
+
+---Zasoby---
+Tartak: 1152
+Kopalnia węgla: 1036
+Kopalnia żelaza: 1014
+Kopalnia ołowiu: 184
+Kopalnia siarki: 516
+Kopalnia złota: 0
+
+---Przemysł---
+Zakład spożywczy: 214
+Fabryka włókiennicza: 865
+Fabryka mebli: 167
+Huta szkła: 210
+Narzędziownia: 2577
+Papiernia: 80
+Zakład chemiczny: 799
+Zakład syntetyczny: 0
+Huta stali: 1108
+Stocznia (drewno): 0
+Stocznia (stal): 32
+Zakład zbrojeniowy: 810
+Zakład amunicyjny: 367
+
+---Żywność---
+Farma żyta: 46
+Farma pszenicy: 839
+Farma ryżu: 0
+Farma kukurydzy: 0
+Farma prosa: 0
+Ranczo: 277
+Molo rybackie: 202
+
+---Plantacje---
+Plantacja kawy: 79
+Plantacja bawełny: 405
+Plantacja barwników: 315
+Plantacja herbaty: 77
+Plantacja tytoniu: 116
+Plantacja cukru: 183
+Plantacja owoców: 0
+Plantacja jedwabiu: 433
+
+//KRAJ//
+Populacja: 264279481
+Zaspokojenie potrzeb populacji: 100 %
+Średnia cena produktów dla populacji: 36.67
+Realna średnia cena produktów dla populacji: 32.62
+Odchylenie od średniej (%): -11.04
+---Armia---
+Infantry: 6000
+Archers: 6000
+Cavalary: 1500
+Artillery: 600
+Żołnierze: 6900000
+% Poboru: 2.61 %
+Max rozmiar floty: 60
+
+//ROZLICZENIE//
+Produkt - Produkcja - Zapotrzebowanie - Bilans - Cena Realna - Rozlicznie - Lack of Resources
+---Podstawowe dobra---
+Produkty spożywcze: 29960, 24527, 5433, 25, 135825, 0
+Ubranie: 69200, 58390, 10810, 26, 281060, 0
+Mebel: 15030, 14069, 961, 28, 26908, 0
+Ryba: 20200, 20170, 30, 20, 600, 0
+Tkanina: 54350, 54278, 72, 20, 1440, 0
+Zboże: 88500, 70906, 17594, 16, 281504, 0
+Papier: 8000, 7913, 87, 30, 2610, 0
+Drewno: 92160, 92128, 32, 20, 640, 0
+---Towary przemysłowe---
+Żelazo: 101400, 101320, 80, 40, 3200, 0
+Węgiel: 113960, 113932, 28, 30, 840, 0
+Narzedzia: 206160, 206100, 60, 40, 2400, 0
+Barwnik: 15750, 15750, 0, 40, 0, 0
+Materiały wybuchowe: 55930, 55930, 0, 50, 0, 0
+Nawóz: 139985, 35400, 104585, 15, 1568775, 0
+Szkło: 10500, 7849, 2651, 30, 79530, 0
+Twarde drewno: 23040, 11440, 11600, 20, 232000, 0
+Ołów: 18400, 18360, 40, 40, 1600, 0
+Jedwab: 17320, 17300, 20, 40, 800, 0
+Stal: 99720, 99670, 50, 50, 2500, 0
+Siarka: 56760, 56730, 30, 50, 1500, 0
+---Towary luksusowe---
+Kawa: 3160, 3139, 21, 50, 1050, 0
+Owoc: 8011, 5383, 2628, 32, 84096, 0
+Złoto: 0, - , 0, - , 0, -
+Alkohol: 22090, 14465, 7625, 18, 137250, 0
+Ubranie luksusowe: 30275, 12413, 17862, 30, 535860, 0
+Mebel luksusowy: 6680, 6664, 16, 60, 960, 0
+Mięso: 6925, 6909, 16, 30, 480, 0
+Porcelana: 8400, 8394, 6, 420, 0
+Cukier: 16244, 16224, 20, 30, 600, 0
+Herbata: 3080, 3058, 22, 30, 660, 0
+Tytoń: 5800, 5756, 44, 40, 1760, 0
+Wino: 8390, 8381, 9, 50, 450, 0
+---Towary wojskowe---
+Broń: 40500, 40500, 0, 60, 0, 0
+Artyleria: 32400, 1800, 30600, 35, 1071000, 0
+Amunicja: 33030, 27600, 5430, 43, 233490, 0
+Statek: 2080, 2020, 60, 59, 0, 0
+
+//ŁĄCZNIE//
+Łącznie (potrzeby populacji): 214603, 214603, 0, 0
+Łącznie (produkcja): 1248787, 1030265, 218522, 4691808
+Lack of Resources: 0
+Koszt utrzymania: 10528235
+Na czysto: -5836427

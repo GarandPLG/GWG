@@ -1,0 +1,732 @@
+_Zasoby
+    .Tartak
+		Tier I
+			+4500 Górnicy
+			+30 Drewno
+		Tier II
+			+3500 Górnicy
+			+40 Drewno
+			+10 Twarde Drewno
+			-10 Narzędzia
+		Tier III
+			+3400 Górnicy
+			+80 Drewno
+			+20 Twarde drewno
+			-30 Narzędzia
+
+    .Kopalnia węgla
+		Tier I
+			+4500 Górnicy
+			+25 Węgiel
+			-5 Narzędzia
+		Tier II
+			+2750 Górnicy
+			+50 Węgiel
+			-5 Materiały wybuchowe
+			-15 Narzędzia
+		Tier III
+			+2750 Górnicy
+			+80 Węgiel
+			-10 Materiały wybuchowe
+			-20 Narzędzia
+		Tier IV
+			+2750 Górnicy
+			+110 Węgiel
+			-15 Materiały wybuchowe
+			-30 Narzędzia
+		
+    .Kopalnia żelaza
+		Tier I
+			+4500 Górnicy
+			+20 Żelazo
+			-5 Narzędzia
+		Tier II
+			+2750 Górnicy
+			+52 Żelazo
+			-5 Materiały wybuchowe
+			-15 Narzędzia
+		Tier III
+			+2750 Górnicy
+			+80 Żelazo
+			-10 Materiały wybuchowe
+			-20 Narzędzia
+			-5 Węgiel
+		Tier IV
+			+2750 Górnicy
+			+100 Żelazo
+			-15 Materiały wybuchowe
+			-30 Narzędzia
+			-10 Węgiel
+			
+    .Kopalnia ołowiu
+		Tier I
+			+4500 Górnicy
+			+20 Ołów
+			-5 Narzędzia
+		Tier II
+			+2750 Górnicy
+			+52 Ołów
+			-5 Materiały wybuchowe
+			-15 Narzędzia
+		Tier III
+			+2750 Górnicy
+			+80 Ołów
+			-10 Materiały wybuchowe
+			-20 Narzędzia
+			-5 Węgiel
+		Tier IV
+			+2750 Górnicy
+			+100 Ołów
+			-15 Materiały wybuchowe
+			-30 Narzędzia
+			-10 Węgiel
+
+    .Kopalnia siarki
+		Tier I
+			+4500 Górnicy
+			+20 Siarka
+			-5 Narzędzia
+		Tier II
+			+2750 Górnicy
+			+50 Siarka
+			-5 Materiały wybuchowe
+			-15 Narzędzia
+		Tier III
+			+2750 Górnicy
+			+80 Siarka
+			-10 Materiały wybuchowe
+			-20 Narzędzia
+			-5 Węgiel
+		Tier IV
+			+2750 Górnicy
+			+110 Siarka
+			-15 Materiały wybuchowe
+			-30 Narzędzia
+			-10 Węgiel
+    
+    .Kopalnia złota
+		Tier I
+			+4500 Górnicy
+			+10 Złoto
+			-5 Narzędzia
+		Tier II
+			+2750 Górnicy
+			+25 Złoto
+			-5 Materiały wybuchowe
+			-15 Narzędzia
+		Tier III
+			+2750 Górnicy
+			+40 Złoto
+			-10 Materiały wybuchowe
+			-20 Narzędzia
+			-5 Węgiel
+		Tier IV
+			+2750 Górnicy
+			+50 Złoto
+			-15 Materiały wybuchowe
+			-30 Narzędzia
+			-10 Węgiel
+
+_Przemysł
+    .Zakład spożywczy
+		Tier I
+			+4500 Robotnicy
+			+45 Produkty spożywcze
+			-40 Zboże
+		Tier II
+			+2850 Robotnicy
+			+65 Produkty spożywcze
+			+60 Alkohol
+			-20 Zboże
+			-40 Cukier
+			-30 Ryba
+			-10 Żelazo
+			-10 Narzędzia
+		Tier III
+			+3600 Robotnicy
+			+140 Produkty spożywcze
+			+100 Alkohol
+			-50 Zboże
+			-55 Cukier
+			-60 Ryba
+			-10 Stal
+			-10 Szkło
+			-10 Narzędzia
+
+    .Fabryka włókiennicza
+        Tier I
+			+4500 Robotnicy
+			+45 Ubranie
+			-40 Tkanina
+		Tier II
+			+3500 Robotnicy
+			+45 Ubranie
+			+20 Ubranie luksusowe
+			-30 Tkanina
+			-10 Jedwab
+			-5 Barwnik
+			-5 Narzędzia
+		Tier III
+			+3000 Robotnicy
+			+80 Ubranie
+			+35 Ubranie luksusowe
+			-50 Tkanina
+			-10 barwników
+			-20 Narzędzia
+			-20 Jedwab
+			
+    .Fabryka mebli
+        Tier I
+			+4500 Robotnicy
+			+45 Meblel
+			-30 Drewno
+			-10 Tkanina
+		Tier II
+			+3500 Robotnicy
+			+50 Meblel
+			+20 Meblel luksusowy
+			-20 Drewno
+			-10 Tkanina
+			-10 Twarde drewno
+			-10 Narzędzia
+			-5 Węgiel
+		Tier III
+			+3500 Robotnicy
+			+90 Meblel
+			+40 Meblel luksusowy
+			-30 Drewno
+			-20 Twarde drewno
+			-10 Tkanina
+			-25 Narzędzia
+			-10 Węgiel
+		
+    .Huta szkła
+		Tier I
+			+4500 Robotnicy
+			+30 Szkło
+			-30 Drewno
+		Tier II
+			+2500 Robotnicy
+			+30 Szkło
+			+25 Porcelana
+			-20 Drewno
+			-10 Ołów
+			-15 Barwnik
+			-5 Narzędzia
+			-10 Węgiel
+		Tier III
+			+3000 Robotnicy
+			+50 Szkło
+			+40 Porcelana
+			-35 Ołów
+			-30 Barwnik
+			-5 Narzędzia
+			-10 Węgiel
+			
+    .Narzędziownia
+		Tier I
+			+4500 Robotnicy
+			+30 Narzędzia
+			-30 Drewno
+		Tier II
+			+3000 Robotnicy
+			+60 Narzędzia
+			-30 Drewno
+			-20 Żelazo
+			-5 Węgiel
+		Tier III
+			+2500 Robotnicy
+			+80 Narzędzia
+			-30 Drewno
+			-20 Stal
+			-5 Węgiel
+
+    .Papiernia
+		Tier I
+			+4500 Robotnicy
+			+40 Papier
+			-30 Drewno
+		Tier II
+			+3000 Robotnicy
+			+70 Papier
+			-30 Drewno
+			-10 Siarka
+			-5 Narzędzia
+			-5 Węgiel
+		Tier III
+			+2500 Robotnicy
+			+100 Papier
+			-30 Drewno
+			-10 Siarka
+			-10 Barwnik
+			-5 Narzędzia
+			-10 Węgiel
+
+    .Zakład chemiczny
+		Tier I
+			+4500 Robotnicy
+			+90 Nawóz
+			-30 Siarka
+			-10 Żelazo
+		Tier II
+			+4750 Robotnicy
+			+125 Nawóz
+			+20 Materiały wybuchowe
+			-30 Siarka
+			-30 Żelazo
+			-15 Węgiel
+		Tier III
+			+5000 Robotnicy
+			+185 Nawóz
+			+40 Materiały wybuchowe
+			-55 Siarka
+			-30 Żelazo
+			-35 Węgiel
+		Tier IV
+			+5250 Robotnicy
+			+170 Nawóz
+			+70 Materiały wybuchowe
+			-70 Siarka
+			-30 Żelazo
+			-35 Węgiel
+	
+    .Zakład syntetyczny
+		Tier I
+			+4500 Robotnicy
+			+80 Barwnik
+			-20 Siarka
+			-30 Nawóz
+		Tier II
+			+4500 Robotnicy
+			+40 Barwnik
+			+40 Jedwab
+			-20 Siarka
+			-30 Nawóz
+			-40 Drewno
+	
+    .Huta stali
+		Tier I
+			+4500 Robotnicy
+			+65 Stal
+			-40 Żelazo
+			-30 Węgiel
+		Tier II
+			+3000 Robotnicy
+			+90 Stal
+			-60 Żelazo
+			-35 Węgiel
+			-5 Narzędzia
+		Tier III
+			+2500 Robotnicy
+			+120 Stal
+			-90 Żelazo
+			-40 Węgiel
+			-5 Narzędzia
+	
+    .Stocznia (Drewno)
+		Tier I
+			+4500 Robotnicy
+			+20 Statek
+			-40 Drewno
+			-20 Tkanina
+			-10 Narzędzia
+		Tier II
+			+4500 Robotnicy
+			+35 Statek
+			-40 Drewno
+			-20 Twarde drewno
+			-20 Tkanina
+			-15 Narzędzia
+	
+    .Stocznia (Stal)
+		Tier I
+			+4500 Robotnicy
+			+50 Statek
+			-30 Stal
+			-10 Węgiel
+			-20 Narzędzia
+		Tier II
+			+4500 Robotnicy
+			+65 Statek
+			-45 Stal
+			-15 Węgiel
+			-25 Narzędzia
+
+    .Zakład zbrojeniowy
+		Tier I
+			+4500 Robotnicy
+			+25 Broń
+			-10 Żelazo
+			-10 Twarde drewno
+		Tier II
+			+5000 Robotnicy
+			+30 Broń
+			+15 Artyleria
+			-10 Stal
+			-10 Żelazo
+			-10 Twarde drewno
+			-5 Narzędzia
+		Tier III
+			+5250 Robotnicy
+			+40 Broń
+			+25 Artyleria
+			-35 Stal
+			-10 Twarde drewno
+			-10 Narzędzia
+		Tier IV
+			+5500 Robotnicy
+			+50 Broń
+			+40 Artyleria
+			-55 Stal
+			-10 Twarde drewno
+			-30 Narzędzia
+
+    .Zakład amunicyjny
+		Tier I
+			+4500 Robotnicy
+			+50 Amunicja
+			-20 Materiały wybuchowe
+			-20 Ołów
+		Tier II
+			+5000 Robotnicy
+			+90 Amunicja
+			-40 Materiały wybuchowe
+			-30 Ołów
+			
+_Żywność
+    .Farma żyta
+		Tier I
+			+4900 Rolnicy
+			+30 Zboże
+		Tier II
+			+4400 Rolnicy
+			+40 Zboże
+			+15 Alkohol
+			-5 Nawóz
+			-5 Narzędzia
+		Tier III
+			+3600 Rolnicy
+			+50 Zboże
+			+15 Alkohol
+			+10 Owoc
+			+5 Cukier
+			-15 Nawóz
+			-5 Narzędzia
+			-5 Węgiel
+		Tier IV
+			+2700 Rolnicy
+			+100 Zboże
+			+15 Alkohol
+			+10 Owoc
+			+5 Cukier
+			-40 Nawóz
+			-5 Węgiel
+			-10 Narzędzia
+
+    .Farma pszenicy
+		Tier I
+			+4900 Rolnicy
+			+30 Zboże
+		Tier II
+			+4400 Rolnicy
+			+40 Zboże
+			+9 Owoc
+			+6 Cukier
+			+5 Wino
+			-5 Nawóz
+			-5 Narzędzia
+		Tier III
+			+3600 Rolnicy
+			+50 Zboże
+			+9 Owoc
+			+6 Cukier
+			+10 Wino
+			-15 Nawóz
+			-5 Narzędzia
+			-5 Węgiel
+		Tier IV
+			+2700 Rolnicy
+			+100 Zboże
+			+9 Owoc
+			+6 Cukier
+			+10 Wino
+			-40 Nawóz
+			-5 Węgiel
+			-10 Narzędzia
+			
+    .Farma ryżu
+		Tier I
+			+4900 Rolnicy
+			+35 Zboże
+		Tier II
+			+4400 Rolnicy
+			+50 Zboże
+			+6 Owoc
+			+9 Cukier
+			-10 Nawóz
+			-5 Narzędzia
+		Tier III
+			+3600 Rolnicy
+			+85 Zboże
+			+6 Owoc
+			+9 Cukier
+			-20 Nawóz
+			-5 Narzędzia
+			-5 Węgiel
+		
+    .Farma kukurydzy
+		Tier I
+			+4900 Rolnicy
+			+30 Zboże
+		Tier II
+			+4400 Rolnicy
+			+40 Zboże
+			+10 Alkohol
+			-5 Nawóz
+			-5 Narzędzia
+		Tier III
+			+3500 Rolnicy
+			+55 Zboże
+			+10 Alkohol
+			+10 Owoc
+			+5 Cukier
+			-15 Nawóz
+			-5 Narzędzia
+			-5 Węgiel
+		Tier IV
+			+2600 Rolnicy
+			+105 Zboże
+			+10 Alkohol
+			+10 Owoc
+			+5 Cukier
+			-40 Nawóz
+			-5 Węgiel
+			-10 Narzędzia
+	
+    .Farma prosa
+		Tier I
+			+4900 Rolnicy
+			+30 Zboże
+		Tier II
+			+4400 Rolnicy
+			+45 Zboże
+			+6 Owoc
+			+9 Cukier
+			-5 Nawóz
+			-5 Narzędzia
+		Tier III
+			+3400 Rolnicy
+			+75 Zboże
+			+6 Owoc
+			+9 Cukier
+			-15 Nawóz
+			-5 Narzędzia
+			-5 Węgiel
+		Tier IV
+			+2500 Rolnicy
+			+125 Zboże
+			+6 Owoc
+			+9 Cukier
+			-40 Nawóz
+			-5 Węgiel
+			-10 Narzędzia
+
+    .Ranczo
+		Tier I
+			+4900 Rolnicy
+			+25 Tkanina
+			+5 Mięso
+		Tier II
+			+3900 Rolnicy
+			+40 Tkanina
+			+10 Nawóz
+			+15 Mięso
+			-10 Zboże
+			-5 Narzędzia
+			-5 Żelazo
+		Tier III
+			+3100 Rolnicy
+			+50 Tkanina
+			+15 Nawóz
+			+25 Mięso
+			-15 Zboże
+			-10 Narzędzia
+			-10 Żelazo
+
+    .Molo rybackie
+		Tier I
+			+4500 Rolnicy
+			+25 Ryba
+		Tier II
+			+3500 Rolnicy
+			+50 Ryba
+			-5 Statek
+			-5 Narzędzia
+		Tier III
+			+2500 Rolnicy
+			+100 Ryba
+			-10 Statek
+			-15 Węgiel
+			-10 Narzędzia
+	
+_Plantacje
+    .Plantacja kawy
+		Tier I
+			+4900 Plantatorzy
+			+20 Kawa
+			-5 Narzędzia
+		Tier II
+			+3800 Plantatorzy
+			+40 Kawa
+			-15 Narzędzia
+
+    .Plantacja bawełny
+		Tier I
+			+4900 Plantatorzy
+			+40 Tkanina
+			-5 Narzędzia
+		Tier II
+			+3800 Plantatorzy
+			+100 Tkanina
+			-15 Narzędzia
+			
+    .Plantacja barwników
+		Tier I
+			+4900 Plantatorzy
+			+25 Barwnik
+			-5 Narzędzia
+		Tier II
+			+3800 Plantatorzy
+			+50 Barwnik
+			-15 Narzędzia
+			
+    .Plantacja herbaty
+		Tier I
+			+4900 Plantatorzy
+			+20 Herbata
+			-5 Narzędzia
+		Tier II
+			+3800 Plantatorzy
+			+40 Herbata
+			-15 Narzędzia
+
+    .Plantacja tytoniu
+		Tier I
+			+4900 Plantatorzy
+			+25 Tytoń
+			-5 Narzędzia
+		Tier II
+			+3800 Plantatorzy
+			+50 Tytoń
+			-15 Narzędzia
+			
+    .Plantacja cukru
+		Tier I
+			+4900 Plantatorzy
+			+30 Cukier
+			-5 Narzędzia
+		Tier II
+			+3800 Plantatorzy
+			+60 Cukier
+			-15 Narzędzia
+			
+    .Plantacja owoców
+		Tier I
+			+4900 Plantatorzy
+			+30 Owoc
+			-5 Narzędzia
+		Tier II
+			+3800 Plantatorzy
+			+60 Owoc
+			-15 Narzędzia
+			
+    .Plantacja jedwabiu
+		Tier I
+			+4900 Plantatorzy
+			+20 Jedwab
+			-5 Narzędzia
+		Tier II
+			+3800 Plantatorzy
+			+40 Jedwab
+			-15 Narzędzia
+			
+/Infantry
+	Tier I
+		500 pop
+		-1 Ubranie
+	Tier II
+		500 pop
+		-1 Broń
+		-1 Ubranie
+	Tier III
+		500 pop
+		-2 Broń
+    	-1 Amunicja
+		-2 Ubranie
+    	-1 Produkty spożywcze
+	Tier IV
+		500 pop
+    	-3 Broń
+    	-2 Amunicja
+    	-3 Ubranie
+    	-1 Produkty spożywcze
+
+/Archers
+	Tier I
+		500 pop
+		-1 Ubranie
+	Tier II
+		500 pop
+		-1 Broń
+		-1 Ubranie
+	Tier III
+		500 pop
+		-2 Broń
+    	-1 Amunicja
+		-2 Ubranie
+    	-1 Produkty spożywcze
+	Tier IV
+		500 pop
+    	-3 Broń
+    	-2 Amunicja
+    	-3 Ubranie
+    	-1 Produkty spożywcze
+
+/Cavalary
+	Tier I
+	    500 pop
+		-1 Ubranie
+	Tier II
+	    500 pop	
+    	-1 Broń
+    	-1 Ubranie
+	Tier III
+		500 pop
+    	-2 Broń
+    	-1 Amunicja
+    	-3 Ubranie
+    	-1 Produkty spożywcze
+	Tier IV
+	    500 pop
+    	-3 Broń
+    	-2 Amunicja
+    	-3 Ubranie
+    	-1 Produkty spożywcze
+
+/Artillery
+	Tier I
+		250 pop
+		-1 Artyleria
+    	-1 Ubranie
+	Tier II
+		250 pop
+		-2 Artyleria
+		-1 Amunicja
+    	-1 Ubranie
+    	-1 Produkty spożywcze
+	Tier III
+		250 pop
+		-3 Artyleria
+		-1 Amunicja
+    	-2 Ubranie
+    	-1 Produkty spożywcze

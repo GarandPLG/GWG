@@ -1,0 +1,188 @@
+1.
+    -<Produkty spożywcze
+    -<Ubranie
+    -<Meblel
+    -<Ryba
+    -<Szkło
+    -<Papier
+    -<Zboże
+    -<Tkanina
+    -<Mięso
+    -<Drewno
+    I .Zakład spożywczy
+    I .Fabryka włókiennicza
+    I .Fabryka mebli
+    I .Molo rybackie
+    I .Ranczo
+    I .Farma żyta
+    I .Farma pszenicy
+    I .Farma ryżu
+    I .Farma kukurydzy
+    I .Farma prosa
+    I .Papiernia
+    I .Tartak
+    I .Kopalnia żelaza
+    I .Narzędziownia
+    I .Kopalnie złota
+    I .Stocznia (Drewno)
+    I .Huta szkła
+    I /Infantry
+    I /Archers
+    I /Cavalary
+2.
+    II .Tartak
+3.
+    -<Węgiel
+    I .Kopalnia siarki
+    I .Kopalnia węgla
+4.
+    II .Papiernia
+5.
+    I .Zakład chemiczny
+6.
+    -<Alkohol
+    -<Cukier
+    -<Owoc
+    -<Wino
+    II .Farma żyta
+    II .Farma pszenicy
+7.
+    II .Farma ryżu
+    II .Farma kukurydzy
+8.
+    II .Farma prosa
+    II .Ranczo
+9.
+    II. Molo rybackie
+10.
+    -<Kawa
+    -<Herbata
+    -<Tytoń
+    I .Plantacja kawy
+    I .Plantacja bawełny
+    I .Plantacja barwników
+    I .Plantacja herbaty
+    I .Plantacja tytoniu
+    I .Plantacja cukru
+    I .Plantacja owoców
+    I .Plantacja jedwabiu
+11.
+    II .Zakład spożywczy
+12.
+    I .Kopalnia ołowiu
+13.
+    -<Porcelana
+    II .Huta szkła
+14.
+    II .Narzędzia
+15.
+    II /Infantry
+    II /Archers
+    II /Cavalary
+    I . Zakład zbrojeniowy
+16.
+    -<Ubranie luksusowe
+    II .Fabryka włókiennicza
+17.
+    -<Meblel luksusowy
+    II .Fabryka mebli
+18.
+    II .Zakład chemiczny
+19.
+    I .Huta stali
+20.
+    I /Artillery
+    II .Zakład zbrojeniowy
+21.
+    II .Stocznia (Drewno)
+22.
+    II .Kopalnia węgla
+23.
+    II .Kopalnia żelaza
+24.
+    II .Kopalnia siarki
+25.
+    II .Kopalnia ołowiu
+26.
+    II. Kopalnia złota
+27.
+    I. Zakład syntetyczny
+28.
+    III .Papiernia
+    III .Fabryka włókiennicza
+29.
+    III .Narzędzia
+    III .Fabryka mebli
+30.
+    III /Infantry
+    III /Archers
+    III /Cavalary
+    II /Artillery
+    III .Zakład zbrojeniowy
+    I .Zakład amunicyjny
+31.
+    II .Huta stali
+    I .Stocznia (Stal)
+32.
+    III .Tartak
+    III .Zakład chemiczny
+33.
+    II .Plantacja bawełny
+    II .Plantacja barwników
+    II .Plantacja jedwabiu
+34.
+    III .Kopalnia węgla
+    III .Kopalnia żelaza
+35.
+    III .Kopalnia siarki
+    III .Kopalnia ołowiu
+    III .Kopalnia złota
+36.
+    III .Farma żyta
+    III .Farma pszenicy
+37.
+    III .Farma kukurydzy
+    III .Farma prosa
+38.
+    III .Ranczo
+    III .Molo rybackie
+39.
+    III .Farma ryżu
+40.
+    II .Plantacja kawy
+    II .Plantacja herbaty
+    II .Plantacja tytoniu
+    II .Plantacja cukru
+    II .Plantacja owoców
+41.
+    IV .Kopalnia węgla
+    IV .Kopalnia żelaza
+42.
+    III .Huta stali
+    IV .Zakład chemiczny
+43.
+    IV .Kopalnia siarki
+    IV .Kopalnia ołowiu
+44.
+    IV .Kopalnia złota
+    II .Stocznia (Stal)
+45.
+    IV /Infantry
+    IV /Archers
+    IV /Cavalary
+    III /Artillery
+    IV .Zakład zbrojeniowy
+    II .Zakład amunicyjny
+46.
+    III .Zakład spożywczy
+    III .Huta szkła
+    II .Zakład syntetyczny
+47.
+    IV .Farma żyta
+    IV .Farma pszenicy
+48.
+    IV .Farma kukurydzy
+    IV .Farma prosa
+49.
+
+50.

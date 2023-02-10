@@ -1,0 +1,106 @@
+1.5.1:
+- Zmniejszenie potrzebnej ilości punktów do nowego TECHa z 400 na 250 (jeżeli już masz tyle to nowego techa liczysz dopiero od następnej tury),
+- Uniwersytety dają 2 punkty, a nie jeden (utrzymania pozostało takie samo),
+- Bonus za połączenie miast drogami został zmniejszony dwukrotnie,
+- Kod importu "Do następnej tury:" automatycznie dodaje do liczby prowincji z inną kulturą i religią ilośc ekspansji. Jednocześnie od ilości prowincji z inną religią odejmuje tyle ile mamy center religijnych. Pamiętajcie by mimo to sprawdzić czy w raporcie i na mapie wasz GovCap się zgadza.
+
+1.5:
+- Naprawa błędu z generowaniem raportu, tura w nazwie była o 1 większa.
+
+1.5 (MEGAPATCH I finał):
+- Dodanie opcji importu raportu (kod importu na samym dole raportu .txt. Nie importuje "Jestem wasalem"),
+- Dodanie miejsca na przyszłe generowanie kodu SQL (INSERT INTO) jakbym kiedyś robił bazę danych,
+- Dodanie Uniwersytetów (dają +1 punkt badań, budowa kosztuje 1500 a koszt utrzymania 250 (o 100 mniej niż ręczne kupowanie punktów)) oraz Obozów wojskowych (dają +0.05 do limitu poboru, kosztują 1250 a koszt utrzymania 250). Każdy budynek jest ograniczony ilościowo. Kolejny "slot" na Uniwersytet i Obóz wojskowy odblokowuje się co pięćdziesiąt tysięcy mieszkańców miast,
+- Dodanie mechaniki łączenia miast drogami,
+- Usunięcie "Budynki specjalne miast" i stworzenie dla nich oddzielnej sekcji,
+- Przeniesienie "Zakładanie miast" do sekcji z rozwojem miast i zmiana nazwy tej sekcji,
+- Lekka reorganizacja położeń sekcji w ramach bloku i dodanie nowych sekcji,
+- Poprawiony generator raportów .txt by być kompatybilny ze zmianami,
+- Przeniesienie sekcji Skrypty (i w ogóle nadanie jej nazwy) pod sekcje bloku "II. Działania w Turze",
+- Zmniejszenie kosztu zajmowania pustych prowincji o połowę (z 200 na 100) oraz możliwość zajmowania 3 pierścieni ekspansji w jednej turze. W momencie jak powstanie kilka granic to ekspansja będzie zmniejszona do 2 pierścieni.
+- dodano marchii do GovCapa
+
+1.5 (MEGAPATCH I):
+- Dodanie kolumny na usuwanie budynków (rozbiórka kosztuje 150, czyli o 50 mniej niż budowa),
+- Naprawienie błędu z nieliczeniem rekrutowanej floty i konwojów do rozmiaru armii i jego force limitu,
+- Kara za rozmiar armii nie dolicza się do Kosztu utrzymania żeby nie było to mylące,
+- Dodanie opcji importu raportu (kod importu na samym dole raportu .txt. Nie importuje "Jestem wasalem"),
+- Dodanie miejsca na przyszłe generowanie kodu SQL (INSERT INTO) jakbym kiedyś robił bazę danych,
+- Dodanie Uniwersytetów (dają +1 punkt badań, budowa kosztuje 1500 a koszt utrzymania 250 (o 100 mniej niż ręczne kupowanie punktów)) oraz Obozów wojskowych (dają +0.05 do limitu poboru, kosztują 1250 a koszt utrzymania 250). Każdy budynek jest ograniczony ilościowo. Kolejny "slot" na Uniwersytet i Obóz wojskowy odblokowuje się co pięćdziesiąt tysięcy mieszkańców miast,
+- Dodanie mechaniki łączenia miast drogami,
+- Usunięcie "Budynki specjalne miast" i stworzenie dla nich oddzielnej sekcji,
+- Przeniesienie "Zakładanie miast" do sekcji z rozwojem miast i zmiana nazwy tej sekcji,
+- Lekka reorganizacja położeń sekcji w ramach bloku i dodanie nowych sekcji,
+- Poprawiony generator raportów .txt by być kompatybilny ze zmianami,
+- Przeniesienie sekcji Skrypty (i w ogóle nadanie jej nazwy) pod sekcje bloku "II. Działania w Turze".
+
+1.4.2:
+- Znaczne zmniejszenie maksymalnego zadłużenia.
+
+1.4.1:
+- Zwiększenie dwukrotnie ilości pieniędzy, jakie przynosi populacja miejska (czyli łącznie 4x więcej od wiejskiej),
+- Zmniejszenie kosztu założenia nowego miasta o 500 (teraz kosztuje 1500),
+- około 4 krotne zmniejszenie kosztów rozbudowy miast w zależności od biomów.
+
+1.4.1:
+- Poprawka kosmetyczna - ponumerowanie bloków (rzymskimi) i sekcji (arabskimi),
+- Pomniejsze poprawki.
+
+1.4.1:
+- Dodanie notatek dla nowych miast, budynków specjalnych miast i rozbudowy według biomów.
+
+1.4:
+- Dodanie tutoriala,
+- Zwiększenie ilości punktów Gav za "Ilość prowincji niezintegrowanych" z 5 na 50.
+
+1.4:
+- Rework sekcji Input i Działania w Turze na styl sekcji Output,
+- Nagłówki sekcji mają zmieniony kolor dla lepszej widoczności,
+- Przeniesienie rozwoju miasta do osobnej tabelki,
+- Rework systemu daniny dla państwa wasalskiego,
+- Dodanie systemu rozwoju technologii,
+- Dostosowanie generatora raportów .txt do zmian,
+- Dodanie przycisku przenoszącego dane z Output do Input (wygodniejsze przejście do nowej tury).
+
+1.3:
+- Dodanie okupowanej wsi i miasta,
+- Dodanie sumy populacji początkowej,
+- Rework sekcji Output,
+- Poprawienie kodu podpowiedzianego za podatki,
+- Koszt oprocentowania nie zmienia się na bieżąco wraz ze spłaceniem/wzięciem pożyczki w turze.
+
+1.2:
+- Dodanie rubryki na turę,
+- Dodanie mechaniki wasali (płacą oni daninę, ale jak nie radzą sobie gospodarczo to trzeba im pomagać),
+- Dodanie rubryki pokazującą oddzielnie koszty rekrutacji nowych wojsk,
+- Dodanie rubryki na limit poboru, czyli wartości poboru (w %) powyżej której zaczynają się naliczać kary. Wartością domyślą było i jest 3%, ale teraz można ręcznie to zmieniać.
+- Przerobienie Bilansu w tabelce Output (czwarta),
+- Mniejsze poprawki w m.in. armii i pożyczkach,
+- Zmniejszenie kosztu rekrutacji dla jednostek lądowych o połowę,
+- Dostosowanie generatora raportów w .txt do wyżej wymienionych zmian.
+
+1.1:
+- naprawienie błędu z wypisywaniem % poboru w miejscu ilości żołnierzy,
+- naprawienie błędu z nieliczeniem marynarki i konwojów w podsumowaniu,
+- naprawienie błędu ze złym liczeniem zmiany stabilności za wysokość stawki podatku,
+- Naprawienie błędu z niewyświetlaniem bankructwa
+- Dodanie "Reparacje wojenne",
+- Dodanie "Inne przychody",
+- Dodanie "Inne koszta",
+- Dodanie "Wskaźnik zadłużenia",
+- Dodanie ikonki w karcie przeglądarki,
+- Pomniejsze poprawki.
+
+1.0.1:
+- naprawienie błędu z wypisywaniem % poboru w miejscu ilości żołnierzy,
+- naprawienie błędu z nieliczeniem marynarki i konwojów w podsumowaniu,
+- naprawienie błędu ze złym liczeniem zmiany stabilności za wysokość stawki podatku,
+- Naprawienie błędu z niewyświetlaniem bankructwa
+- Dodanie "Reparacje wojenne",
+- Dodanie "Inne przychody",
+- Dodanie "Inne koszta",
+- Dodanie "Wskaźnik zadłużenia",
+- Dodanie ikonki w karcie przeglądarki,
+- Pomniejsze poprawki.
+
+>Dodanie kodu na GitHuba

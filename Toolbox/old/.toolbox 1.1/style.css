@@ -1,0 +1,16 @@
+body{background-color: #242526; color: white;}
+input{background-color: #242526; color: white; width: 90%;}
+#Kraj {float: left; width: 25%;}
+#DwT {float: left; width: 25%;}
+#MOD {float: left; width: 25%;}
+#output {float: left; width: 25%;}
+table, tr, td, th
+{
+    text-align: center;
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+td {height: 30px; padding: 3px;}
+th{padding: 4px;}
+a{color: white;}
+#obl{width: 90%; background-color: white; color: black;}

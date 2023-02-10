@@ -1,0 +1,33 @@
+body{background-color: #242526; color: white;}
+input{background-color: #242526; color: white; width: 90%; text-align: center;}
+#Budynki{float: left; width: 39%;}
+#Dane{float: left; width: 22%;}
+#Rynek{float: left; width: 39%;}
+table, tr, td, th
+{
+    text-align: center;
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+td 
+{
+    height: 36px; 
+}
+th
+{
+    padding: 4px;
+    color: rgb(105, 96, 79);
+    border: 1px solid rgb(105, 96, 79);
+}
+a{color: white;}
+#obl, #imp {width: 90%; background-color: white; color: black;}
+#NaCzysto, #PUC {text-align: right;}
+h1 
+{
+    text-align: center; 
+    border: 1px solid grey; 
+    border-collapse: collapse;
+    clear: both;
+}
+#INP1, #INP2, #INP3 {width: 100%;}
+#BUD, #DAN, #RYN {width: 100%;}

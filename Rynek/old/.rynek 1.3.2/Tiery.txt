@@ -1,0 +1,153 @@
+1 - I .Tartak
+2 - II .Tartak
+32 - III .Tartak
+
+3 - I .Kopalnia węgla
+22 - II .Kopalnia węgla
+34 - III .Kopalnia węgla
+41 - IV .Kopalnia węgla
+
+1 - I .Kopalnia żelaza
+23 - II .Kopalnia żelaza
+34 - III .Kopalnia żelaza
+41 - IV .Kopalnia żelaza
+
+12 - I .Kopalnia ołowiu
+25 - II .Kopalnia ołowiu
+35 - III .Kopalnia ołowiu
+43 - IV .Kopalnia ołowiu
+
+3 - I .Kopalnia siarki
+24 - II .Kopalnia siarki
+35 - III .Kopalnia siarki
+43 - IV .Kopalnia siarki
+
+1 - I .Kopalnia złota
+26 - II .Kopalnia złota
+35 - III .Kopalnia złota
+44 - IV .Kopalnia złota
+
+1 - I .Zakład spożywczy
+11 - II .Zakład spożywczy
+46 - III .Zakład spożywczy
+
+1 - I .Fabryka włókiennicza
+16 - II .Fabryka włókiennicza
+28 - III .Fabryka włókiennicza
+
+1 - I .Fabryka mebli
+17 - II .Fabryka mebli
+29 - III .Fabryka mebli
+
+1- I .Huta szkła
+13 - II .Huta szkła
+46 - III .Huta szkła
+
+1 - I .Narzędziownia
+14 - II .Narzędziownia
+29 - III .Narzędziownia
+
+1 - I .Papiernia
+4 - II .Papiernia
+28 - III .Papiernia
+
+5 - I .Zakład chemiczny
+18 - II .Zakład chemiczny
+32 - III .Zakład chemiczny
+42 - IV .Zakład chemiczny
+
+27 - I .Zakład syntetyczny
+46 - II .Zakład syntetyczny
+
+19 - I .Huta stali
+31 - II .Huta stali
+42 - III .Huta stali
+
+1 - I .Stocznia (Drewno)
+21 - II .Stocznia (Drewno)
+
+31 - I .Stocznia (Stal)
+44 - II .Stocznia (Stal)
+
+15 - I .Zakład zbrojeniowy
+20 - II .Zakład zbrojeniowy
+30 - III .Zakład zbrojeniowy
+45 - IV .Zakład zbrojeniowy
+
+30 - I .Zakład amunicyjny
+45 - II .Zakład amunicyjny
+
+1 - I .Farma żyta
+6 - II .Farma żyta
+36 - III .Farma żyta
+47 - IV .Farma żyta
+
+1 - I .Farma pszenicy
+6 - II .Farma pszenicy
+36 - III .Farma pszenicy
+47 - IV .Farma pszenicy
+
+1 - I .Farma ryżu
+7 - II .Farma ryżu
+39 - III .Farma ryżu
+
+1 - I .Farma kukurydzy
+7 - II .Farma kukurydzy
+37 -III .Farma kukurydzy
+48 - IV .Farma kukurydzy
+
+1 - I .Farma prosa
+8 - II .Farma prosa
+37 - III .Farma prosa
+48 - IV .Farma prosa
+
+1 - I .Ranczo
+8 - II .Ranczo
+38 - III .Ranczo
+
+1 - I .Molo rybackie
+9 - II .Molo rybackie
+38 - III .Molo rybackie
+
+10 - I .Plantacja kawy
+40 - II .Plantacja kawy
+
+10 - I .Plantacja bawełny
+33 - II .Plantacja bawełny
+
+10 - I .Plantacja barwników
+33 - II .Plantacja barwników
+
+10 - I .Plantacja herbaty
+40 - II .Plantacja herbaty
+
+10 - I .Plantacja tytoniu
+40 - II .Plantacja tytoniu
+
+10 - I .Plantacja cukru
+40 -II .Plantacja cukru
+
+10 - I .Plantacja owoców
+33 - II .Plantacja owoców
+
+10 - I .Plantacja jedwabiu
+33 - II .Plantacja jedwabiu
+
+1 - I /Infantry
+15 - II /Infantry
+30 - III /Infantry
+45 - IV /Infantry
+
+1 - I /Archers
+15 - II /Archers
+30 - III /Archers
+45 - IV /Archers
+
+1 - I /Cavalary
+15 - II /Cavalary
+30 - III /Cavalary
+45 - IV /Cavalary
+
+20 - I /Artillery
+30 - II /Artillery
+45 - III /Artillery
