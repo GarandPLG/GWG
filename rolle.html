@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="garand.ico">
+    <title>Rolle</title>
+</head>
+<body>
+    Ilość:<br><input type="number" id="ilosc" value="1" min="1"><br>
+    Od:<br><input type="number" id="minimum" value="1" min="1"><br>
+    Do:<br><input type="number" id="maximum" value="100" min="1"><br>
+    Modyfikator:<br><input type="number" id="modyfikator" value="0"><br>
+    Sukces od:<br><input type="number" id="sukces" value="50" min="1">(Włącznie)<br>
+    <br><input type="button" id="OBLICZ" value="OBLICZ" onclick="Roll()"><input type="checkbox" id="kopia">kopia (nie działa poprawnie)
+    <p id="wynik"></p>
+<script src="main.js"></script>
+</body>
+</html>
