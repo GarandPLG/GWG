@@ -12,7 +12,7 @@ function Roll()
 
     for(let i = 1; i <= ilosc; i++)
     {
-        roll = Math.floor(Math.random() * (maximum - minimum) + minimum) + modyfikator;
+        roll = Math.floor(Math.random() * (maximum - minimum + 1) + minimum) + modyfikator;
         suma += roll;
         if(roll>=sukces)
         {
@@ -23,20 +23,4 @@ function Roll()
     }
     wynik += `<br>Udane: ${udane}, ${(udane/ilosc*100).toFixed(2)/1}%<br><br>Suma: ${suma}<br>Średnia: ${(suma/ilosc).toFixed(2)/1}`;
     document.getElementById("wynik").innerHTML = wynik;
-
-    if(document.getElementById("kopia").checked)
-    {
-        let blob = new Blob(
-            [`${wynik}`
-            ], 
-              {type: "text"}
-          );
-          let url = window.URL.createObjectURL(blob);
-          let a = document.createElement('a');
-          a.href = url;
-          a.download = `Rolle`;
-          document.body.appendChild(a);
-          a.click();    
-          a.remove();
-    }
 }
