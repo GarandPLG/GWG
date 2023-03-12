@@ -1,3 +1,6 @@
+1.5.3
+- naprawienie błędu w obliczaniu ceny realnej
+
 1.5.2:
 - Zmiana zapotrzebowania dla I tieru zakładu spożywczego - 30 Zboże i 5 Narzędzi,
 - Zmiana zapotrzebowania dla I tieru fabryki włukienniczej - 30 Tkanina i 5 Narzędzi,

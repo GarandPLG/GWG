@@ -2836,7 +2836,7 @@ rozliczenie();
     if(document.getElementById("kopia").checked)
     {
         let blob = new Blob(
-           [`Rynek 1.5.2`,
+           [`Rynek 1.5.3`,
             `\n\nNazwa Kraju / Uni celnej: ${Nazwa}`,
             `\nIlość członków uni celnej: ${CzUC}`,
             `\nTechnologia: ${TECH}`,
@@ -2995,8 +2995,8 @@ function Cena(BP, ZAP, PRO)
     else
         ret = (BP * (1 + 0.75 * ((ZAP - PRO)/Math.min(ZAP, PRO)))).toFixed(0)/1;
     
-    ret = (ret>BP*1.5)? BP + (BP - odch) : ret; //BP*1.5
-    ret = (ret<BP/2)? odch : ret; //BP/2
+    ret = (ret > (BP + (BP - odch))) ? BP + (BP - odch) : ret; //BP*1.5
+    ret = (ret < odch)               ? odch : ret; //BP/2
     return ret;
     //return BP;
 }
